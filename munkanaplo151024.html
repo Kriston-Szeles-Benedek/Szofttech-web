@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daltons Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: #4a4a4a;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #666;
+        }
+        .container {
+            width: 90%;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Csak a táblázatban lévő cellák igazítása */
+        .container td:nth-child(1), .container th:nth-child(1) {
+            text-align: left;
+        }
+        .container td:nth-child(2), .container td:nth-child(3), .container td:nth-child(4), 
+        .container th:nth-child(2), .container th:nth-child(3), .container th:nth-child(4) {
+            text-align: center;
+        }
+        .container td:nth-child(5), .container th:nth-child(5) {
+            text-align: right;
+        }
+        .cover {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Címlap -->
+<div class="cover">
+    <h1>Daltons Games</h1>
+    <h2>MunkaNapló</h2>
+</div>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Dátum és idő</th>
+                <th>Időtartam (óra)</th>
+                <th>Résztvevők</th>
+                <th>Tevékenység</th>
+                <th>Eredmény</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024. 09. 10. 17:30</td>
+                <td>2,5</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés, brainstorming</td>
+                <td>Munkakörök kiosztása, projekt megbeszélés</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 10. 20:00 </td>
+                <td>2h</td>
+                <td>Peti</td>
+                <td>Pixelart </td>
+                <td>szoftverrel való megismerkedés</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 11. 16:00</td>
+                <td>1,5</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés, brainstorming</td>
+                <td>Projekt kidolgozás</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 11. 18:00 </td>
+                <td>2h</td>
+                <td>Peti</td>
+                <td>Pixelart </td>
+                <td>szoftverrel való megismerkedés</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 13. 18:00 </td>
+                <td>3h</td>
+                <td>Peti</td>
+                <td>Pixelart </td>
+                <td>szoftverrel való megismerkedés</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 14. 16:30</td>
+                <td>1,5</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés</td>
+                <td>Feladatok kiosztása</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 15. 18:00 </td>
+                <td>3h</td>
+                <td>Peti</td>
+                <td>Pixelart brainstorming </td>
+                <td>Pixelart</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 16. 15:00</td>
+                <td>1,5</td>
+                <td>Dominik</td>
+                <td>Pixelart</td>
+                <td>Karakter elkészítés</td>
+            </tr>            
+            <tr>
+                <td>2024. 09. 17. 14:00</td>
+                <td>3,5</td>
+                <td>Bence</td>
+                <td>Dokumentáció szerkesztése</td>
+                <td>Dokumentáció folytatása</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 17. 18:00 </td>
+                <td>2h</td>
+                <td>Peti</td>
+                <td>Pixelart Tiles</td>
+                <td>Pixelart</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 18. 17:00</td>
+                <td>1</td>
+                <td>Dominik</td>
+                <td>Pixelart</td>
+                <td>Enemy elkészítés</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 18. 18:00 </td>
+                <td>1h</td>
+                <td>Peti</td>
+                <td>Pixelart Tiles folytatása </td>
+                <td>Pixelart</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 20. 18:00 </td>
+                <td>3h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Kaktusz, szekér</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 21. 18:00</td>
+                <td>1</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés</td>
+                <td>Feladatok áttekintése</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 22. 18:00 </td>
+                <td>2h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Tárgyak</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 24. 18:00 </td>
+                <td>1h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Tárgyak folytatása</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 24. 19:00</td>
+                <td>3,5</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Dokumentáció megbeszélése</td>
+                <td>Dokumentáció folytatása</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 25. 15:00</td>
+                <td>2</td>
+                <td>Dominik</td>
+                <td>Pixelart</td>
+                <td>Enemy elkészítés</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 25. 17:00</td>
+                <td>2</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés, brainstorming</td>
+                <td>Játék második fázisának kitalálása</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 26. 16:00</td>
+                <td>5</td>
+                <td>Zalán</td>
+                <td>Programozás</td>
+                <td>karakter script/hitbox/animáció</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 26. 18:00 </td>
+                <td>1,5h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Design</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 27. 18:00</td>
+                <td>1,5</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés</td>
+                <td>Feladatok kiosztása</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 28. 19:00</td>
+                <td>6</td>
+                <td>Zalán</td>
+                <td>Programozás</td>
+                <td>Fegyver script</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 29. 15:00 </td>
+                <td>1h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Tiles & Tárgyak</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 29. 16:00</td>
+                <td>3</td>
+                <td>Beni</td>
+                <td>Programozás</td>
+                <td>Fegyver skript bugfixelése</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 30. 17:00 </td>
+                <td>1h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Tiles & Tárgyak</td>
+            </tr>
+            <tr>
+                <td>2024. 09. 30. 13:00</td>
+                <td>3</td>
+                <td>Zalán</td>
+                <td>Programozás</td>
+                <td>Fa object elkészítése, Y tengely térhatás</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 01. 19:00</td>
+                <td>2</td>
+                <td>Bence</td>
+                <td>Dokumentáció szerkesztése</td>
+                <td>Dokumentáció folytatása</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 02. 18:00 </td>
+                <td>1h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Tiles & Design</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 03. 18:00 </td>
+                <td>1h</td>
+                <td>Peti</td>
+                <td>Pixelart</td>
+                <td>Tiles & Deisgn + Maps</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 04. 19:00</td>
+                <td>1</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés</td>
+                <td>Feladatok áttekintése</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 05. 19:00</td>
+                <td>2,5</td>
+                <td>Dominik</td>
+                <td>Pixelart</td>
+                <td>Tereptárgy elkészítés</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 08. 19:00</td>
+                <td>2</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Dokumentáció szerkesztése</td>
+                <td>Dokumentáció folytatása</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 11. 13:00</td>
+                <td>4</td>
+                <td>Beni</td>
+                <td>Programozás</td>
+                <td>Karakter hitreg és HP megjelenítés</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 11. 18:00</td>
+                <td>1</td>
+                <td>Dominik</td>
+                <td>Pixelart</td>
+                <td>Tereptárgy elkészítés</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 12. 20:00</td>
+                <td>1</td>
+                <td>Peti, Beni, Bence, Zalán, Dominik</td>
+                <td>Megbeszélés</td>
+                <td>Feladatok áttekintése</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 14. 16:00</td>
+                <td>1,5</td>
+                <td>Dominik</td>
+                <td>Pixelart</td>
+                <td>Tereptárgy elkészítés</td>
+            </tr>
+            <tr>
+                <td>2024. 10. 15. 14:00</td>
+                <td>6</td>
+                <td>Bence</td>
+                <td>Dokumentáció szerkesztése</td>
+                <td>Dokumentáció folytatása</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
