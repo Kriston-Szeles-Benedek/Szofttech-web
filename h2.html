@@ -6,7 +6,6 @@
     <title>H2 Daltons Games</title>
     <style>
         body {
-            
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
@@ -42,8 +41,17 @@
             justify-content: center;
             text-align: center; /* Középre igazítás */
         }
-
+        .hover-container {
+            position: relative; /* Pozíció megadása a hover képnél */
+            display: inline-block; /* A kép csak a szöveg körüli területet foglalja el */
+        }
+        #hoverImage {
+            display: none; /* Kezdetben rejtett */
+            position: absolute; /* Helyezd el az egér pozíciója szerint */
+            z-index: 10; /* A kép legyen a szöveg felett */
+        }
     </style>
+    
 </head>
 <body>
     <div class="header">
@@ -372,6 +380,100 @@
 
 <p>Ezeket a kockázatokat folyamatosan figyeljük, és a megfelelő eszközökkel, módszerekkel kezeljük őket, hogy a fejlesztés és a kiadás a lehető legzökkenőmentesebben valósuljon meg.</p>
 
+<h1>Játék genre</h1>
+<ul>
+    <li>A játékban a 3 pályaszakasz során 3 különbözõ mûfajt ismerhetnek meg a játékosok, a top-down shootert, a platformert és a turn-based combat-ot. Ez a mûfajok közötti váltogatás a kezdõ játékosoknak eleinte nehézkes lehet a váltás, azonban bízunk abban, hogy ez a tapasztaltabb játékosoknak egy friss és szórakoztató élményt fog nyújtani.</li>
+</ul>
+<h2>Top-down shooter</h2>
+<ul>
+    <li>A top-down shooter egy olyan videojáték mûfaj, ahol a játékos egy felülnézetbõl látja a karakterét, általában "madártávlatból". A fõ cél a gyors és akciódús játékmenet, ahol a játékos különféle fegyverekkel, képességekkel és taktikával próbálja legyõzni az ellenségeket. A játéktér gyakran labirintusszerû, így a navigáció és a megfelelõ pozíció kiválasztása is fontos szerepet kap. Sok top-down shooter játék rendelkezik egyedi vizuális stílussal, gyakran stilizált vagy retro megjelenésûek. Ezek a játékok lehetnek sci-fi, katonai vagy akár fantázia tematikájúak, attól függõen, hogy a készítõk milyen környezetet és történetet szeretnének létrehozni. A top-down shooter játékok a gyors reakciókat és a precíz irányítást igénylik, így nagyszerû kihívást jelentenek mind az alkalmi, mind a profi játékosok számára.</li>
+</ul>
+<h2>Turn-based combat</h2>
+<ul>
+    <li>A turn-based combat (körökre osztott harcrendszerû) játékokban a játékosok és az ellenfelek felváltva tesznek lépéseket egy harci kör során. A rendszer lehetõséget biztosít arra, hogy a játékosok stratégiát alkossanak és megfontolt döntéseket hozzanak, mivel nincs idõnyomás, mint a valós idejû harcokban. A körökre osztott harc gyakran szerepel szerepjátékokban (RPG-kben), mint a Final Fantasy vagy a Pokémon sorozatban, de számos stratégiai játék, mint a XCOM vagy a Civilization, is alkalmazza ezt a rendszert. Minden körben a játékos dönthet különféle akciókról, például támadásról, védekezésrõl, tárgyhasználatról vagy speciális képességek aktiválásáról. A harcok során gyakran fontos a csapattagok helyezkedése és az ellenség gyengeségeinek kihasználása is. Ez a játékmenetforma különösen népszerû azok körében, akik szeretik az alapos tervezést, a taktikai mélységet és az átgondolt döntéshozatalt.</li>
+</ul>
+<h2>Platformer</h2>
+<ul>
+    <li>A platformer egy népszerû videojáték mûfaj, amelynek fõ jellemzõje a karakterek ugrálása különbözõ platformokon és akadályokon keresztül, hogy elérjenek egy adott célt vagy teljesítsenek egy pályát. A játékos oldalnézetbõl látja a karakterét, és gyakran vízszintesen mozog a játéktérben, bár vertikális ugrások és leesések is gyakoriak. A pályák általában egyre nehezebbek, különbözõ akadályok, ellenségek és buktatók vannak elhelyezve, amelyekkel meg kell küzdeni. A platformer mûfaj népszerû példái közé tartozik a Super Mario és a Sonic the Hedgehog sorozat, amelyek bevezették a mûfajt a köztudatba. A játékosok ügyessége, idõzítése és reflexei kulcsfontosságúak a sikeres teljesítéshez. A platformerek lehetnek 2D-s vagy 3D-s megjelenésûek, és gyakran egyedi világokat és karaktereket hoznak létre, amelyek változatosságot és szórakozást nyújtanak a játékosoknak.</li>
+</ul>
+<h1>Főhős</h1>
+<div class="hover-container" 
+     onmouseover="document.getElementById('hoverImage').style.display='block'; 
+                  this.style.color = '#ff4500'; 
+                  this.style.fontStyle = 'italic'; 
+                  this.style.textDecoration = 'underline';" 
+     onmouseout="document.getElementById('hoverImage').style.display='none'; 
+                 this.style.color = ''; 
+                 this.style.fontStyle = ''; 
+                 this.style.textDecoration = '';">
+     <p style="margin: 0; color: #ff4500; font-style: italic; text-decoration: underline;">Western Karakter!</p>
+     <img id="hoverImage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAbFJREFUWIXtVrFKA0EQfZH7ggO/wA+QRC0OTJUuxZHiSgstcpA0lnaSQpD8gCex0EKwiRBSpNNGIY25kA9IE0h1kDbCBdZC78wmt7uzi6JFXrU3zMx7Ozu7c8AGf4ycYRzLyJFlU2LLhNx38mi6pWUxDACabimxM0HsGiwd4lXDkgiZv7QaVAHMd/LY2bZx1n0CAIyjmTSg6ZYwjmZo9YdMJkKnAgAA38mj1R8qfajQacK0ChR87V7JoXsLyM1FzW9yDdnrXQMAcHjcgGhNzW0kYPbSkjrYRZ+cW7sJAeD59NokLBPUhyh5bFivU4AXhkJHLwxxc7XLxcgSU8rEep3CmrFcCdEu8PYlcg7V+kjIpRLAkS8WvLvrDbjv+9t9AMB8HpNFGPVAgseHg3Q9f9e9oZ8gD6NyJYTrDWBZaqJ4kUO1Pkp2LYXyCDJ8Wbe9hzj+1r66+6OTN85fxic7Au6+20U/HSoJOaHswhwJTP4HqOQkGAn4KXLAsAc0c0t7QHsaXpxfph/TaIIgCAAAArsyv3EPTKOJll0Eo2lYq9UAYHWXIvuvQDRklMNngw3+HT4AYFGoLFhKCvIAAAAOZVhJZk1NACoAAAAIAAAAAAAAANJTkwAAAABJRU5ErkJggg==" 
+          alt="Cowboy Character">
+</div>
+<ul>
+    <li>A fõhõs egy tudós egy cyberpunk stílusú jövõben játszódó világban. A tudományos eredményei miatt üldözik titozatos entitások. Az üldözõk egy nemvárt pillanatban rácsapnak a tudósra, a harc során a tudós TeleWatch készüléke, megrongálódik, ez a készülék egy új találmánya, ami képes térben és idõben teleportálni õt. A megrongálódott készülék visszarepíti fõhõsünket egy számára ismeretlen idõbe. Azonban az ellenséges erõk számára is elérhetõ egy fajta teleportációs készülék. A fõhõs feladata, hogy a téridõ ugrásból hátramaradt feketelyukak segítségével hazajusson.    </li>
+</ul>
+<h1>Ellenségek</h1>
+<h2>Scifi ellenségek</h2>
+<ul>
+    <li>Létezik egy titkos szervezõdés, akiknek a célja a világuralom megszerzése, ezt a létezõ összes tudományos készülékek, megszerzésével és használatával akarják ellérni. Az utolsó tudós, aki még ellen mer szegülni ennek az erõnek, a Fõhõs, ezért a szervezet legnagyobb célja a tudós levadászasa. Ellenségek felépítés: cyborgok, ûrlények, robotok.</li>
+</ul>
+<h2>Western ellenségek</h2>
+<ul>
+    <li>A kietlen posztaságben a legnagyobb veszélyt nem csak a meleg és a vízhiány jelenti, hanem egy kapzsi és környörtelen zsivány banda, akiknek a fõ hivatásuk a faluban él emberek és az értéket szállító vagonok fosztogatása, természetesen nem tesznek kivételt idõutazókkal szemben sem. A fõhõs életét a különbözõ vadnyugati élõvilág sem segíti. Ellenség felépítése: mérges kígyó, skorpió, préri kutya, keselyû, zsiványok.</li>
+</ul>
+<h2>Középkori ellenségek</h2>
+<ul>
+    <li>WORK IN PROGRESS</li>
+</ul>
+<h2>NPCk</h2>
+<ul>
+    <li>WORK IN PROGRESS</li>
+</ul>
+<h1>Játékszintek</h1>
+<ul>
+    <li>
+        A játék 3 pályaszakasz 3 szintjéből áll, plusz a játék elején egy gyors tutorial szinttel.
+        <ul>
+            <li>
+                <strong>Tutorial szint:</strong> Az alapvető karakter irányítást mutatja be a játékosnak: hogyan mozog, hogyan lő, kik az ellenfelek, és hogyan lehet a szinteken továbbjutni.
+            </li>
+            <li>
+                <strong>Első pályaszakasz - Western stílus:</strong> A játékos egy top-down shooter játékmenettel találkozik, amely során több kisebb küldetést kell teljesítenie. Az első pályán a nehézség alacsonyabb, de a szintek között folyamatosan nő. A harmadik pálya végén egy boss-t kell legyőzni, ami után a játékos továbbléphet a második pályaszakaszra.
+            </li>
+            <li>
+                <strong>Második pályaszakasz - Középkori környezet:</strong> RPG jellegű, turn-based combat rendszerű játék. A játékos feladata, hogy legyőzze az előtte álló akadályokat és az aktuális főellenfelet.
+            </li>
+            <li>
+                <strong>Harmadik pályaszakasz - Cyberpunk sci-fi világ:</strong> Platformer típusú játékszakasz, tele felfedeznivalókkal és rejtett titkokkal. A könnyebb tájékozódáshoz a játékos mini-mapot kap. A szakasz végén egy boss-t kell legyőznie.
+            </li>
+        </ul>
+        <strong>Játék vége:</strong> A játék végén a teljes pontszámot kiírja, majd a főmenüben egy "Map Selection" jelenik meg, ahol a játékos különböző módokban próbálhatja ki az egyes pályaszakaszokat:
+        <ul>
+            <li><strong>Első pályaszakasz:</strong> Végtelenített "horde mode", ahol a cél minél magasabb pontszám elérése.</li>
+            <li><strong>Második pályaszakasz:</strong> Nehezített mód, amely jutalmul egy bejátszást ad, bemutatva a királyság történetét és az ellenfelek háttérsztoriját.</li>
+            <li><strong>Harmadik pályaszakasz:</strong> Csapdákkal és veszélyes ellenfelekkel teli pálya, ahol a cél a leggyorsabb teljesítés.</li>
+        </ul>
+    </li>
+</ul>
+<h2>Játék világának leírása:</h2>
+<ul>
+    <li>
+        A játék több helyen, különböző időszakokban játszódik.
+        <ul>
+            <li>
+                <strong>Első pályaszakasz - Sci-fi világ:</strong> Kezdetben egy jövőbeli sci-fi világban kezd a karakter, ahol mindenhol robotok, cyborgok és űrlények láthatók. Ennél a pályarésznél a design főként a cyberpunk stílusra próbál hajazni: sötét, esős utcák és neonfények kontrasztja jellemző, keleti elemek (például japán karakterek és motívumok a neonfényes hirdetőtáblákon) szintén megtalálhatók. A társadalom teljesen integrálta az életébe a mesterséges intelligenciákat, kiberimplantátumokat. A más világokba való átjutásra egy teleport fog funkcionálni, ami a játékban a pálya végi célként funkcionál.
+            </li>
+            <li>
+                <strong>Második pályaszakasz - Vadnyugat:</strong> A második pályaszakasz egy wild west stílusú pályarész. Itt a táj sokkal kevésbé részletgazdag a cyberpunkhoz képest; sok kietlen sivatagos terület található. A western stílusra jellemző motívumok felfedezhetők, mint például a poros sivatagos táj, óriás kanyonok, fából készült kisvárosok, kocsmák, kalapok, csizmák és revolverek. A legikonikusabb elem a cowboy karakter, akit a főhős fog megtestesíteni. Az NPC-k főként más cowboyok, seriffek, haramiák, indiánok és városlakók lesznek. Az ellenségek a haramiákon kívül a vadnyugaton megtalálható élőlények lesznek: keselyűk, skorpiók, prérikutyák, kígyók.
+            </li>
+            <li>
+                <strong>Harmadik pályaszakasz - Középkor:</strong> A végső pályaszakasz a középkor. A középkori stílus jellemző elemei a kastélyok, várak, lovagok és parasztok. Vizuális tematikája a kővárakban, sötét erdőkben, misztikus tájakban, piszkos falvakban és városokban mutatkozik meg. Gyakoriak a hiedelmek, babonák és a misztikumban való hit, mely a játékban különböző okkult lényekben és bestiáriumokban létező furcsa, titokzatos állatszerű szörnyek formájában jelennek meg. A főhős egy lovagként fog megjelenni, míg az ellenségek között más lovagok, őrkutyák, zsoldosok, csontvázak, varázslók és sárkányok szerepelnek.
+            </li>
+        </ul>
+    </li>
+</ul>
+
 <h1>Szótár</h1>
 
 <ul>
@@ -486,6 +588,70 @@
     <li>
         <strong>Alternatívák:</strong> Más játékok vagy megoldások, amelyek a piacon elérhetők.
     </li>
+    <li>
+    <strong>Platformer:</strong> Olyan videojáték, ahol a játékosnak akadályokat és platformokat kell ugrálnia.
+</li>
+<li>
+    <strong>Turn-based combat:</strong> Körökre osztott harc, ahol a játékos és az ellenfél felváltva támadnak.
+</li>
+<li>
+    <strong>Top-down shooter:</strong> Felülnézetes lövöldözős játék, ahol a játékos a karaktert felülről látja.
+</li>
+<li>
+    <strong>RPG:</strong> Szerepjáték, ahol a játékos egy karaktert irányít, és fejlődik a játék során.
+</li>
+<li>
+    <strong>Madártávlat:</strong> Olyan nézet, ahol a jeleneteket magasról, felülről láthatjuk.
+</li>
+<li>
+    <strong>Oldalnézet:</strong> Olyan perspektíva, ahol a játékos a jelenetet oldalról látja.
+</li>
+<li>
+    <strong>Quest:</strong> Feladat vagy küldetés, amit a játékos teljesít.
+</li>
+<li>
+    <strong>Boss:</strong> Erős ellenfél, akit a játékosnak le kell győznie.
+</li>
+<li>
+    <strong>Minimap:</strong> Kis térkép a játék képernyőjén, amely segíti a tájékozódást.
+</li>
+<li>
+    <strong>Sci-fi:</strong> Tudományos-fantasztikus műfaj, amely futurisztikus és technológiai elemeket tartalmaz.
+</li>
+<li>
+    <strong>Karakter:</strong> A játékban irányított vagy interakcióba lépő szereplő.
+</li>
+<li>
+    <strong>Cyborg:</strong> Félig ember, félig gép, kiborg.
+</li>
+<li>
+    <strong>Cyberpunk:</strong> Futurisztikus stílus, amely sötét, technológia uralta világot ábrázol.
+</li>
+<li>
+    <strong>Mesterséges intelligencia:</strong> Számítógépes rendszerek képessége, hogy emberi feladatokat hajtsanak végre.
+</li>
+<li>
+    <strong>Wild west:</strong> A vadnyugat, a 19. századi amerikai területek western jellegű világa.
+</li>
+<li>
+    <strong>Western:</strong> A vadnyugati stílus, amely a cowboyok és sivatagi tájak világát ábrázolja.
+</li>
+<li>
+    <strong>NPC:</strong> Nem játékos karakter, akit a számítógép irányít.
+</li>
+<li>
+    <strong>Középkor:</strong> Történelmi korszak, amely a sötét középkortól a reneszánszig tart.
+</li>
+<li>
+    <strong>Lovag:</strong> Középkori harcos, aki páncélban és lovon küzd.
+</li>
+<li>
+    <strong>Okkult:</strong> Titokzatos, rejtett és misztikus ismeretek.
+</li>
+<li>
+    <strong>Bestiárum:</strong> Mitikus lények gyűjteménye vagy azokkal foglalkozó mű.
+</li>
+
 </ul>
 
 </body>
