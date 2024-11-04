@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H2 Daltons Games - Játékfejlesztési projekt">
+    <title>H3 Daltons Games SRS</title>
+    <link rel="stylesheet" href="style.css"> <!-- Külső CSS-fájl csatolása, ha szükséges -->
+
+    <footer>
+        <p>&copy; 2024 H3 Daltons Games. Minden jog fenntartva.</p>
+    </footer>
+    
+    <button onclick="scrollToTop()" style="position:fixed;bottom:20px;right:20px;padding:10px;border-radius:5px;background-color:#007BFF;color:white;border:none;cursor:pointer;">
+        Fel a tetejére
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: left;
+            background-color: #f0f4f8; /* Világos, szemkímélő háttérszín */
+            color: #333;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.25em;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            padding: 3px 0;
+        }
+        .nav {
+            background-color: #f1f1f1; /* Háttérszín a navigációs sávhoz */
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .nav ul ul {
+            margin-left: 20px; /* Az al-pontok balra igazítása */
+            padding-top: 5px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #007BFF; /* Alapértelmezett kék szín a linkekhez */
+            background-color: transparent; /* Háttérszín a linkekhez, átlátszó */
+            padding: 5px; /* Párnázás a linkekhez */
+            border-radius: 4px; /* Lekerekített sarkok */
+        }
+        .nav a:hover {
+            background-color: #e7f3ff; /* Hover háttérszín */
+            color: #0056b3; /* Hover szín */
+        }
+        
+    </style>
+    
+
+</head>
+<body>
+    
+    <header>
+        <h1>H3 Daltons Games SRS</h1>
+        <div class="nav">
+            <ul>
+                <li><a href="#bevezetes">1. Bevezetés</a></li>
+                <li><a href="#attekintes">2. Áttekintés</a></li>
+                <li><a href="#rendszerfunkciok">3. A rendszer funkciói</a></li>                
+                <li><a href="#hasznalhatosag">4. Használhatóság</a></li>
+                <li><a href="#megbizhatosag">5. Megbízhatóság</a></li>
+                <li><a href="#teljesitmeny">6. Teljesítmény</a></li>
+                <li><a href="#tamogatottsag">7. Támogatottság</a></li>
+                <li><a href="#tervezesi_korlatozasok">8. Tervezési korlátozások</a></li>
+                <li><a href="#online_dokumentacio">9. On-line dokumentáció és Help rendszer</a></li>
+                <li><a href="#felhasznalt_kesz_komponensek">10. Felhasznált kész komponensek</a></li>
+                <li><a href="#interfacek">11. Interfészek</a></li>                
+                <li><a href="#alkalmazott_szabvanyok">12. Alkalmazott szabványok</a></li>               
+            </ul>
+        </div>
+    </header>
+
+    <h1> Történet</h1>
+
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Dátum</th>
+                <th>Verzió</th>
+                <th>Leírás</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.1</td>
+                <td>Játék indítható képes</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.2</td>
+                <td>Véletlenszerű háttéren betöltés</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.3</td>
+                <td>Karakter alap mozgás felismerése</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.4</td>
+                <td>Karakter 4 irányba való irányítása</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.5</td>
+                <td>Alap háttér betöltése</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.6</td>
+                <td>Karakter lövedék támadás</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.7</td>
+                <td> Karakter Collision</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.8</td>
+                <td>Fa-Tile-k betöltése</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.9</td>
+                <td>Fa-Tile-k Collision</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.10</td>
+                <td>Ellenség betöltése</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.11</td>
+                <td>Ellenség látótávolsága</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.11</td>
+                <td>Ellenség(ek) mesterséges intelligencia</td>
+            </tr>
+            <tr>
+                <td>2024. 10. --.</td>
+                <td>0.0.12</td>
+                <td>Ellenség(ek) Collision</td>
+            </tr>   
+        </tbody>
+    </table>
+    
+    <h1>Rendszerkövetelmények</h1>
+
+    <ul>
+        <li>
+            <h1 id="bevezetes">1. Bevezetés</h1>
+            <ul>
+                <li>
+                    
+                </li>
+            </ul>
+        </li>        
+        <ul>
+            <li>
+                <strong>A játékfejlesztési projekt célja:</strong> Egy olyan innovatív, műfajilag sokszínű játék létrehozása, amely a sci-fi, western és fantasy elemeket ötvözi, mindezt retro, pixel art stílusban megjelenítve. 
+                Az alapötlet arra épül, hogy a játékosok számára három különböző tematikus világot és játékmenetet nyújtson, lehetőséget adva a világok közötti zökkenőmentes váltásra és a különféle játékélmények felfedezésére. 
+                Ez a műfaji kombináció a játékot egyedi szórakoztató szoftverré teszi, amely különféle platformokon érhető el, beleértve a Steam, Epic Games Store, GOG és itch.io felületeket. 
+                Célunk, hogy a játékot digitálisan elérhetővé tegyük, széleskörű hozzáférést biztosítva az érdeklődőknek, különösen a fiatal felnőtt játékosok számára, akik vonzódnak a műfajok közötti váltáshoz és az esztétikus retro megjelenéshez.
+            </li>
+        </ul>
+        
+        <ul>
+            <li>
+                <strong>A játékot elsősorban:</strong> A fiatal felnőtt közönség számára tervezzük, akik nyitottak a különböző világok és játékstílusok közötti váltásra.
+                A célcsoportot olyan játékosok alkotják, akik élvezik a tematikus világok közötti átmeneteket, szeretik a műfaji sokszínűséget, valamint nyitottak az újszerű, egyedi megközelítésekre a játékélményben.
+                Az angol nyelvű kiadás célja, hogy a globális közönség számára elérhetővé tegyük a játékot, hiszen az angol nyelv nemzetközi használata elősegíti, hogy a játék világszerte népszerű legyen.
+                Ezzel a globális célkitűzéssel a játék piaci pozícióját is erősítjük, hiszen az indie és pixel art stílus iránt érdeklődő közönség egyre növekvő keresletet mutat a változatos és innovatív játékok iránt.
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <strong>A játék különlegessége abban rejlik:</strong> Hogy három teljesen eltérő világ és játékmenet egyesül benne, amelyek mind egyedi élményt nyújtanak a játékosoknak. A sci-fi világ gyors és dinamikus akciókat igényel, ahol a játékosoknak gyors reflexekkel és ügyes mozdulatokkal kell helytállniuk a kihívásokban.
+                A western világ fókusza inkább a pontos célzásra és reflexekre épül, ahol a játékosoknak az időzítés és a precizitás elengedhetetlen lesz a sikerhez.
+                Ezzel szemben a fantasy világ stratégiai gondolkodást kíván meg, mivel itt körökre osztott harcrendszer van érvényben, ahol a taktikai tervezés és a csapatstratégia fontos szerepet játszik.
+                Ez a sokrétűség különleges játékmenetet eredményez, amely nemcsak a műfaji változatosságot, hanem a kihívások széles spektrumát is lefedi, így biztosítva a játékosok számára a változatos és egyedi élményt.
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                A piacon található alternatív játékokkal szemben ez a játék előnyben részesíti a három különböző játékmenet harmonikus ötvözését egyetlen cím alatt.
+                Ez a játék platformfüggetlen megközelítéssel is rendelkezik, mivel több elterjedt játékelosztó rendszeren érhető el, beleértve a Steam, Epic Games Store, GOG és itch.io platformokat, ezzel biztosítva a széles körű hozzáférést.
+                A platformfüggetlenség és a műfaji sokszínűség, valamint a világok közötti váltás lehetősége lehetővé teszi, hogy a játék az indie és pixel art játékok piacán is kiemelkedő helyet foglaljon el.
+            </li>
+        </ul>
+
+        
+        
+
+        <li><h1 id="attekintes">2. Áttekintés</h1></li>
+        <p>
+            Ennek a fejezetnek a célja a készülő alkalmazás szempontjából fontos általános körülmények összefoglalása. Ez nem konkrét követelményeket tartalmaz, hanem azok hátterét világítja meg, segítve a következő fejezetekben részletezett információk megértését. Ide tartozhatnak olyan információk, mint például:
+        </p>
+        <ul>
+            <li><strong>A termék környezete</strong>: A játék egy digitális platformokon elérhető szórakoztató szoftver, amely különféle operációs rendszereken és eszközökön, például PC-n és konzolokon fut. A cél a széleskörű elérhetőség biztosítása a játékosok számára, hogy a játék bármilyen eszközön és helyzetben könnyedén játszható legyen. A játék környezete figyelembe veszi a különböző platformok technikai specifikációit, valamint a játéknak megfelelő grafikai és hangélményt is, amely még inkább fokozza a felhasználói élményt.</li>
+            
+            <li><strong>Legfontosabb funkciók</strong>: A játék három különböző műfaj ötvözésére épül: sci-fi, western és fantasy. A felhasználók zökkenőmentesen válthatnak a világok között, élvezve a különböző játékmenetek által nyújtott élményeket. A játék tartalmaz különféle kihívásokat, küldetéseket és karakterfejlesztési lehetőségeket, amelyeket a játékosok felfedezhetnek, mindezt a retro pixel art stílusban tálalva. Ezen kívül a játék egyedi játékelemeket is kínál, mint például speciális képességek és fegyverek, amelyek bővítik a játékmenet lehetőségeit és lehetőséget adnak a kreatív megoldásokra a különböző kihívások során.</li>
+            
+            <li><strong>A felhasználók jellemzői</strong>: A célcsoport főként fiatal felnőtt játékosokból áll, akik kedvelik a műfaji sokszínűséget, a kihívásokat és a kreatív, retro stílusú játékokat. Ezen felül a játékosok várhatóan aktívan részt vesznek a közösségi élményekben, mint például a fórumokon és a közösségi médiában való diskurzusokban. A játékosok elvárják, hogy a játék képes legyen fenntartani az érdeklődésüket, ezért a folyamatos frissítések és új tartalmak bevezetése kulcsfontosságú a közönség elköteleződésének fenntartásában.</li>
+            
+            <li><strong>Korlátozások</strong>: A játék fejlesztése során figyelembe kell venni a technikai korlátozásokat, például a különböző platformok teljesítménybeli eltéréseit. Emellett a fejlesztés költségvetése és az időkeret is meghatározza a rendelkezésre álló erőforrásokat. Fontos, hogy a játék optimalizálva legyen a különböző eszközökön, hogy minden felhasználó számára zökkenőmentes élményt nyújtson. A korlátozások áttekintése segít a projekt hatékonyabb irányításában, és elősegíti a szükséges kompromisszumok meghozatalát a tervezés és fejlesztés során.</li>
+            
+            <li><strong>Feltételezések és függőségek</strong>: Az előzetes tervek alapján feltételezzük, hogy a játékosok érdeklődése a műfaji sokszínűség iránt folyamatosan növekszik. A fejlesztés során figyelembe kell venni a különböző technológiai eszközök és platformok közötti kompatibilitást is. A játék sikeréhez elengedhetetlen a megfelelő marketing stratégia, amely segít a játék piacon való elhelyezésében, valamint a közönség érdeklődésének felkeltésében. Ezen kívül a játékhoz kapcsolódó közösségi élmények és események szervezése is kulcsfontosságú, hogy a játékosok aktívan részt vegyenek a játék körüli diskurzusban és közösségben.</li>
+            
+            <li><strong>A követelmények csoportosításának szempontjai</strong>: A követelmények csoportosítása során figyelembe kell venni a funkcionális és nem funkcionális igényeket, valamint a játékmenet különböző aspektusait. Az egyes csoportok segítenek a követelmények logikai felépítésében és a projekt előrehaladásának nyomon követésében. A követelmények világos kategorizálása lehetővé teszi a fejlesztőcsapat számára, hogy könnyebben azonosítsa a prioritásokat és a szükséges fejlesztéseket, amelyek a legnagyobb hatással vannak a játékélményre. Ezen felül a csoportosítás segíti a kommunikációt a projekt különböző résztvevői között, biztosítva, hogy mindenki tisztában legyen a célokkal és elvárásokkal.</li>
+            
+            <li><strong>Piaci elemzés</strong>: A játék sikerének érdekében fontos a piaci elemzés elvégzése, amelynek során felmérjük a versenytársakat és a hasonló játékokat, hogy megértsük, miben különbözünk tőlük. A piaci elemzés során figyelembe kell venni a legnépszerűbb műfajokat, a játékosok preferenciáit és a legfrissebb trendeket a játékpiacon. Az ilyen elemzések segítenek a játékmenet finomhangolásában és a marketing stratégiák kidolgozásában, amelyek lehetővé teszik a termék hatékonyabb pozicionálását a piacon.</li>
+        
+            <li><strong>Technológiai megoldások</strong>: A játék fejlesztéséhez modern technológiákat fogunk alkalmazni, amelyek elősegítik a játék zökkenőmentes működését és a vizuális élmény fokozását. A felhasznált motorok és keretrendszerek megkönnyítik a fejlesztési folyamatot, és biztosítják, hogy a játék mind a grafikai, mind a teljesítménybeli követelményeknek megfeleljen. Emellett a multiplayer funkciók integrálása érdekében a legújabb hálózati technológiákat fogjuk alkalmazni, hogy a játékosok között gördülékeny és izgalmas interakciók valósulhassanak meg.</li>
+        
+            <li><strong>Közönségi visszajelzések</strong>: A fejlesztési folyamat során kiemelt figyelmet fordítunk a közönségi visszajelzések gyűjtésére és elemzésére. A játékosok véleménye és tapasztalatai fontos alapot nyújtanak a termék finomításához és az új funkciók bevezetéséhez. A közönség bevonása a fejlesztés során nemcsak az elköteleződést növeli, hanem biztosítja, hogy a játék valóban a játékosok igényeihez igazodjon. Ezen kívül a közösségi események és nyílt bétatesztelések során szerzett tapasztalatok segítenek a végső termék optimalizálásában.</li>
+            
+            <li><strong>Jövőbeli fejlesztések</strong>: A játék megjelenése után is tervezünk folyamatos fejlesztéseket és frissítéseket. A jövőbeli tartalmak, mint például új világok, karakterek és játékmódok bevezetése, segítenek fenntartani a játékosok érdeklődését, és új kihívásokat kínálnak. A közönség visszajelzései alapján fogjuk meghatározni a legfontosabb területeket, ahol fejlesztések szükségesek, így biztosítva, hogy a játék mindig naprakész legyen és folyamatosan új élményeket nyújtson a játékosok számára.</li>
+        </ul>
+
+        <li><h1 id="rendszerfunkciok">3. A rendszer funkciói</h1></li>
+            <ul>
+                <li>
+                    <img src="UserCaseDiagram.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+                </li>
+            </ul>
+
+        <ul>
+
+
+        </ul>
+
+        <section>
+            <li><h1 id="hasznalhatosag">4. Használhatóság</h1></li>
+
+            <p>
+              Mivel szeretnénk minél nagyobb közösséget elérni a játékunkkal, egyszerre kell kiszolgálnunk kezdő és tapasztaltabb játékosokat is erre a következő megoldásokat tervezzük:
+            </p>
+          
+            <h3>Változtatható nehézség</h3>
+            <p>
+              A különböző játékosok különböző stílusához alkalmazkodva több nehézségi fokozatokat tervezünk a játékunknak, easy, normal és hard. Az easy játékfokozatnál az ellenségek nehezebben vesznek észre, kevesebb lesz a sebzésük, lassabbak lesznek, és a healing item-ek is gyakrabban lesznek felfedezhetőek. Ezt olyan játékosoknak tervezzük, akiknek ez az egyik, ha nem a legelső számítógépes játék, amivel játszanak. A normal nehézségi foknál kicsit erősebbek az ellenfelek, nagyobbat ütnek, gyorsabbak és messzebbről észrevesznek, és a könnyűhöz képest kevesebb heal-elési lehetőségek vannak. Ezt a fokozatot szánjuk az általános játékos közösségnek. A harmadik fokozatnál, a hard fokozatnál, a szörnyek élete 2x akkora lesz, mint a normálnál, és a sebzése is hasonlóan fog nőni. A sebessége nagyon közel lesz a játékoséhoz, így a menekülés sem lesz opció, a healing item-ek pedig csak elrejtett helyeken lehet felfedezni. Ezt a játékmódot azoknak a játékosoknak szánjuk, akik már tapasztaltak a videójátékok világában és nem riadnak vissza a kihívásoktól. A játék egyszeri kijátszása után egy rejtett funkció lesz elérhető, egy hardcore mode, ami hasonlóan funkcionál, mint a hard nehézség, azzal a hozzáadott nehézséggel, hogy a játéknak nem lesz lehetősége az újraéledésre. Minden halálnál törlődik a mentett játékmenet, és a halál helyén egy jelzés lesz, hogy mikor jutott oda. Ezt a játékmódot az igazi fanoknak, és a kihíváshajhász játékosoknak tervezzük.
+            </p>
+          
+            <h3>Tutorial pályák</h3>
+            <p>
+              A kezdő játékosok a játék kezelésébe való belerázódás érdekében tutorial pályákat készítünk, ezek átveszik a játékban lévő alap mechanikákat, mint például a mozgás, lövés vagy inventory használat. A tutorial mapokat a beállításoknál ki lehet kapcsolni, azonban alapbeállításként mindig be lesz kapcsolva egy új játék kezdésnél.
+            </p>
+          
+            <h3>Billentyű áttérképezés</h3>
+            <p>
+              Szeretnénk a játékunk használhatóságát segíteni azoknak is, akik valamilyen testi fogyatékossággal rendelkeznek, ezért beépített tool-t biztosítunk arra, hogy kontrollerre vagy egyéb eszközökre le tudják térképezni a gombokat.
+            </p>
+          
+            <h3>Letisztult, könnyen navigálható menü</h3>
+            <p>
+              A menü egyszerűen elérhető és logikusan felépített lesz, ami elősegíti a kezelhetőséget és átláthatóságot. Ezeket úgy szeretnénk elérni, hogy például a beállítások, mentések és játékbetöltési lehetőségek gyorsan elérhetőek lesznek.
+            </p>
+          
+            <h3>Mentések és autosave-ek</h3>
+            <p>
+              A játékban időnként lesznek automentések, ezek alapvető beállításként 5 percenként fognak történni, azonban a beállítások között ezt is meg lehet változtatni 10, 15, 30 percre, valamint teljesen ki is lehet kapcsolni. A menüben egy kattintással el lehet menteni a játékállást. Az esetleges mentési hiba esetén mindig el lesz mentve a legutóbbi 10 játék állás mentése, így a játékosnak nem kell azon aggódnia, hogy újra kell kezdenie a játékát.
+            </p>
+          </section>
+
+        <li><h2 id="megbizhatosag">5. Megbízhatóság</h2></li>
+
+        
+        <section>
+            <li><h1 id="teljesitmeny">6. Teljesítmény</h1></li>
+            <p>
+              A mai piacon rengeteg játék közül választhatnak a játékosok, ezért a lehető legjobb teljesítményt szeretnénk biztosítani. Célunk, hogy játékunk gyors, stabil és élvezhető legyen minden játékos számára, függetlenül a használt hardvertől. Az optimalizálás különösen fontos, hogy játékunk minden körülmények között kifogástalanul fusson.
+            </p>
+          
+            <h3>Alacsony input lag</h3>
+            <p>
+              A gyors válaszidő mellett a bemeneti késleltetés minimalizálása érdekében törekedni fogunk az optimalizált vezérlésre és mozgásra, hogy a játékosok azonnali visszajelzést kapjanak.
+            </p>
+          
+            <h3>1920x1080 (Full HD) felbontás</h3>
+            <p>
+              Az alapértelmezett felbontás a 1920x1080 (Full HD), ami a legtöbb monitorhoz és kijelzőhöz optimális. A nagyobb felbontások támogatása is tervezett, így a játék akár 4K felbontásban is élvezhető lesz azok számára, akik nagyobb teljesítményű géppel rendelkeznek.
+            </p>
+          
+            <h3>Stabil 60 FPS</h3>
+            <p>
+              Az egyik legnagyobb prioritásunk a stabil 60 FPS biztosítása, még gyengébb hardverek esetén is. Ennek érdekében az opciók között lehetőség lesz a grafikai beállítások finomhangolására, így mindenki az optimális teljesítményt érheti el.
+            </p>
+          
+            <h3>Grafikai skálázás</h3>
+            <p>
+              A játék számos grafikai beállítással érkezik, amelyek lehetővé teszik a játékosok számára, hogy saját gépük teljesítményéhez igazítsák a grafikát. Az olyan opciók, mint az árnyékminőség, textúrafelbontás, látótávolság és effektek letiltása, mind segítenek a stabil teljesítmény elérésében.
+            </p>
+          
+            <h3>Dinamika felbontás</h3>
+            <p>
+              Fejlett opcióként tervezzük a dinamikus felbontás bevezetését is, amely automatikusan csökkenti a felbontást a teljesítmény fenntartása érdekében, ha a hardver nem képes tartani a stabil FPS-t.
+            </p>
+          
+            <h3>Minimum rendszerigény:</h3>
+            <ul>
+              <li>Operációs rendszer: Windows 7/8/10 vagy macOS 10.13+</li>
+              <li>Processzor: Intel Core i3 (vagy AMD megfelelője)</li>
+              <li>Memória: 4 GB RAM</li>
+              <li>Grafikus kártya: NVIDIA GTX 460 vagy AMD Radeon HD 6850 (minimum DirectX 10 támogatással)</li>
+              <li>Tárhely: 2-4 GB szabad hely</li>
+              <li>Hangkártya: Kompatibilis bármilyen integrált hangkártyával</li>
+            </ul>
+          
+            <h3>Ajánlott Rendszerkövetelmények</h3>
+            <ul>
+              <li>Operációs rendszer: Windows 10 vagy macOS 10.15+</li>
+              <li>Processzor: Intel Core i5 vagy AMD Ryzen 5</li>
+              <li>Memória: 8 GB RAM</li>
+              <li>Grafikus kártya: NVIDIA GTX 960 vagy AMD Radeon R9 280</li>
+              <li>Tárhely: 4-8 GB szabad hely</li>
+              <li>Hangkártya: Kompatibilis bármilyen integrált vagy dedikált hangkártyával</li>
+            </ul>
+          </section>
+
+        
+        <section>
+            <li><h1 id="tamogatottsag">7. Támogatottság</h1></li>
+            <p>
+              A játék kiadása után is elkötelezettek vagyunk amellett, hogy folyamatosan fejlesszük és támogassuk a játékot a közösség visszajelzései és igényei alapján. A célunk, hogy hosszú távú élményt nyújtsunk a játékosainknak, és fenntartsuk az érdeklődést a játék iránt az alábbi módokon.
+            </p>
+          
+            <h3>Rendszeres patch-ek</h3>
+            <p>
+              A játék kiadása után rendszeresen fogunk kiadni patch-eket, amelyek javítják a játékban előforduló hibákat és optimalizálják a teljesítményt. Ez magában foglalja az apróbb hibajavításokat, valamint a komolyabb teljesítménybeli és stabilitási problémák orvoslását.
+            </p>
+          
+            <h3>Közösségi visszajelzésekre épülő fejlesztés</h3>
+            <p>
+              Figyelemmel kísérjük a közösségi platformokon (fórumok, közösségi média) érkező visszajelzéseket, és a leggyakrabban jelentett problémákat prioritásként kezeljük.
+            </p>
+          
+            <h3>Ingyenes frissítések</h3>
+            <p>
+              A megjelenés után több kisebb ingyenes frissítést is tervezünk, amelyek új játékelemeket, eszközöket és kisebb pályarészleteket adnak a játékhoz, hogy új élményeket kínáljunk a közösségnek.
+            </p>
+          
+            <h3>Fizetős DLC-k</h3>
+            <p>
+              Tervezünk nagyobb tartalmi frissítéseket is fizetős DLC-k formájában. Ezek a bővítmények új pályákat, ellenségeket, karaktereket, fegyvereket és esetleges új játékmódokat tartalmaznak majd, hogy bővítsék és elmélyítsék a játék élményét.
+            </p>
+          
+            <h3>Modding eszköztár</h3>
+            <p>
+              A játék hosszabb élettartama és a core játékosréteg kielégítése érdekében szeretnénk modding eszközöket biztosítani. Ezek lehetővé teszik a játékosok számára, hogy saját pályákat, játékmódokat vagy karaktereket hozzanak létre, és megosszák azokat a közösséggel.
+            </p>
+          
+            <h3>Aktív közösségi menedzsment</h3>
+            <p>
+              Folyamatosan kapcsolatban maradunk a játékosainkkal a fórumokon, közösségi médián és Discord szerveren. A játékosok visszajelzéseire figyelve igyekszünk válaszolni kérdéseikre, és segíteni őket bármilyen problémával kapcsolatban.
+            </p>
+          
+            <h3>Felhőmentés támogatása</h3>
+            <p>
+              Lehetővé tesszük a játékállások felhőben történő tárolását, így a játékosok bármikor, bármilyen eszközön folytathatják a játékot ott, ahol abbahagyták.
+            </p>
+          </section>
+       
+        <ul>
+            <section id="tervezesi_korlatozasok">
+                <h1>8. Tervezési korlátozások</h1>               
+            
+                <h3>8.1 Kívánatos Architektúra</h3>
+                <p>A fejlesztéshez szükséges architektúra kulcsfontosságú, hogy a játék alkalmazás jól szervezett és karbantartható legyen. A projekt számára ideális választás egy két- vagy háromrétegű (tiered) architektúra, amely a felhasználói felület, az üzleti logika és az adatkezelési réteg különválasztását biztosítja. Ez a megközelítés elősegíti a moduláris tervezést, amely hosszú távon könnyen skálázható és karbantartható.</p>
+                <p><strong>Felhasználói felület réteg:</strong> Ez a szint biztosítja az interakciót a felhasználóval, legyen szó grafikus elemekről vagy vezérlési lehetőségekről. A felhasználói élmény szempontjából fontos, hogy az alkalmazás reszponzív és könnyen kezelhető legyen.</p>
+                <p><strong>Üzleti logika réteg:</strong> Itt helyezkedik el a játékmenet, a szabályok, az interakciók és minden olyan folyamat, amely a játék működését irányítja. Az üzleti logika rétegben történik az összes fontos döntés, így fontos, hogy jól strukturált és optimalizált legyen.</p>
+                <p><strong>Adatbázis réteg:</strong> Ez a réteg tárolja a játékban használt adatokat, például a karakterek állapotát, eredményeket vagy a felhasználói fiókhoz kapcsolódó információkat. Egy robusztus adatbázis biztosítja az adatok gyors elérését és a megbízható adatkezelést.</p>
+            
+                <h3>8.2 Használt Programozási Nyelvek</h3>
+                <p>A projekt során a választott fő programozási nyelv a C#, amely jól illeszkedik az Unity motorhoz, valamint számos modern játékfejlesztési funkciót biztosít, amelyek növelik a hatékonyságot. C# használata lehetővé teszi az összetett rendszerek létrehozását, és biztosítja a kód jól strukturáltságát. Emellett a Godot Engine használata során előnyben részesítjük a GDScript-et, amely gyors prototípus-készítést biztosít, különösen a vizuális elemek fejlesztésében.</p>
+            
+                <h3>8.3 Fejlesztőeszközök</h3>
+                <p>A fejlesztési környezetek kiválasztása kiemelkedően fontos a hatékony munkavégzés érdekében. A projektben használt fő fejlesztőeszköz a Visual Studio Code, amely az egyetemi hallgatói licenccel ingyenesen elérhető. A Visual Studio Code számos olyan kiegészítőt támogat, amelyek könnyítik a kódírást és a hibakeresést. Emellett a Godot Engine a fő választás a játékfejlesztéshez, mivel ez a környezet rendkívül jól alkalmazható a projekt követelményeinek kielégítésére. A grafikai elemek előállításához Aseprite pixel art eszközt használunk, amely biztosítja a retro stílusú megjelenítést, és kompatibilis a projekt grafikai elvárásaival.</p>
+            
+                <h3>8.4 Újra Felhasználható Elemek</h3>
+                <p>A projekt tervezésénél törekedünk az újra felhasználható elemek integrálására, legyen szó komponens- és osztálykönyvtárakról vagy akár kész kódról. A nyílt forráskódú elemek közül a Godot beépített könyvtárai és a Visual Studio Code kiegészítői kerülnek felhasználásra. Ezek az elemek csökkentik a fejlesztési időt és lehetővé teszik, hogy a már bizonyítottan hatékony megoldásokat gyorsan és hatékonyan implementáljuk a projektben. A grafikai tervezéshez és az interakciók megvalósításához szintén olyan elemeket választunk, amelyek jól illeszkednek a meglévő rendszerekhez, és biztosítják a stabil működést.</p>
+            
+                <h3>8.5 Fejlesztési Módszertan</h3>
+                <p>A projekt folyamán az Agile fejlesztési módszertant alkalmazzuk, amely lehetővé teszi a folyamatos fejlesztést és a rendszeres iterációkat. Ez a megközelítés biztosítja, hogy a projekt rugalmassága megmaradjon, és képesek legyünk gyorsan reagálni a változásokra. A Scrum alapú rendszer elősegíti a feladatok heti vagy kétheti sprintjeit, melyek során az egyes funkciókat vagy feladatokat gyorsan, de következetesen lehet megvalósítani.</p>
+            
+                <h3>8.6 Platform-specifikus Követelmények</h3>
+                <p>A projekt különböző platformokon való futtatását előíró követelmények befolyásolják a tervezést. A játék PC-re és konzolra egyaránt fejlesztésre kerül, ami a hardveres erőforrások eltérései miatt kihívásokat jelent. Az eltérő képernyőméretek, vezérlők és grafikai teljesítmény szempontjából figyelembe kell venni a platformok közötti különbségeket, hogy a játék minden eszközön azonos élményt nyújtson.</p>
+            
+                <h3>8.7 Teljesítménybeli Korlátozások</h3>
+                <p>A játék teljesítményének megfelelnie kell a mai szabványoknak, különösen a képkockasebesség és a betöltési idő terén. A teljesítménybeli elvárások hatással vannak a grafikai részletekre, mivel a túlzott részletesség ronthatja a sebességet. Ezért különös figyelmet fordítunk az optimalizálásra, hogy a játékélmény ne sérüljön.</p>
+            
+                <h3>8.8 Erőforráskorlátok</h3>
+                <p>A rendelkezésre álló erőforrások korlátozzák a fejlesztési folyamatokat:</p>
+                <ul>
+                    <li><strong>Költségvetés:</strong> A projektet előre meghatározott költségvetésből valósítjuk meg, amely magában foglalja a szoftverlicencek és külső szolgáltatások beszerzését.</li>
+                    <li><strong>Fejlesztői csapat:</strong> A csapat korlátozott mérete miatt a fejlesztési feladatok ütemezése szoros, és a munkaterhelés egyenletes elosztása létfontosságú a határidők betartásához.</li>
+                </ul>
+            
+                <h3>8.9 Szabályozási és Jogi Korlátozások</h3>
+                <p>A szellemi tulajdon védelmére vonatkozó jogi előírások betartása elengedhetetlen, beleértve a szerzői jogokat és az adatvédelmi törvényeket. A játék során figyelembe kell venni az alkalmazott technológiákra vonatkozó szabványokat és előírásokat, amelyek meghatározzák, hogyan kell az adatokat tárolni és kezelni a felhasználók biztonsága érdekében.</p>
+            
+                <h3>8.10 Felhasználói Elvárások</h3>
+                <p>A játék célcsoportja számára elengedhetetlen az egyszerű, intuitív használat és a magas minőségű élmény biztosítása. A felhasználói élményhez igazodó fejlesztési döntések meghozatalakor figyelembe kell venni a különböző készségi szinteket és hozzáférési igényeket, különös tekintettel a diszlexiás felhasználók igényeire.</p>
+            </section>
+        </ul>
+                
+        <section id="online_dokumentacio">
+            <h1>9. On-line dokumentáció és Help rendszer</h1>
+            <p>A modern játékok fejlesztésénél elengedhetetlen a felhasználók számára készült on-line dokumentáció és help rendszer kialakítása. Ez a rendszer nemcsak a játékosok számára nyújt információkat, hanem segíti a fejlesztőket is a felhasználói visszajelzések kezelésében és a termék folyamatos fejlesztésében.</p>
+            
+            <h3>9.1 Információs Anyagok</h3>
+            <p>Az on-line dokumentációnak tartalmaznia kell a játék különböző aspektusait, beleértve a játékmechanikát, a karaktereket, a játékmenetet és a különböző funkciókat. Az anyagokat érthető, világos nyelven kell megfogalmazni, hogy a játékosok könnyen eligibilizálhassák magukat a játék világában. Emellett fontos, hogy a dokumentáció rendszeresen frissüljön, figyelembe véve a frissítéseket és a felhasználói visszajelzéseket.</p>
+            
+            <h3>9.2 Gyakran Ismételt Kérdések (FAQ)</h3>
+            <p>A help rendszer részeként szükséges egy FAQ szekció létrehozása, amely a leggyakrabban felmerülő kérdéseket és problémákat tartalmazza. Ez segít a felhasználóknak gyorsan megtalálni a válaszokat, anélkül, hogy közvetlenül a támogatási csapathoz kellene fordulniuk. A gyakori kérdések megválaszolása nemcsak a felhasználói élményt javítja, hanem csökkenti a támogatási igényeket is.</p>
+            
+            <h3>9.3 Interaktív Útmutatók és Videók</h3>
+            <p>A dokumentáció interaktív útmutatók és videók segítségével is bővíthető. Ezek a vizuális elemek segíthetnek a játékosoknak a játékmenet és a funkciók megértésében, valamint megkönnyítik a tanulási folyamatot. A videók különösen hasznosak lehetnek, mivel a játékosok gyakran jobban megértik az információkat a látványos, gyakorlati példákon keresztül.</p>
+            
+            <h3>9.4 Közvetlen Támogatási Lehetőségek</h3>
+            <p>A help rendszerben ajánlott lehetőséget biztosítani a közvetlen támogatásra is, például egy élő chat funkcióval, ahol a felhasználók valós időben kaphatnak segítséget a problémáik megoldásában. Ez a lehetőség növeli a felhasználói elégedettséget és bizalmat, hiszen a játékosok tudják, hogy bármikor segítséget kaphatnak, ha szükségük van rá.</p>
+            
+            <h3>9.5 Felhasználói Visszajelzések Gyűjtése</h3>
+            <p>A dokumentáció és help rendszer részeként fontos a felhasználói visszajelzések gyűjtése is. Ez segíti a fejlesztőket a hibák kijavításában és az új funkciók megtervezésében. A játékosok számára egyszerű és gyors módot kell biztosítani arra, hogy megosszák tapasztalataikat és javaslataikat, ezzel hozzájárulva a termék folyamatos fejlődéséhez.</p>
+            
+            <h3>9.6 Közösségi Platformok</h3>
+            <p>A közösségi platformok, mint például Discord, Reddit és Facebook csoportok, szintén kulcsszerepet játszanak a felhasználói dokumentáció kiegészítésében. A Discord lehetőséget biztosít a valós idejű kommunikációra, ahol a játékosok megoszthatják tapasztalataikat, stratégiáikat és kérdéseiket más felhasználókkal. Ez egyben közvetlen kapcsolatot is teremt a fejlesztőcsapattal, ahol a felhasználók közvetlenül jelezhetik a problémáikat és javaslataikat.</p>
+            
+            <p>Reddit fórumok szintén kiváló helyszínek a játékkal kapcsolatos diskurzusra, ahol a felhasználók részletesen beszélgethetnek a játék különböző aspektusairól. A fejlesztők aktív részvétele ezeken a platformokon javíthatja a felhasználói élményt és a közösségi elköteleződést.</p>
+            
+            <p>A felhasználói visszajelzések és a közösségi interakciók elemzése segíthet a játék fejlesztésének irányításában. A közösség által generált tartalmak, például útmutatók és videók, szintén bővíthetik a dokumentációt, és a játékosok számára még hasznosabbá tehetik azt.</p>
+            
+            <p>A fent említett elemek biztosítják, hogy a játékosok számára elérhető on-line dokumentáció és help rendszer hatékonyan támogassa a felhasználói élményt, és hozzájáruljon a játék sikeréhez.</p>
+        </section>
+
+        
+        <section id="felhasznalt_kesz_komponensek">
+            <h1>10. Felhasznált kész komponensek (Third-party Components)</h1>
+            <p>Az alkalmazás fejlesztése során különböző kész komponenseket és könyvtárakat fogunk felhasználni, amelyek segítik a fejlesztési folyamatot, és lehetővé teszik a funkcionalitás gyorsabb megvalósítását. A következő alpontokban részletezzük az alkalmazásba építendő szabad felhasználású elemeket, valamint a forrást és a felhasználás szabályait.</p>
+            
+            <h3>10.1 Szabad Felhasználású Komponensek</h3>
+            <p>A szabad felhasználású elemek esetében meg kell jelölni a forrást és a felhasználás szabályait. A következő komponenseket tervezzük használni:</p>
+            <ul>
+                <li><strong>Open Source Grafikai Elemei:</strong> Szabadon felhasználható grafikai elemek. Ezek az elemek CC BY licensz alatt állnak, ami azt jelenti, hogy kötelező a forrás megjelölése, de módosíthatók és kereskedelmi célokra is felhasználhatók.</li>
+                <li><strong>Free Sound Effects:</strong> Az Freesound hanghatások, amelyek a Creative Commons licensz alatt állnak. A felhasználáshoz szükséges a hangok eredeti készítőjének megjelölése, és bizonyos esetekben a kereskedelmi felhasználás engedélyezése is szükséges.</li>
+            </ul>
+        
+            <h3>10.2 További Fejlesztői Eszközök</h3>
+            <p>A fentieken kívül az alábbi fejlesztői eszközöket is használjuk a projekt során:</p>
+            <ul>
+                <li><strong>Godot Engine:</strong> A játékunk alapját a Godot motor képezi, ahol C# nyelven fejlesztjük a logikát. Ez a motor lehetővé teszi a játék dinamikus és interaktív elemeinek létrehozását, valamint gyors prototípus-készítést, amely felgyorsítja a fejlesztési folyamatot.</li>
+                <li><strong>Aseprite:</strong> A pixel art grafikai elemek létrehozásához az Aseprite szoftvert használjuk, amely lehetővé teszi a részletes pixelgrafikák és animációk készítését. Ez a program különösen hasznos a retro stílusú megjelenítéshez, amely a játékunk egyik fő jellemzője lesz.</li>
+                <li><strong>Visual Studio Code:</strong> A Visual Studio Code-ot használjuk HTML fájlok írására és szerkesztésére, amely támogatja a modern webfejlesztési eszközöket és kiegészítőket. Ez a környezet lehetővé teszi a hatékony munkavégzést és a kód könnyű nyomon követését.</li>
+            </ul>
+        
+            <h3>10.3 Kötelezettségek és Következmények</h3>
+            <p>Fontos, hogy minden felhasználásra kerülő komponens esetében betartsuk a vonatkozó licensz feltételeket, hogy elkerüljük a jogi következményeket. A szabad felhasználású anyagok esetében figyelni kell a forrás megjelölésére és a felhasználás szabályaira. A dokumentációban nyomon kell követnünk a felhasznált komponenseket és azok forrásait, hogy a későbbi fejlesztések során is könnyen hozzáférhető legyen.</p>
+        
+            <p>A fejlesztési folyamat során figyelembe kell venni a közösségi támogatást is, mivel sok szabadon felhasználható komponens egy aktív közösség által készül. A GitHub és a Reddit platformokon található fórumszálak, ahol a fejlesztők tapasztalatokat oszthatnak meg, segíthetnek a problémák gyors megoldásában és a legjobb gyakorlatok alkalmazásában. A Discord csoportok is hasznosak lehetnek, ahol közvetlen támogatást kaphatunk a tapasztalt fejlesztőktől, valamint közvetlenül kapcsolatba léphetünk más projektekkel, amelyek hasonló technológiákat használnak. Ezen közösségi források kihasználásával optimalizálhatjuk a fejlesztési folyamatunkat, és biztosíthatjuk, hogy a felhasználásra kerülő komponensek megfelelnek a projekt követelményeinek.</p>
+        
+            <p>Fontos kiemelni, hogy a szabad felhasználású eszközök és források használata nemcsak költséghatékony, hanem inspiráló is lehet. A közösségi projektek és a nyílt forráskódú szoftverek betekintést nyújtanak a legújabb technológiákba, valamint lehetőséget adnak arra, hogy a fejlesztők tanuljanak egymástól és együttműködjenek. Az ilyen típusú együttműködések nemcsak a tudásmegosztás szempontjából fontosak, hanem hozzájárulnak a projekt minőségének javításához is, mivel a közösségi visszajelzések és a közös munkafolyamatok révén folyamatosan fejlődhetünk. Ezenkívül, ha nyílt forráskódú megoldásokat használunk, nagyobb eséllyel kapunk támogatást és frissítéseket a közösségtől, amely folyamatosan dolgozik az eszközök fejlesztésén.</p>
+        </section>
+
+        <li><h1 id="interfacek">11. Interfészek</h1></li>  <section>
+    
+            <p>Ebben a fejezetben kell specifikálni a rendszer valamennyi külső kapcsolatát, az ezt biztosító interfészeket.</p>
+    
+            <section>
+                <h2>11.1. Felhasználói interfészek</h2>
+                <h3>Leírás:</h3>
+                <p>A játék felhasználói felülete egy egyszerű, áttekinthető menürendszert kínál, amely lehetővé teszi a játékosok számára a gyors navigációt és a játék különböző funkcióinak elérését.</p>
+    
+                <h3>Elemek:</h3>
+                <ul>
+                    <li><strong>Főmenü:</strong> A játék fő kezdőképernyője, amelyen a játék indítása, beállítások, súgó és kilépés opciók találhatók.</li>
+                    <li><strong>Beállítások menü:</strong> Tartalmazza a grafikai, hang és vezérlési beállításokat.</li>
+                    <li><strong>Játék közbeni felület:</strong> Életcsík, pontszám, és egyéb, a játékállapotot jelző elem.</li>
+                </ul>
+    
+                <h3>Funkcionális követelmények:</h3>
+                <p>Az interfész gyors válaszidővel reagál a játékos műveleteire, és vizuálisan is megfelel a játék retro, pixel art esztétikájának.</p>
+            </section>
+    
+            <section>
+                <h2>11.2. Hardware interfészek</h2>
+                <h3>Leírás:</h3>
+                <p>A játék különböző hardvereszközökön futtatható, beleértve az asztali számítógépeket, laptopokat és vezérlőeszközöket (kontrollerek).</p>
+    
+                <h3>Támogatott eszközök:</h3>
+                <ul>
+                    <li><strong>Billentyűzet és egér támogatás:</strong> A játékos mozgását, interakcióit és az egyéb játékbeli funkciókat billentyűzet- és egérhasználattal is lehet irányítani.</li>
+                    <li><strong>Kontroller támogatás:</strong> Különböző típusú kontrollerek is használhatók a játék irányításához, amelyeknek a gombkiosztása testreszabható.</li>
+                </ul>
+    
+                <h3>Specifikáció:</h3>
+                <p>A játék automatikusan felismeri a csatlakoztatott vezérlőeszközt, és alkalmazkodik a használt eszköz típusához.</p>
+            </section>
+    
+            <section>
+                <h2>11.3. Software interfészek</h2>
+                <h3>Leírás:</h3>
+                <p>A játék fejlesztéséhez és futtatásához különböző szoftveres eszközökre van szükség, amelyek biztosítják a megfelelő működést és integrációt.</p>
+    
+                <h3>Eszközök:</h3>
+                <ul>
+                    <li><strong>Godot Engine:</strong> A játék mechanikái és funkciói ezen a platformon kerülnek fejlesztésre, beleértve a grafikai elemek kezelését is.</li>
+                    <li><strong>Aseprite:</strong> A játék pixel art grafikai elemeinek megtervezésére használt eszköz.</li>
+                    <li><strong>Visual Studio Code:</strong> A játék kódjának fejlesztésére és verziókezelésére használt kódszerkesztő.</li>
+                </ul>
+    
+                <h3>Követelmények:</h3>
+                <p>Az interfészek biztosítják, hogy a különböző szoftverek között zökkenőmentesen történjen a fájlok megosztása, és a fejlesztés során integrált munkafolyamat alakuljon ki.</p>
+            </section>
+    
+            <section>
+                <h2>11.4. Kommunikációs interfészek</h2>
+                <h3>Leírás:</h3>
+                <p>A játék egyéni és online módban is használható. Online módban külső szerverekhez csatlakozik a multiplayer funkciók biztosításához.</p>
+    
+                <h3>Kapcsolatok:</h3>
+                <ul>
+                    <li><strong>Szerverkapcsolat:</strong> Az online funkciók eléréséhez a játék szerverre csatlakozik, amely valós idejű adatkommunikációt biztosít a játékosok között.</li>
+                    <li><strong>Adatvédelem és titkosítás:</strong> Az adatok biztonságos titkosítással továbbítódnak a szerver és a felhasználói eszköz között, biztosítva a játékosok személyes adatainak védelmét.</li>
+                </ul>
+    
+                <h3>Funkcionális követelmények:</h3>
+                <p>Az interfész biztosítja, hogy az online játék késleltetése minimális legyen, és az adatok védelme megfelelő szinten történjen.</p>
+            </section>
+        </section>
+
+        <section>
+            <h1 id="alkalmazott_szabvanyok">12. Alkalmazott szabványok</h1>
+            <p>A játék fejlesztése során különböző technikai és jogi szabványokat kell figyelembe venni. Ezek biztosítják, hogy a termék megfeleljen a nemzetközi elvárásoknak, valamint a technikai és szakterületi szabályozásoknak. A szabványok betartása elősegíti a termék minőségének biztosítását és az esetleges jogi követelményeknek való megfelelést.</p>
+    
+            <section>
+                <h2>12.1 Kötelezően alkalmazandó szabványok</h2>
+                <p>Az alábbi szabványok betartása jogszabályi vagy ipari előírások miatt kötelező.</p>
+    
+                <h3>GDPR (General Data Protection Regulation)</h3>
+                <p><strong>Leírás:</strong> Az Európai Unió adatvédelmi szabályozása, amely biztosítja a felhasználók személyes adatainak védelmét. Kötelező megfelelni annak érdekében, hogy az európai felhasználók adatvédelmét biztosítsuk.</p>
+                <p><strong>Követelmények:</strong> A játék adatkezelési folyamatai során biztosítani kell a személyes adatok biztonságos tárolását és kezelését. Az adatokat csak a szükséges ideig szabad tárolni, és a felhasználóknak bármikor lehetőséget kell biztosítani az adataik törlésére.</p>
+    
+                <h3>ISO/IEC 27001  Információbiztonsági Irányítási Rendszer</h3>
+                <p><strong>Leírás:</strong> Az ISO/IEC 27001 szabvány az információbiztonság irányítására szolgáló nemzetközi szabvány, amely garantálja az adatbiztonságot a rendszeren belül.</p>
+                <p><strong>Követelmények:</strong> Az adatkezelés során be kell tartani az adatbiztonsági eljárásokat, különös tekintettel az adatfeldolgozás és -tárolás folyamatára, hogy minimalizáljuk az adatvesztés és a jogosulatlan hozzáférés kockázatát.</p>
+    
+                <h3>WCAG 2.1 (Web Content Accessibility Guidelines)</h3>
+                <p><strong>Leírás:</strong> A WCAG szabvány az akadálymentes használhatóságot biztosítja a digitális platformokon, különösen a látás- és hallássérült felhasználók számára.</p>
+                <p><strong>Követelmények:</strong> A játék felhasználói felületének megtervezése során biztosítani kell az akadálymentes használhatóságot, például a megfelelő színkontrasztot, a vizuális elemek és szövegek olvashatóságát, valamint a billentyűzettel való navigálást.</p>
+    
+                <h3>COPPA (Children’s Online Privacy Protection Act)</h3>
+                <p><strong>Leírás:</strong> Egy amerikai szabályozás, amely a 13 éven aluli gyermekek online adatvédelmét célozza. Bár a játék célközönsége fiatal felnőttek, fontos figyelembe venni a COPPA-t, amennyiben gyermekek is hozzáférhetnek a játékhoz.</p>
+                <p><strong>Követelmények:</strong> Biztosítani kell, hogy a játék során a gyermekek személyes adatait ne tároljuk vagy továbbítsuk anélkül, hogy megfelelő szülői beleegyezést kérnénk, és a megfelelő adatvédelmi eljárásokat alkalmazzuk.</p>
+    
+                <h3>ISO 9001  Minőségirányítási Rendszer</h3>
+                <p><strong>Leírás:</strong> Az ISO 9001 szabvány biztosítja, hogy a fejlesztési folyamatok magas minőségi szintet tartsanak fenn.</p>
+                <p><strong>Követelmények:</strong> A szabvány megköveteli a folyamatok optimalizálását és a folyamatos fejlesztési ciklusokat a minőség biztosítása érdekében, amelyek a fejlesztéstől kezdve a tesztelésig és a termék kiadásáig terjednek.</p>
+            </section>
+    
+            <section>
+                <h2>12.2 Választás alapján alkalmazott szabványok  Voluntary Standards</h2>
+                <p>Olyan szabványok, amelyek betartása nem kötelező, de segítik a projekt minőségének biztosítását, vagy elősegítik a kompatibilitást más rendszerekkel és platformokkal.</p>
+            </section>
+        </section>
+        
+
+    </ul>
+
+    <footer>
+        <p>&copy; 2024 H3 Daltons Games. Minden jog fenntartva.</p>
+    </footer>
+
+</body>
+</html>

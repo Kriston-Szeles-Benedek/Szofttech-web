@@ -4,11 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H2 Daltons Games</title>
-    <style>
+    <footer>
+        <p>&copy; 2024 H3 Daltons Games. Minden jog fenntartva.</p>
+    </footer>
+    
+    <button onclick="scrollToTop()" style="position:fixed;bottom:20px;right:20px;padding:10px;border-radius:5px;background-color:#007BFF;color:white;border:none;cursor:pointer;">
+        Fel a tetejére
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+      <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
+            background-color: #f0f4f8; /* Világos, szemkímélő háttérszín */
+            color: #333;
         }
         h1, h2, h3 {
             color: #333;
@@ -34,115 +48,729 @@
         .back-to-top:hover {
             background-color: #0056b3;
         }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hover-container {
+            position: relative;
+            display: inline-block;
+        }
+        #hoverImage {
+            display: none;
+            position: absolute;
+            z-index: 10;
+        }
     </style>
+    
 </head>
 <body>
+    <div class="header">
+        <h1>Daltons Games</h1>
+        <h2>Vízió dokumentum</h2>
+    </div>
+    <section id="bevezetes">
+        <h1>Bevezetés</h1>
+        <p style="text-align: left;">
+            A játék célja, hogy különböző műfajokat ötvözzön, mint például a sci-fi, western és fantasy. 
+            Az alkalmazás lehetővé teszi a játékosok számára, hogy különböző tematikus világok között 
+            váltsanak, miközben élvezhetik a retro pixel art esztétikát. A termék főként a Steam és 
+            más platformokon való megjelenésre készült, célja a globális közönség elérése és a közösségi 
+            élmények erősítése.
+        </p>
+    </section>
 
-    <h1 id="top">H2 Daltons Games</h1>
+    <section id="uzleti-lehetosegek">
+        <h1>Üzleti Lehetőségek</h1>
+        <p style="text-align: left;">
+            A játékunk a Steam, Epic Games Store, GOG és itch.io platformokon való megjelenéssel széles közönséget céloz meg, lehetővé téve a globális elérhetőséget. 
+            A platformfüggetlen elérhetőség növeli a játék piaci potenciálját, miközben a közösségi funkciók, mint a Discord integrációja, fokozzák a játékosok elköteleződését. 
+            Az üzleti modellünk kiemeli a műfaji sokszínűséget, amely lehetőséget teremt a versenyelőny megszerzésére az indie játékok telített piacán.
+        </p>
+    </section>
 
-    <!-- Gyorslinkek felsorolása -->
-    <h2>Gyorslinkek</h2>
-    <ul>
-        <li><a href="#vizio">1. A Vízió dokumentum</a></li>
-        <li><a href="#bevezetes">1.1. Bevezetés</a></li>
-        <li><a href="#problema">1.2. A probléma megfogalmazása</a></li>
-        <li><a href="#termek_helye">1.3. A termék helye</a></li>
-        <li><a href="#felhasznaloi_kornyezet">1.4. Felhasználói környezet</a></li>
-        <li><a href="#hasznalat_elonyei">1.5. A termék használatának előnyei</a></li>
-        <li><a href="#feltetelezesek">1.6. Feltételezések és függőségek</a></li>
-        <li><a href="#vegtermek">1.7. A végtermék jellemzői</a></li>
-        <li><a href="#minosegi_elvarasok">1.8. Minőségi elvárások</a></li>
-        <li><a href="#kockazat_lista">1.9. Kockázat lista</a></li>
-        <li><a href="#szotar">1.10. Szótár</a></li>
-        <li><a href="#projekt_terv">2. Projekt terv</a></li>
-        <li><a href="#munkanaplo">3. Munkanapló</a></li>
-    </ul>
+    <section id="elkeszult-termek-helye">
+        <h2>Az elkészült termék helye</h2>
+        <p style="text-align: left;">
+            A játékot főként fiatal felnőtt játékosoknak szánjuk, akik kedvelik a műfaji sokszínűséget és a retro, pixel art esztétikát. 
+            A célcsoportba azok a játékosok tartoznak, akik szeretik a különböző tematikus világok és játékmenetek váltakozását, 
+            illetve nyitottak az egyedi, innovatív megközelítésekre.
+        </p>
+        <p style="text-align: left;">
+            A termék a szórakoztató szoftverek kategóriájába tartozik, és különféle platformokon tervezzük megjelenítését: 
+            Steam, Epic Games Store, GOG és itch.io. A digitális kiadás lehetővé teszi, hogy széles körben hozzáférhető legyen játékosoknak. 
+            Főleg angol nyelven tervezzük a játék elkészítését, hogy globális közönséget érhessünk el.
+        </p>
+        <p style="text-align: left;">
+            A játék közösségi aspektusait is fontosnak tartjuk; ezért Discord szerver létrehozását tervezzük, ahol a játékosok megoszthatják tapasztalataikat, 
+            ötleteiket, és kapcsolatba léphetnek más rajongókkal. Ez a platform lehetőséget biztosít a közvetlen visszajelzésre és a közösség építésére.
+        </p>
+        <p style="text-align: left;">
+            A játékunk legnagyobb előnye, hogy három teljesen különböző játékmenetet és világot egyesít, ezáltal rendkívül változatos élményt nyújt. 
+            A sci-fi rész gyors, dinamikus akciókat igényel, a western világ a reflexekre és a célzás pontosságára épít, míg a fantasy világ stratégiai 
+            tervezést kíván meg a körökre osztott harcrendszerben. Ez a műfaji sokszínűség ritka a piacon, és kiemeli a játék egyediségét.
+        </p>
+        <p style="text-align: left;">
+            Alternatív megoldások lehetnek más pixel art játékok vagy olyan egyedi indie címek, amelyek egyetlen műfajra koncentrálnak. 
+            Ezek előnye, hogy egy adott stílusra összpontosítanak, azonban hátrányuk, hogy nem nyújtanak olyan változatos élményt, 
+            mint a mi termékünk, amely több világ és játékmenet integrálásával szélesíti a játékélményt.
+        </p>
+        <p style="text-align: left;">
+            Az elkészült játék alapvetően azáltal különbözik az alternatíváktól, hogy egyetlen címben egyesíti három különböző világ és játékmenet elemeit. 
+            A platformfüggetlen elérhetőség és a három műfaj közötti váltás lehetősége egyedi élményt nyújt, amely különleges helyet foglal el 
+            a pixel art és indie játékok piacán.
+        </p>
+    </section>
+    <section id="Az érintettek összefoglalása">
+        <h1>Az érintettek összefoglalása</h1>
+    <table border="4" cellpadding="15">
+        <tr>
+            <th>Elnevezés</th>
+            <th>Leírás</th>
+            <th>Szerep</th>
+        </tr>
+        <tr>
+            <td>Játékfejlesztők</td>
+            <td>Progamozók, designerek, írók</td>
+            <td>Ők felelősek a játék technikai megvalósításáért, vizuális megjelenéséért, valamint a történet és a játék mechanika kidolgozásáért</td>
+        </tr>
+        <tr>
+            <td>Projektvezetők</td>
+            <td>A projektvezetők az egész fejlesztési folyamat irányítói</td>
+            <td>Ők határozzák meg a célokat, felügyelik az időkereteket, és biztosítják, hogy a projekt megfeleljen az előírásoknak és határidőknek.</td>
+        </tr>
+        <tr>
+            <td>Kiadók és befektetők</td>
+            <td>Azok a szervezetek, amelyek finanszírozzák és piacra dobják a játékot</td>
+            <td>Ők határozzák meg az üzleti stratégiát, a célpiacot és az időkereteket.</td>
+        </tr>
+        <tr>
+            <td>Marketing csapat</td>
+            <td>(Public Relations) csapat, felelős a játék nyilvános megítélésének kezeléséért és fejlesztéséért.</td>
+            <td>A marketingesek feladata a játék ismertségének növelése és a megfelelő célközönség elérése.</td>
+        </tr>
+        <tr>
+            <td>Jogi osztály</td>
+            <td>A jogi osztály felügyeli a szerződések megkötését, a szellemi tulajdon védelmét, valamint a különféle adatvédelmi és jogi követelmények betartását.</td>
+            <td>A játékfejlesztés során figyelembe veszik a szerzői jogokat, licencelést és adatvédelmi szabályozásokat.</td>
+        </tr>
+        <tr>
+            <td>Külső partnerek és beszállítók</td>
+            <td>A külső partnerek lehetővé teszik, hogy a fejlesztők szolgáltatásokhoz és technológiákhoz jussanak hozzá, amelyeket házon belül nem tudnának előállítani.</td>
+            <td>Technológiai, művészeti vagy logisztikai szolgáltatók, szolgáltatásaikkal segítik a fejlesztő csapatot.</td>
+        </tr>
+        <tr>
+            <td>Tesztelők</td>
+            <td>Olyan személyek, akik a játékot bizonyos fázisaiban próbálgatják</td>
+            <td>Segítik a problémás játékmenet mechanikák feltárását és javítási lehetőségeit.</td>
+        </tr>
+    </table>
+    </section>
+    <section id="A felhasználók összefoglalása">
+    <table border="4" cellpadding="15">
+        <h1>A felhasználók összefoglalása</h1>
+        <tr>
+            <th>Elnevezés</th>
+            <th>Leírás</th>
+            <th>Illetékes</th>
+        </tr>
+        <tr>
+            <td>Játékosok</td>
+            <td>Végfelhasználok</td>
+            <td>visszajelzéseikkel, közösségi aktivitásukkal aktívan hozzájárulnak a játék sikeréhez. </td>
+        </tr>
+        <tr>
+            <td>Streamerek</td>
+            <td>Marketing szempontból releváns végfelhasználók</td>
+            <td>Közvetítésük által növelik a játék népszerűségét</td>
+        </tr>
+        <tr>
+            <td>Játék kritikusok</td>
+            <td>Piaci szempontból releváns végfelhasználók</td>
+            <td>Véleményezésük növelik a játék piaci értékét és érdeklődését</td>
+        </tr>
+        <tr>
+            <td>Külső tesztelők</td>
+            <td>Olyan végfelhasználók akik fejlesztés szempontból relevánsak</td>
+            <td>visszajelzéseikkel, közösségi aktivitásukkal aktívan hozzájárulnak a játék fejlesztéséhez.</td>
+        </tr>
+    </table>
+    </section>
 
-    <h2 id="vizio">1. A Vízió dokumentum</h2>
+    <section id="felhasznaloi-kornyezet">
+        <h1>Felhasználói környezet</h1>
+         
+        <p style="text-align: left;">
+            A játékunk a béta fázisában még csak PC-re, azon belül is Windows 11-ben tervezzük a fejlesztést. Természetesen ezt ki fogjuk terjeszteni Windows 10-re, azonban 2025. október 15-én a rendszer támogatásának megszüntetésével mi is abba fogjuk hagyni a Windows 10-es rendszerekre való fejlesztést.
+        </p>
+        <p style="text-align: left;">
+            A jövőben, egy sikeres játék indítás után és a játék pozitív fogadtatása esetén más platformokra való portolást is kilátásba tudunk helyezni, azonban a játék ebben a stádiumban sajnos még erről le kell mondanunk. Mobilos és tabletes portot nem tervezünk, mivel az szerintünk a játék butításával és egyszerűsítésével járna, ami mindenféleképpen rontana a játékélményen, amit viszont a leginkább próbálunk kerülni.
+        </p>
+        <p style="text-align: left;">
+            A játékot több játékáruházban is egyszerre fogjuk elindítani, a Steamen, az Epic Gamesen és a GOG-on, ezért mi sem vagyunk teljesen tisztában, hogy mennyi aktív játékossal kell számolnunk egyszerre. Azonban a játékunk méretéből és stílusából a Steam adatai alapján maximálisan 1000-1500 játékosra tudunk számítani, akikből átlagosan 100-120 lesz egyszerre aktív. Természetesen ezek a számok nagyban változhatnak, ezért próbáljuk a játék indítását majd egy nagyobb ünnep kezdetéhez igazítani, így is maximalizálva a játékosaink mennyiségét.
+        </p>
+        <p style="text-align: left;">
+            A tágabb játékos közösségben azt vesszük észre, hogy az emberek kezdenek elfáradni a gyártósoron készülő AAA FPS játékoktól. Ez a trend abban is kifejezi a hatását, hogy egyre több indie játékstúdió jelenik meg, és a nagyobb AAA stúdiók rekord méretű eséseket mutatnak. Ezért is céloztuk meg a csapatunkkal egy új és innovatív játék kifejlesztését, megpróbálva minél távolabb tartani magunktól azokat a játékfejlesztői döntéseket, amik negatívan hatnak a játékos közösségünkre, mint például: lootboxok, mikrotranzakciók stb.
+        </p>
+        <p style="text-align: left;">
+            A játékidőt 4-5 órára tervezzük, persze ez majd az esetleges DLC-kkel nőni fog. Azonban a játékunk újrajátszhatósága miatt ez a szám akár 15 óra szórakozást is jelenthet, főleg azoknak a játékosoknak, akik fel szeretnék fedezni a játékban a titkos helyeket és meg szeretnék szerezni a játék összes achievementjét!
+        </p>
+        <p style="text-align: left;">
+            Több különleges körülményre is próbálunk megoldást szolgáltatni a játékunkhoz, ezzel is minél nagyobb közönséghez elérni a játékainkkal. Ezért nagy hangsúlyt fektetünk a különböző fizikailag hátrányos helyzetben lévő személyek kielégítésére. Ilyen megoldással próbáljuk segíteni például a különböző mozgási és koordinációs problémával rendelkező játékostársainkat is; nekik külön beépített tool-t biztosítunk arra, hogy kontrollerekre, vagy egyéb speciális eszközökre be tudják állítani a játékban lévő cselekvéseket.
+        </p>
+        <p style="text-align: left;">
+            Természetesen nem csak ennyi kisegítő lehetőséget fogunk implementálni, hanem például a vakok és gyengénlátók számára hangvezérlést és kitűnő szinkronszínészeink révén színvonalas narrációt is implementálunk a játékba. E mellett a színvakok számára is szeretnénk többféle színkiosztást beállítani, és a kevésbé hardcore játékosoknak egy külön story módot, ahol nem kell a bonyolult harcokban részt venniük, és csak a játék történetére tudnak fókuszálni.
+        </p>
+        <p style="text-align: left;">
+            A játékunkat külön nem integráljuk más alkalmazásokkal; a játékos közösséggel való kapcsolattartásra elsősorban a Discord szerverünk szolgál, és szeretnénk az áruházak nyújtotta szolgáltatásokat is használni. Minden a játékkal kapcsolatos információt a Discord szerver mellett az áruházak Community Hub-jára is feltöltünk. A másik fontos funkció, amit az áruházak szolgáltatásaként fogunk használni, az a Support funkció, amit bárki használhat, aki bármilyen bugot, glitch-et és egyéb észrevételt tapasztalna. Erre a béta idején a főmenüben is biztosítunk lehetőséget.
+        </p>
+    </section>
 
-    <h3 id="bevezetes">1.1. Bevezetés</h3>
-    <p><em>(Nincs információ)</em></p>
+    <section id="vegtermek-attekintese">
+        <h1>A végtermék áttekintése</h1>
 
-    <h3 id="problema">1.2. A probléma megfogalmazása</h3>
-    <p>A fejlesztendő alkalmazás által megoldandó probléma megfogalmazása a leendő felhasználók szemszögéből.</p>
-    <p>Definiálni kell:</p>
-    <ul>
-        <li>magát a problémát</li>
-        <li>azokat a résztvevőket, akiket a probléma (és megoldása érint)</li>
-        <li>milyen befolyással van rájuk a probléma</li>
-        <li>melyek lesznek a sikeres megoldás legfontosabb hasznos hatásai</li>
-    </ul>
+        <h2>Jellemzők</h2>
+        <p>A elkészült játék egy egyjátékos, pixel art stílusú, több műfajt ötvöző videójáték, amely három különböző tematikus világot és játékmenetet tartalmaz: sci-fi, western és fantasy. A szoftverben animációk kissé szegényesebbek lesznek a gépigény lecsökkentése érdekében, egyben szeretnénk megmutatni, hogy meglehet csinálni egy viszonylag komoly játékot egyszerűen is. Az egész alkalmazásunk saját készítésű elemekből fog összeállni, mind a karakterek, az objektumok, a pálya, a hang effektek és a zenék.</p>
 
-    <h3 id="termek_helye">1.3. A termék helye</h3>
-    <p>Itt az elkészült terméket kell elhelyezni a környezetében. Ennek keretében le kell írni, hogy:</p>
-    <ol>
-        <li><strong>Kinek készült (melyik / milyen szervezetnek)</strong>: Az alkalmazás elsősorban egyetemi hallgatók és csoportos projektmunkát végző diákok számára készült. Célja, hogy támogassa a hatékony együttműködést és kommunikációt.</li>
-        <li><strong>Ki fogja használni</strong>: A végfelhasználók közé tartoznak a diákok, oktatók és konzulensek, akik a projektek során együttműködnek és megosztják az információkat.</li>
-        <li><strong>Milyen alkalmazás kategóriába tartozik</strong>: Az elkészült termék egy csoportmunka-támogató alkalmazás, amely lehetővé teszi a feladatok nyomon követését, a kommunikációt és az információk megosztását.</li>
-        <li><strong>Mi az alapvető haszna</strong>: Az alapvető haszna, hogy a felhasználók könnyen nyomon követhetik a projekt állapotát, oszthatnak meg dokumentumokat és kommunikálhatnak egymással egy központi platformon, ezáltal növelve a hatékonyságot és a produktivitást.</li>
-        <li><strong>Milyen alternatívák lehetnek a fejlesztésen kívül</strong>: Alternatívák közé tartoznak a hagyományos e-mail kommunikáció, a közösségi média platformok (pl. Facebook csoportok), valamint más csoportmunka alkalmazások (pl. Trello, Slack). Előnyök: Az alternatívák könnyen elérhetők és ingyenesek lehetnek. Hátrányok: E rendszerek nem biztosítanak integrált megoldásokat, és nehézkes lehet a feladatok és információk kezelése.</li>
-        <li><strong>Miben különbözik alapvetően az elkészült termék az alternatíváktól</strong>: Az elkészült termék integrált megoldást nyújt, amely a csoportmunka minden aspektusát lefedi, a kommunikációtól kezdve a feladatok nyomon követéséig. A felhasználói élmény egyszerűsített, és célzottan a diákok igényeihez lett igazítva, míg más alternatívák gyakran nem specializálódtak ilyen felhasználási területre.</li>
-    </ol>
+        <h2>Játékmechanika</h2>
+        <p>A játékmechanikája a sci-fi világ gyors tempójú, taktikai side-scrolling akciójátékot kínál, míg a western világ felülnézetes lövöldözést (top-down shooter), a fantasy világ pedig körökre osztott harcrendszert (turn-based combat) nyújt.</p>
 
-    <h3 id="vegtermek">1.7. A végtermék jellemzői</h3>
-    <p>A végtermék egy csoportmunka-támogató alkalmazás, amely a következő jellemzőkkel rendelkezik:</p>
-    <h4>1. Felhasználóbarát felület</h4>
-    <p>A felhasználói felület intuitív, egyszerű és könnyen navigálható, lehetővé téve a felhasználók számára, hogy gyorsan és hatékonyan megtalálják a szükséges funkciókat.</p>
+        <h2>Történet</h2>
+        <p>A történet egy speciális erőknek szolgáló különleges ügynökről szól, aki egy (ide még kerül valami a bevetésről) bevetés során meghibásodott ruhája miatt visszarepül az időben és próbál vissza kerülni a saját idejébe.</p>
 
-    <h4>2. Valós idejű együttműködés</h4>
-    <p>A felhasználók valós időben tudnak együttműködni, lehetővé téve a gyors visszajelzéseket és a hatékony kommunikációt.</p>
+        <h2>Godot</h2>
+        <p>A fejlesztés során a Godot game engine-t használjuk, amely könnyen felhasználható, fejlesztőbarát környezettel rendelkezik. A Godot élethűvé teszi a 2D-s grafikai elemek egyszerű kezelését, valamint különböző platformokra való exportálást.</p>
 
-    <h4>3. Feladatkezelés</h4>
-    <p>A rendszer lehetővé teszi a feladatok létrehozását, hozzárendelését és nyomon követését, így a projektek állapota mindig látható.</p>
+        <h2>Asperite</h2>
+        <p>Az Asperite szoftver segítségével készítjük el a leendő karaktereket, pályákat, objektumokat könnyen és gyorsan. Mivel az Asperite támogatja a pixel art stílust, emellett többféle pixel méretet nyújt a rajzoláshoz.</p>
 
-    <h4>4. Dokumentummegosztás</h4>
-    <p>A felhasználók könnyen megoszthatják egymással a fájlokat és dokumentumokat, így csökkentve az e-mailek számát és a fájlok keresgélésének idejét.</p>
+        <h2>Életcsík</h2>
+        <p>A játékban egy életcsík (health bar) jelenik meg, amely a karakter HP-ját jelzi. Ez lehetővé teszi a játékos számára, hogy nyomon kövesse a karakter állapotát a csata során.</p>
 
-    <h4>5. Üzenetküldő rendszer</h4>
-    <p>A beépített üzenetküldő rendszer lehetővé teszi a gyors és hatékony kommunikációt a felhasználók között, így csökkentve a külső kommunikációs csatornák szükségességét.</p>
+        <h2>Fegyvertár</h2>
+        <p>A játékban elérhető lesz egy fegyvertár, amely folyamatosan jelzi a játékos számára, hogy hány lövedéke van még. Ez a funkció fontos a stratégiai döntések meghozatalához, mivel a játékosoknak figyelembe kell venniük a töltények számát a harc során.</p>
 
-    <h4>6. Mobil hozzáférés</h4>
-    <p>A rendszer mobilbarát, így a felhasználók bármikor és bárhol hozzáférhetnek a projektekhez és információkhoz, ami növeli a rugalmasságot és a hatékonyságot.</p>
+        <h2>Támogatási rendszer</h2>
+        <p>A játék megjelenése után a jövőben frissítésekkel és új tartalmakkal bővítjük a szoftvert. Továbbá szívesen fogadunk visszajelzéseket a játék során lévő bug-okról, glitchekről, hibákról, így a felhasználói visszajelzések alapján a játék folyamatosan fejlődhet.</p>
 
-    <h4>7. Biztonság</h4>
-    <p>A felhasználói adatok biztonságát a legmagasabb szintű titkosítási eljárások garantálják, ezzel védve a bizalmas információkat.</p>
+        <h2>A termék kapcsolatai</h2>
+        <p>A játék több funkcionális komponensből épül fel, amelyek nem különálló fájlokban találhatók, hanem egy nagyobb rendszeren belül kapcsolódnak egymáshoz. Az alábbiakban felsorolom a főbb funkcionális részeket és azok kapcsolódási módjait.</p>
 
-    <h3 id="felhasznaloi_kornyezet">1.4. Felhasználói környezet</h3>
-    <p><em>(Nincs információ)</em></p>
+        <h2>Fő funkcionális modulok</h2>
+        <ul>
+            <li><strong>Felhasználói felület (UI):</strong> A játék főképernyői, menük, gombok, és felhasználói interakciók kezelése.</li>
+            <li><strong>Játéklogika:</strong> A játékszabályok, pontozás, játékmechanizmusok irányítása.</li>
+            <li><strong>Adatkezelés:</strong> Mentések, betöltések, felhasználói profilok és beállítások tárolása.</li>
+            <li><strong>Grafikai motor:</strong> Az animációk és grafikus elemek kezelése a képernyőn, beleértve a karaktereket, tárgyakat és környezetet.</li>
+            <li><strong>Hangmodul:</strong> Zenei háttér, hanghatások kezelése és lejátszása.</li>
+            <li><strong>Hálózati modul (ha van többjátékos támogatás):</strong> Kommunikáció a szerverrel vagy más játékosokkal, adatcsere online játék során.</li>
+        </ul>
 
-    <h3 id="hasznalat_elonyei">1.5. A termék használatának előnyei</h3>
-    <p><em>(Nincs információ)</em></p>
+        <h2>Komponensek közötti kapcsolatok</h2>
+        <ul>
+            <li><strong>Felhasználói felület – Játéklogika kapcsolat:</strong> A játékos interakciói a UI-n keresztül továbbítódnak a játéklogikához, amely meghatározza, hogy mi történik a játékban (pl. gombnyomás után a játék elindul).</li>
+            <li><strong>Játéklogika – Adatkezelés kapcsolat:</strong> A játéklogika információt cserél az adatkezelő modullal a mentési és betöltési folyamatok során (pl. egy új játék mentésekor).</li>
+            <li><strong>Játéklogika – Grafikai motor kapcsolat:</strong> A játéklogika utasítja a grafikai motort a megjelenítendő tartalomról (pl. karakterek mozgatása, környezeti változások).</li>
+            <li><strong>Játéklogika – Hangmodul kapcsolat:</strong> Az események alapján a játéklogika utasítja a hangmodult a megfelelő hanghatások vagy zenei elemek lejátszására.</li>
+            <li><strong>Hálózati modul – Játéklogika kapcsolat (ha van):</strong> A hálózati modul kommunikál a szerverrel vagy más játékosokkal, és ezt az információt továbbítja a játéklogikának, amely azt feldolgozza.</li>
+        </ul>
 
-    <h3 id="feltetelezesek">1.6. Feltételezések és függőségek</h3>
-    <p><em>(Nincs információ)</em></p>
+        <h2>Kapcsolódási pontok a rendszerben</h2>
+        <p>Minden funkcionális modul kapcsolódik a <strong>központi játéklogikához</strong>, ami irányítja az összes modult. A központi játéklogika végzi a modulok közötti kommunikációt, így biztosítva, hogy az egyes részek megfelelően együttműködjenek.</p>
+        <p>Ha a játék egy nagyobb rendszer része (pl. egy online játékplatformhoz kapcsolódik), a <strong>hálózati modul</strong> felelős a kapcsolódási pontokért, és az adatokat továbbítja a platform vagy szerver felé.</p>
+    </section>
 
-    <h3 id="minosegi_elvarasok">1.8. Minőségi elvárások</h3>
-    <p><em>(Nincs információ)</em></p>
+    <h1>Korlátozások és Szabályozások</h1>
 
-    <h3 id="kockazat_lista">1.9. Kockázat lista</h3>
-    <p><em>(Nincs információ)</em></p>
+<h2>Hardverkorlátozások</h2>
 
-    <h3 id="szotar">1.10. Szótár</h3>
-    <p>Ez a fejezet adja meg az alapját annak a szógyűjteménynek, amely önálló dokumentummá válva a fejlesztés során folyamatosan bővül és egyre pontosabb magyarázatokat tartalmaz, megteremtve ezzel annak lehetőségét, hogy elkerüljük a fejlesztők és a szakterületi szakértők közötti félreértéseket.</p>
-    <p>Az alábbiakban található a szakterületi kifejezések definíciója:</p>
-    <ul>
-        <li><strong>Csoportmunka:</strong> Két vagy több személy által végzett közös tevékenység, amelynek célja egy közös feladat megoldása.</li>
-        <li><strong>Feladatkezelés:</strong> Az a folyamat, amelynek során a feladatok létrehozása, nyomon követése és befejezése történik.</li>
-        <li><strong>Üzenetküldő rendszer:</strong> Olyan rendszer, amely lehetővé teszi az üzenetek küldését és fogadását a felhasználók között.</li>
-        <li><strong>Dokumentummegosztás:</strong> Fájlok és dokumentumok közös használata és megosztása a felhasználók között.</li>
-        <li><strong>Titkosítás:</strong> Az adatok védelme érdekében alkalmazott eljárás, amely megakadályozza, hogy azokat illetéktelenek olvassák el.</li>
-    </ul>
+<h3>Alacsonyabb teljesítményű eszközök támogatása</h3>
+<ul>
+    <li><strong>A rendszernek futnia kell alacsonyabb teljesítményű eszközökön</strong> (pl. kis kapacitású személyi számítógépek, régebbi processzorokkal és alacsony memóriával).</li>
+    <li><strong>Grafikai optimalizálás:</strong> Minimalizálni kell a grafikai erőforrások használatát, például alacsonyabb felbontású textúrák és egyszerűbb modellek alkalmazásával.</li>
+    <li><strong>Processzorkapacitás:</strong> A játék logikáját úgy kell kialakítani, hogy az ne terhelje túl a CPU-t, minimalizálva a háttérszámításokat.</li>
+</ul>
 
-    <h2 id="projekt_terv">2. Projekt terv</h2>
-    <p><em>(Mellékelve)</em></p>
-    <p><a href="fajlok/projekt_terv.pdf" download="projekt_terv.pdf">Projekt terv letöltése</a></p>
+<h2>Operációs rendszerek támogatása</h2>
+<ul>
+    <li>A játék futtatható kell, hogy legyen különböző platformokon (pl. Windows, macOS, Linux).</li>
+    <li>Figyelembe kell venni a platform-specifikus korlátokat (pl. kompatibilitási problémák régebbi rendszerekkel).</li>
+</ul>
 
-    <h2 id="munkanaplo">3. Munkanapló</h2>
-    <p><em>(Mellékelve)</em></p>
-    <p><a href="munkanaplo151024.html" download="munkanaplo.html">Munkanapló letöltése</a></p>
+<h2>Tárolási igények</h2>
+<ul>
+    <li>A rendszer telepítési mérete nem haladhat meg egy előre meghatározott korlátot, hogy az kis tárhellyel rendelkező eszközökön is telepíthető legyen.</li>
+</ul>
 
-    <!-- Gomb az oldal tetejére -->
-    <p><a href="#top" class="back-to-top">⬆ Vissza a tetejére</a></p>
+<h2>Szoftveres és fejlesztési korlátok</h2>
+
+<h3>Fejlesztési környezet</h3>
+<ul>
+    <li>A használt programozási nyelvek és keretrendszerek korlátai meghatározzák a játék egyes funkcióinak fejleszthetőségét és optimalizálhatóságát.</li>
+</ul>
+
+<h3>Verziókompatibilitás</h3>
+<ul>
+    <li>A szoftvernek kompatibilisnek kell lennie a különböző API-k és külső könyvtárak verzióival, amelyeket a játék során használnak (pl. grafikai könyvtárak, hangmodulok).</li>
+</ul>
+
+<h2>Jogszabályi és szabályozási korlátok</h2>
+
+<h3>Adatvédelem</h3>
+<ul>
+    <li><strong>GDPR (Európai Unió):</strong> Az EU Általános Adatvédelmi Rendelete (GDPR) előírja, hogy minden felhasználói adatot (pl. e-mail címek, IP-címek, játékosprofilok) megfelelően védelmezni kell. A felhasználóknak egyértelmű tájékoztatást kell kapniuk arról, hogyan használják fel az adataikat, és hozzájárulásukat kell adniuk azok feldolgozásához.</li>
+    <li><strong>Adatgyűjtési beleegyezés:</strong> A játék során bármilyen személyes adat gyűjtésére előzetes beleegyezést kell kérni a játékostól.</li>
+    <li><strong>Adatkezelési szabályzat:</strong> Egy világos és átlátható adatkezelési szabályzatot kell biztosítani, amely bemutatja, hogyan gyűjtik és használják az adatokat.</li>
+</ul>
+
+<h3>Tartalmi szabályozások</h3>
+<ul>
+    <li><strong>PEGI (Európa):</strong> A Pan European Game Information (PEGI) egy szabályozási keret, amely életkori besorolást biztosít videojátékokhoz Európában. A játékokat erőszak, nyelvezet, félelemkeltő elemek, szexualitás, szerencsejáték és drogok ábrázolása alapján sorolják be.</li>
+    <li><strong>ESRB (Észak-Amerika):</strong> Az Entertainment Software Rating Board (ESRB) az észak-amerikai piac szabályozó szerve, amely a játékokat hasonló kritériumok alapján sorolja be, mint a PEGI.</li>
+</ul>
+
+<h2>Szerzői jog és licencfeltételek</h2>
+<ul>
+    <li>A játékban felhasznált minden grafikai, zenei és szöveges tartalomnak meg kell felelnie a szerzői jogi követelményeknek.</li>
+    <li><strong>Licencfeltételek betartása:</strong> Ha a játék harmadik fél által készített tartalmakat (pl. zenék, grafikai könyvtárak, motorok) használ, akkor biztosítani kell, hogy a licencfeltételek betartása megfelelően történjen.</li>
+</ul>
+
+<h2>Fogyasztói jogok</h2>
+<ul>
+    <li><strong>Digitális vásárlások szabályozása:</strong> A játék digitális forgalmazása során a fogyasztóknak joguk van a visszatérítéshez, ha a termék nem működik megfelelően vagy nem felel meg az elvárásoknak.</li>
+    <li><strong>Felhasználói szerződések és EULA:</strong> Bár a játék nem gyűjt adatokat, fontos biztosítani, hogy a felhasználók számára világos és egyértelmű felhasználási feltételek legyenek meghatározva.</li>
+</ul>
+
+<h2>Loot boxok és szerencsejáték-szabályozások (ha releváns)</h2>
+<ul>
+    <li>Ha a single-player játék tartalmaz olyan mechanizmusokat, mint a loot boxok vagy más véletlenszerű jutalmak, ezekre külön szabályok vonatkozhatnak a különböző országokban.</li>
+    <li><strong>Fiatalkorúak védelme:</strong> Ha a játék loot boxokat tartalmaz, figyelembe kell venni a fiatalkorúak védelmét biztosító törvényeket.</li>
+</ul>
+
+<h2>Nemzetközi és regionális szabályozások</h2>
+<ul>
+    <li><strong>Kína tartalomszabályozása:</strong> Kína szigorú szabályokat ír elő a játékok tartalmára vonatkozóan, különösen, ha politikai, vallási vagy történelmi érzékenységekkel kapcsolatos elemeket ábrázol.</li>
+    <li><strong>USA gyermekvédelmi szabályozásai (COPPA):</strong> Ha a játék kiskorúak számára készült, az USA-ban külön gyermekvédelmi szabályok (pl. COPPA) vonatkoznak rá.</li>
+</ul>
+
+<h2>Fejlesztési idő</h2>
+<ul>
+    <li>A rendszernek a meghatározott határidőn belül kell elkészülnie, így figyelembe kell venni az időhiányt, ami esetleg funkciók kihagyásával járhat.</li>
+</ul>
+
+<h1>Minőségi elvárások</h1>
+
+<p>A játékunk egy széles játékos bázisnak készül, ezért egyszerre kell eleget tennünk mindenki elvárásainak. Emellett rengeteg más játékkal versengünk, ezért a lehető legjobb teljesítményt kell nyújtania a játékunknak. Legnagyobb prioritásunk a stabil 60 FPS megtartása a gyengébb erejű gépeken is, a válaszidőt pedig igyekszünk 10-30 milliszekundum alatt tartani, ezzel is magasan akarjuk tartani a játék színvonalát.</p>
+
+<p>Felbontás terén a legjobb képminőség, 2160p lesz, ami jelentősebb gépigényt fog jelenteni, de a kiváló képi minőség mindenképpen kompenzálni fogja azt. A betöltési időt is megpróbáljuk csökkenteni, amennyire lehetséges, ezt az SSD-vel való betöltéssel szeretnénk elérni.</p>
+
+<h1>Kockázat lista</h1>
+
+<p>Az elkészült játék fejlesztése során az alábbi kockázatokkal számolunk, rangsorolva a valószínűségük szerint:</p>
+
+<ol>
+    <li>
+        <strong>Fejlesztési határidők túllépése:</strong> A műfaji változatosság és a játékmenetek integrálása nagy komplexitást jelent, ami a legnagyobb kockázatot hordozza. Ezt agilis módszerek alkalmazásával, rendszeres tervezéssel és folyamatos monitorozással kívánjuk mérsékelni.
+    </li>
+    <li>
+        <strong>Technológiai problémák:</strong> A különböző platformokra (Steam, Epic Games Store, GOG, itch.io) történő optimalizálás nehézségei jelentős kockázatot hordoznak. Ezt alapos teszteléssel és a platformspecifikus beállítások biztosításával igyekszünk megoldani.
+    </li>
+    <li>
+        <strong>Közösségi visszajelzések kezelése:</strong> Bár a Discord-közösség létrehozása fontos eleme a fejlesztésnek, fennáll annak a kockázata, hogy nem tudunk minden javaslatot megfelelően figyelembe venni. A közösség aktív bevonásával és folyamatos kommunikációval minimalizáljuk ezt a problémát.
+    </li>
+    <li>
+        <strong>Piaci verseny:</strong> Az indie játékok telített piacán való helytállás kockázata mérsékelt. A termék egyedisége – a különböző műfajok ötvözése és a platformfüggetlenség – lehetőséget biztosít arra, hogy kitűnjön a versenytársak közül.
+    </li>
+    <li>
+        <strong>Kreatív koncepciók eltérése:</strong> A több műfaj kombinációja miatt fennáll annak a kockázata, hogy a játékosok nem minden részt élveznek egyformán. Ezt a visszajelzések alapján történő finomhangolással kezeljük, hogy minden elem megfelelően kiegyensúlyozott legyen.
+    </li>
+    <li>
+        <strong>Nyelvi akadályok:</strong> Bár a játék angol nyelven készül, a nem angol nyelvű közönséggel való kapcsolattartás hiánya korlátozhatja a globális elérést. Ennek csökkentésére fontolóra vesszük a későbbi nyelvi lokalizációkat.
+    </li>
+</ol>
+
+<p>Ezeket a kockázatokat folyamatosan figyeljük, és a megfelelő eszközökkel, módszerekkel kezeljük őket, hogy a fejlesztés és a kiadás a lehető legzökkenőmentesebben valósuljon meg.</p>
+
+<h1>Játék genre</h1>
+<ul>
+    <li>A játékban a 3 pályaszakasz során 3 különbözõ mûfajt ismerhetnek meg a játékosok, a top-down shootert, a platformert és a turn-based combat-ot. Ez a mûfajok közötti váltogatás a kezdõ játékosoknak eleinte nehézkes lehet a váltás, azonban bízunk abban, hogy ez a tapasztaltabb játékosoknak egy friss és szórakoztató élményt fog nyújtani.</li>
+</ul>
+<h2>Top-down shooter</h2>
+<ul>
+    <li>A top-down shooter egy olyan videojáték mûfaj, ahol a játékos egy felülnézetbõl látja a karakterét, általában "madártávlatból". A fõ cél a gyors és akciódús játékmenet, ahol a játékos különféle fegyverekkel, képességekkel és taktikával próbálja legyõzni az ellenségeket. A játéktér gyakran labirintusszerû, így a navigáció és a megfelelõ pozíció kiválasztása is fontos szerepet kap. Sok top-down shooter játék rendelkezik egyedi vizuális stílussal, gyakran stilizált vagy retro megjelenésûek. Ezek a játékok lehetnek sci-fi, katonai vagy akár fantázia tematikájúak, attól függõen, hogy a készítõk milyen környezetet és történetet szeretnének létrehozni. A top-down shooter játékok a gyors reakciókat és a precíz irányítást igénylik, így nagyszerû kihívást jelentenek mind az alkalmi, mind a profi játékosok számára.</li>
+</ul>
+<h2>Turn-based combat</h2>
+<ul>
+    <li>A turn-based combat (körökre osztott harcrendszerû) játékokban a játékosok és az ellenfelek felváltva tesznek lépéseket egy harci kör során. A rendszer lehetõséget biztosít arra, hogy a játékosok stratégiát alkossanak és megfontolt döntéseket hozzanak, mivel nincs idõnyomás, mint a valós idejû harcokban. A körökre osztott harc gyakran szerepel szerepjátékokban (RPG-kben), mint a Final Fantasy vagy a Pokémon sorozatban, de számos stratégiai játék, mint a XCOM vagy a Civilization, is alkalmazza ezt a rendszert. Minden körben a játékos dönthet különféle akciókról, például támadásról, védekezésrõl, tárgyhasználatról vagy speciális képességek aktiválásáról. A harcok során gyakran fontos a csapattagok helyezkedése és az ellenség gyengeségeinek kihasználása is. Ez a játékmenetforma különösen népszerû azok körében, akik szeretik az alapos tervezést, a taktikai mélységet és az átgondolt döntéshozatalt.</li>
+</ul>
+<h2>Platformer</h2>
+<ul>
+    <li>A platformer egy népszerû videojáték mûfaj, amelynek fõ jellemzõje a karakterek ugrálása különbözõ platformokon és akadályokon keresztül, hogy elérjenek egy adott célt vagy teljesítsenek egy pályát. A játékos oldalnézetbõl látja a karakterét, és gyakran vízszintesen mozog a játéktérben, bár vertikális ugrások és leesések is gyakoriak. A pályák általában egyre nehezebbek, különbözõ akadályok, ellenségek és buktatók vannak elhelyezve, amelyekkel meg kell küzdeni. A platformer mûfaj népszerû példái közé tartozik a Super Mario és a Sonic the Hedgehog sorozat, amelyek bevezették a mûfajt a köztudatba. A játékosok ügyessége, idõzítése és reflexei kulcsfontosságúak a sikeres teljesítéshez. A platformerek lehetnek 2D-s vagy 3D-s megjelenésûek, és gyakran egyedi világokat és karaktereket hoznak létre, amelyek változatosságot és szórakozást nyújtanak a játékosoknak.</li>
+</ul>
+<h1>Főhős</h1>
+<div class="hover-container" 
+     onmouseover="document.getElementById('hoverImage').style.display='block'; 
+                  this.style.color = '#ff4500'; 
+                  this.style.fontStyle = 'italic'; 
+                  this.style.textDecoration = 'underline';" 
+     onmouseout="document.getElementById('hoverImage').style.display='none'; 
+                 this.style.color = ''; 
+                 this.style.fontStyle = ''; 
+                 this.style.textDecoration = '';">
+     <p style="margin: 0; color: #ff4500; font-style: italic; text-decoration: underline;">Western Karakter!</p>
+     <img id="hoverImage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAbFJREFUWIXtVrFKA0EQfZH7ggO/wA+QRC0OTJUuxZHiSgstcpA0lnaSQpD8gCex0EKwiRBSpNNGIY25kA9IE0h1kDbCBdZC78wmt7uzi6JFXrU3zMx7Ozu7c8AGf4ycYRzLyJFlU2LLhNx38mi6pWUxDACabimxM0HsGiwd4lXDkgiZv7QaVAHMd/LY2bZx1n0CAIyjmTSg6ZYwjmZo9YdMJkKnAgAA38mj1R8qfajQacK0ChR87V7JoXsLyM1FzW9yDdnrXQMAcHjcgGhNzW0kYPbSkjrYRZ+cW7sJAeD59NokLBPUhyh5bFivU4AXhkJHLwxxc7XLxcgSU8rEep3CmrFcCdEu8PYlcg7V+kjIpRLAkS8WvLvrDbjv+9t9AMB8HpNFGPVAgseHg3Q9f9e9oZ8gD6NyJYTrDWBZaqJ4kUO1Pkp2LYXyCDJ8Wbe9hzj+1r66+6OTN85fxic7Au6+20U/HSoJOaHswhwJTP4HqOQkGAn4KXLAsAc0c0t7QHsaXpxfph/TaIIgCAAAArsyv3EPTKOJll0Eo2lYq9UAYHWXIvuvQDRklMNngw3+HT4AYFGoLFhKCvIAAAAOZVhJZk1NACoAAAAIAAAAAAAAANJTkwAAAABJRU5ErkJggg==" 
+          alt="Cowboy Character">
+</div>
+<ul>
+    <li>A fõhõs egy tudós egy cyberpunk stílusú jövõben játszódó világban. A tudományos eredményei miatt üldözik titozatos entitások. Az üldözõk egy nemvárt pillanatban rácsapnak a tudósra, a harc során a tudós TeleWatch készüléke, megrongálódik, ez a készülék egy új találmánya, ami képes térben és idõben teleportálni õt. A megrongálódott készülék visszarepíti fõhõsünket egy számára ismeretlen idõbe. Azonban az ellenséges erõk számára is elérhetõ egy fajta teleportációs készülék. A fõhõs feladata, hogy a téridõ ugrásból hátramaradt feketelyukak segítségével hazajusson.    </li>
+</ul>
+<h1>Ellenségek</h1>
+<h2>Scifi ellenségek</h2>
+<ul>
+    <li>Létezik egy titkos szervezõdés, akiknek a célja a világuralom megszerzése, ezt a létezõ összes tudományos készülékek, megszerzésével és használatával akarják ellérni. Az utolsó tudós, aki még ellen mer szegülni ennek az erõnek, a Fõhõs, ezért a szervezet legnagyobb célja a tudós levadászasa. Ellenségek felépítés: cyborgok, ûrlények, robotok.</li>
+</ul>
+<h2>Western ellenségek</h2>
+<ul>
+    <li>A kietlen posztaságben a legnagyobb veszélyt nem csak a meleg és a vízhiány jelenti, hanem egy kapzsi és környörtelen zsivány banda, akiknek a fõ hivatásuk a faluban él emberek és az értéket szállító vagonok fosztogatása, természetesen nem tesznek kivételt idõutazókkal szemben sem. A fõhõs életét a különbözõ vadnyugati élõvilág sem segíti. Ellenség felépítése: mérges kígyó, skorpió, préri kutya, keselyû, zsiványok.</li>
+</ul>
+<h2>Középkori ellenségek</h2>
+<ul>
+    <li>WORK IN PROGRESS</li>
+</ul>
+<h2>NPCk</h2>
+<ul>
+    <li>WORK IN PROGRESS</li>
+</ul>
+<h1>Játékszintek</h1>
+<ul>
+    <li>
+        A játék 3 pályaszakasz 3 szintjéből áll, plusz a játék elején egy gyors tutorial szinttel.
+        <ul>
+            <li>
+                <strong>Tutorial szint:</strong> Az alapvető karakter irányítást mutatja be a játékosnak: hogyan mozog, hogyan lő, kik az ellenfelek, és hogyan lehet a szinteken továbbjutni.
+            </li>
+            <li>
+                <strong>Első pályaszakasz - Western stílus:</strong> A játékos egy top-down shooter játékmenettel találkozik, amely során több kisebb küldetést kell teljesítenie. Az első pályán a nehézség alacsonyabb, de a szintek között folyamatosan nő. A harmadik pálya végén egy boss-t kell legyőzni, ami után a játékos továbbléphet a második pályaszakaszra.
+            </li>
+            <li>
+                <strong>Második pályaszakasz - Középkori környezet:</strong> RPG jellegű, turn-based combat rendszerű játék. A játékos feladata, hogy legyőzze az előtte álló akadályokat és az aktuális főellenfelet.
+            </li>
+            <li>
+                <strong>Harmadik pályaszakasz - Cyberpunk sci-fi világ:</strong> Platformer típusú játékszakasz, tele felfedeznivalókkal és rejtett titkokkal. A könnyebb tájékozódáshoz a játékos mini-mapot kap. A szakasz végén egy boss-t kell legyőznie.
+            </li>
+        </ul>
+        <strong>Játék vége:</strong> A játék végén a teljes pontszámot kiírja, majd a főmenüben egy "Map Selection" jelenik meg, ahol a játékos különböző módokban próbálhatja ki az egyes pályaszakaszokat:
+        <ul>
+            <li><strong>Első pályaszakasz:</strong> Végtelenített "horde mode", ahol a cél minél magasabb pontszám elérése.</li>
+            <li><strong>Második pályaszakasz:</strong> Nehezített mód, amely jutalmul egy bejátszást ad, bemutatva a királyság történetét és az ellenfelek háttérsztoriját.</li>
+            <li><strong>Harmadik pályaszakasz:</strong> Csapdákkal és veszélyes ellenfelekkel teli pálya, ahol a cél a leggyorsabb teljesítés.</li>
+        </ul>
+    </li>
+</ul>
+<h2>Játék világának leírása:</h2>
+<ul>
+    <li>
+        A játék több helyen, különböző időszakokban játszódik.
+        <ul>
+            <li>
+                <strong>Első pályaszakasz - Sci-fi világ:</strong> Kezdetben egy jövőbeli sci-fi világban kezd a karakter, ahol mindenhol robotok, cyborgok és űrlények láthatók. Ennél a pályarésznél a design főként a cyberpunk stílusra próbál hajazni: sötét, esős utcák és neonfények kontrasztja jellemző, keleti elemek (például japán karakterek és motívumok a neonfényes hirdetőtáblákon) szintén megtalálhatók. A társadalom teljesen integrálta az életébe a mesterséges intelligenciákat, kiberimplantátumokat. A más világokba való átjutásra egy teleport fog funkcionálni, ami a játékban a pálya végi célként funkcionál.
+            </li>
+            <li>
+                <strong>Második pályaszakasz - Vadnyugat:</strong> A második pályaszakasz egy wild west stílusú pályarész. Itt a táj sokkal kevésbé részletgazdag a cyberpunkhoz képest; sok kietlen sivatagos terület található. A western stílusra jellemző motívumok felfedezhetők, mint például a poros sivatagos táj, óriás kanyonok, fából készült kisvárosok, kocsmák, kalapok, csizmák és revolverek. A legikonikusabb elem a cowboy karakter, akit a főhős fog megtestesíteni. Az NPC-k főként más cowboyok, seriffek, haramiák, indiánok és városlakók lesznek. Az ellenségek a haramiákon kívül a vadnyugaton megtalálható élőlények lesznek: keselyűk, skorpiók, prérikutyák, kígyók.
+            </li>
+            <li>
+                <strong>Harmadik pályaszakasz - Középkor:</strong> A végső pályaszakasz a középkor. A középkori stílus jellemző elemei a kastélyok, várak, lovagok és parasztok. Vizuális tematikája a kővárakban, sötét erdőkben, misztikus tájakban, piszkos falvakban és városokban mutatkozik meg. Gyakoriak a hiedelmek, babonák és a misztikumban való hit, mely a játékban különböző okkult lényekben és bestiáriumokban létező furcsa, titokzatos állatszerű szörnyek formájában jelennek meg. A főhős egy lovagként fog megjelenni, míg az ellenségek között más lovagok, őrkutyák, zsoldosok, csontvázak, varázslók és sárkányok szerepelnek.
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<h1>Játékon belüli felhasználói felület (HUD):</h1>
+
+    <p>A HUD egy olyan felület, ahol a játékkal kapcsolatos legfontosabb információkról kap tájékoztatást a játékos. Ezt megpróbáljuk a legátláthatóbbá és letisztultabbá tenni, nem elterelve a játékos figyelmét kulcsfontosságú pillanatokban.</p>
+
+    <h2>Életerõ:</h2>
+    <p>Ez az ikon a játékos életerejének mennyiségérõl tájékoztatja a játékost. Ha a játékosnak elfogy az életereje, akkor meghal a karakter és a legutóbbi mentésnél kell újrakezdeni a játékot. Az életerõ teljes élet esetén zöld színû, ha viszont 75% alá esik akkor átvált sárgára, 50% alatt narancssárgára és 25% alatt pirosra, ilyenkor egy rövid hanghatás is tájékoztatja errõl a játékost.</p>
+
+    <h2>Lõszer:</h2>
+    <p>Az aktuális lõszermennyiségének a tájékozatására szolgáló mutató. A játékos 6 golyóval rendelkezik, az "R" gomb lenyomásával tudja újratölteni a tárat, amely ~1 másodpercig tart. A tár kiürülése esetén egy hanghatás hallható, amely a játékos figyelmének felhívására szolgál. Ha ~20 másodpercig nem tölt újra a játékos, akkor egy tipp ablak ugrik fel a képernyõ oldalán ami az újratöléssel kapcsolatos információkat ad a jáátékosnak.</p>
+
+    <h2>Minimapa:</h2>
+    <p>Egy kis térkép, amely mutatja a játékos pozícióját, a fontosabb felfedezni való területeket (pl bossok, quesetek, felfedezett rejtett helyek) és az ellenségeket.</p>
+
+    <h2>Célkitûzések:</h2>
+    <p>A küldetések vagy feladatok célkitûzéseinek rövid összefoglalása, hogy a játékos mindig tisztában legyen azzal, mit kell tennie.</p>
+
+    <h2>Gyorselérési eszköztár:</h2>
+    <p>Lehetõvé teszi, hogy a játékos gyorsan elérje a különbözõ tárgyait vagy az akadályok eltüntetésére szolgáló eszkközöket.</p>
+
+    <h1>Beállítási menü:</h1>
+
+    <p>A beállítások menü lehetõséget nyújt a játék különbözõ paramétereinek testreszabására, hogy a játékos személyre szabott élményt kapjon. A beállítások az alábbi menüpontokra oszlanak:</p>
+
+    <h2>Grafikai beállítások:</h2>
+    <p>A felbontás, textúraminõség, árnyékok, anti-aliasing és egyéb vizuális elemek testreszabása, hogy a játék optimális teljesítménnyel fusson a játékos eszközén.</p>
+
+    <h2>Hangbeállítások:</h2>
+    <p>A háttérzene, hanghatások, beszédhang és egyéb hangok hangerõ-beállításai.</p>
+
+    <h2>Irányítási beállítások:</h2>
+    <p>A billentyûk vagy gombok átkonfigurálása, érzékenység beállítása, invertálás, valamint a kontroller beállításai.</p>
+
+    <h2>Nyelvi beállítások:</h2>
+    <p>Lehetõség a játék nyelvének megváltoztatására a különbözõ lokalizációk támogatásával.</p>
+
+    <h1>Fejlesztés és inventory HUD:</h1>
+
+    <p>Ezek a felületek lehetõvé teszik a játékos számára, hogy kezelje felszerelését és fejlessze karakterét.</p>
+
+    <h2>Tárgykezelõ:</h2>
+    <p>Az összes megszerzett tárgy, fegyver, páncél és egyéb felszerelés megjelenítése. Lehetõvé teszi a játékosnak, hogy válogasson, felszereljen vagy eladjon tárgyakat.</p>
+
+    <h2>Fejlesztési rendszer:</h2>
+    <p>A karakter képességeinek és tulajdonságainak fejlesztésére szolgáló felület. A játékos itt szerezhet új képességeket, javíthatja statisztikáit, és testre szabhatja a játékstílusát.</p>
+
+    <h1>Mechanikák:</h1>
+
+    <h2>Mentések és autosave-ek:</h2>
+    <p>A játékban időnként lesznek auto mentések, ezek alapvető beállításként 5 percenként fognak történi, azonban a beállítások között ezt is meg lehet változtatni 10, 15, 30 percre, valamint teljesen ki is lehet kapcsolni. A menüben egy kattintással el lehet menteni a játékállást. Az esetleges mentési hiba esetén mindig el lesz mentve a legutóbbi 10 játék állás mentése, így a játékosnak nem kell azon aggódnia, hogy újra kell kezdenie a játékát.</p>
+
+    <h2>Healelés:</h2>
+    <p>Ha a játékosnak elfogy az életereje, akkor meghal a karakter és a legutóbbi mentésnél kell újrakezdeni a játékot. Az életerő teljes élet esetén zöld színű, ha viszont 75% alá esik akkor átvált sárgára, 50% alatt narancssárgára és 25% alatt pirosra, ilyenkor egy rövid hanghatás is tájékoztatja erről a játékost. Az életerő nem töltődik vissza magától, erre specifikus itemek hivatottak. Ezek az itemek a healing itemek, a legelterjedtebb ilyen itemek a különböző ételek lesznek, melyek a játékos életének 25%-át gyógyítják, az ennél ritkább ámde értékesebb gyógyításra alkalmas tárgy a kötszer, amely a játékos életének az 50%-át gyógyítja, és a leghasznosabb tárgy ebben a kategóriában az elsősegélydoboz, ez az életerőt teljesen felgyógyítja. Azonban ilyen erős itemek csak boss harcok után és rejtett helyeken lehet majd megszerezni, míg a gyengébb hatású gyógyító eszközöket az ellenfelek droppolhatják. Az ilyesfajta megszerzések a játék nehézségi fokozata nagyban befolyásolja. Easy fokozaton a kis healing item 10% eséllyel droppolódik, a közepes pedig 4% eséllyel. Mediumon a kis healing item 6% eséllyel, a közepes pedig 2%-al. A hard fokozaton 2% eséllyel droppolódik a kicsi és 0,5% eséllyel a közepes. A nagy healing itemeket nem befolyásolja a nehézségi fokozat.</p>
+
+    <h1>Top-down shooter:</h1>
+    <p>
+        Szabad irányítás: A játék top-down nézetben játszódik, ahol a játékos szabadon mozoghat bármelyik irányba. A mozgás és a lövés irányítása vagy egér és billentyűzet esetén a WASD gombokkal és az egérrel. Ez a rendszer lehetővé teszi, hogy a játékos külön-külön szabályozza a mozgás és a lövés irányát, így folyamatosan mozoghat, miközben az ellenségekre tüzel.</p>
+    <h2>Szabad irányítás:</h2>
+    <p>A játék top-down nézetben játszódik, ahol a játékos szabadon mozoghat bármelyik irányba. A mozgás és a lövés irányítása vagy egér és billentyűzet esetén a WASD gombokkal és az egérrel. Ez a rendszer lehetővé teszi, hogy a játékos külön-külön szabályozza a mozgás és a lövés irányát, így folyamatosan mozoghat, miközben az ellenségekre tüzel.</p>
+
+    <h2>Fedezék használat:</h2>
+    <p>A pályákon különböző tereptárgyak, például fák, sziklák és hordók találhatók, amelyeket a játékos fedezékként használhat. A játékos fedezék mögött elrejtőzhet, így elkerülheti az ellenséges lövéseket, majd időzítve előléphet a fedezékből, hogy visszatámadjon.</p>
+
+    <h2>Célzás és lövés:</h2>
+    <p>A játékos különféle lőfegyverekkel van felszerelve, és az egérrel irányíthatja a célzást. A lövés lehet automata vagy manuális, a fegyvertől függően. A különböző fegyverek más-más lövési sebességgel, hatótávval és pontossággal rendelkeznek, így a játékosnak ki kell választania a legmegfelelőbb fegyvert az adott helyzethez.</p>
+    
+    <h1>Platformer:</h1>
+    <h2>Ugrás és dupla ugrás:</h2>
+    <p>: Az ugrás a mozgás alapja a platformer játékunkban. A játékos képes egyszeri ugrásra, de bizonyos helyzetekben dupla ugrás is elérhető, amely lehetővé teszi, hogy magasabb platformokra jusson, vagy nagyobb távolságokat hidaljon át. A dupla ugrás során a karakter egy rövid animációval lendül tovább, amely vizuálisan is érzékelteti a mozgás lendületét.</p>
+
+    <h2>Falra tapadás és falugrás:</h2>
+    <p>Bizonyos felületeken a játékos képes rövid ideig tapadni a falhoz, ami lehetővé teszi a falugrást is. Amikor a karakter a falra tapad, egy kis idő áll rendelkezésére, hogy átgondolja a következő lépést, majd elrugaszkodjon a falról, hogy elérje a szemben lévő platformot, vagy akár több egymás melletti fal között haladjon felfelé.</p>
+
+    <h2>Közelharci támadások:</h2>
+    <p>A játékos alapvető közelharci támadásokkal rendelkezik, amelyek különböző fegyverekkel hajthatók végre. A közelharci támadások gyorsak és egyszerűen végrehajthatók, és lehetőséget biztosítanak arra, hogy a játékos közvetlen közelről támadja meg az ellenségeit.</p>
+    
+    <h2>Támadás és elkerülés kombinációja:</h2>
+    <p>A játékban a támadások és az elkerülő mozgások kombinálhatók, hogy dinamikus harci élményt nyújtsanak. A játékos egy támadást követően gyorsan kitérhet egy ellenséges csapás elől, vagy ugrással elkerülheti a veszélyt.</p>
+
+    <h2>Kombók és chainattackok:</h2>
+    <p>A játékos képes több támadást összefűzni egy folyamatos támadássorozattá, vagy úgynevezett kombóvá. A kombók lehetővé teszik, hogy a játékos gyors egymásutánban végezzen el több ütést vagy támadást, amely nagyobb sebzést okoz, mint egyszeri támadások.</p>
+
+    <h1>Turn based combat:</h1>
+    
+    <h2>Négyirányú mozgás:</h2>
+    <p>A karakter mozgása egyszerű és letisztult minden egyes mozdulata világos irányt követ, hogy a játékos egyértelműen tudja, hová tart. A négy irányú mozgás miatt a navigáció és a harci pozicionálás intuitív és könnyen megtanulható.</p>
+
+    <h2>Tolás és mozgatás:</h2>
+    <p>Bizonyos tereptárgyakat, például nagy köveket vagy ládákat a játékos eltolhat, hogy új átjárókat nyisson meg, vagy elérje a nehezen hozzáférhető helyeket. Ezek az interakciók nem igényelnek külön gombnyomást – elég, ha a játékos a megfelelő irányba mozog, és a karakter automatikusan tolni kezdi az adott tárgyat.</p>
+
+    <h2>Alaptámadások:</h2>
+    <p>Minden karakterünk rendelkezik alapvető közelharci vagy távolsági támadással, amelyeket közel vagy távolságból hajthatnak végre. Az alaptámadások gyorsak és könnyen végrehajthatók, így ideálisak a harc minden szakaszában.</p>
+
+    <h2>Kombók és szinergiák:</h2>
+    <p>Játékunkban a karakterek különféle képességei kombinálhatók egymással, így a játékos még hatékonyabb taktikákat dolgozhat ki. Például, ha az egyik karakter olajjal leönti a talajt, egy másik karakter tüzet idézhet rá, amely egy hatalmas robbanást idéz elő. Az ilyen szinergiák lehetőséget adnak a játékosnak, hogy maximálisan kihasználja a csapat együttműködését.</p>
+
+    <h2>Kritikus találatok és hibázások:</h2>
+    <p>A játékban minden támadásnak van egy kis esélye arra, hogy kritikus találat legyen, amely extra sebzést okoz, vagy hibázásra, amely teljesen elvéti az ellenfelet. Ez a véletlen elem fokozza az izgalmat, mivel minden támadás kimenetele nem teljesen kiszámítható, így a játékosnak folyamatosan alkalmazkodnia kell a helyzethez.</p>
+
+    <h2>Akciópontok rendszere:</h2>
+    <p>Minden karakterünk rendelkezik egy meghatározott számú akcióponttal, amelyeket minden körben felhasználhat mozgásra, támadásra vagy különleges képességek használatára. Az akciópontok gondos beosztása elengedhetetlen: ha a játékos túlságosan előresiet, és minden pontját támadásra fordítja, könnyen védtelenné válhat a következő körben.</p>
+
+    <h2>Kezdeményezés és körsorrend:</h2>
+    <p>A karakterek kezdeményezési értékei határozzák meg a kör sorrendjét. A gyorsabb karakterek előbb cselekednek, így a kezdeményezés előnyt jelenthet a harc elején. Egy gyors támadás vagy védekező lépés megváltoztathatja a csata menetét, így a játékosnak érdemes figyelembe vennie a kezdeményezés értékét, amikor taktikát tervez.</p>
+
+<h1>Szótár</h1>
+
+<ul>
+    <li>
+        <strong>Játék:</strong> Olyan interaktív program, amely szórakoztató tevékenységeket kínál a felhasználóknak, akik különböző kihívásokkal néznek szembe.
+    </li>
+    <li>
+        <strong>Pixel Art:</strong> Retró grafikai stílus, alacsony felbontású képekkel.
+    </li>
+    <li>
+        <strong>Egyjátékos:</strong> Olyan játékforma, amelyben egyetlen játékos játszik, nem több felhasználó ellen vagy együtt.
+    </li>
+    <li>
+        <strong>Játékmenet:</strong> A játék során a felhasználó által végrehajtott tevékenységek összessége, beleértve a kihívásokat és a szabályokat.
+    </li>
+    <li>
+        <strong>Sci-fi:</strong> Szórakoztató műfaj, amely a tudományos és technikai fejlődésen alapul, valamint a jövőbeli vagy alternatív világokat ábrázolja.
+    </li>
+    <li>
+        <strong>Western:</strong> Olyan műfaj, amely a vadnyugati témákra, például cowboyokra és sheriffekre fókuszál.
+    </li>
+    <li>
+        <strong>Fantasy:</strong> Műfaj, amely a mágikus és mitikus elemekre épít, gyakran elképzelt világokban játszódik.
+    </li>
+    <li>
+        <strong>Animáció:</strong> Képek vagy grafikai elemek mozgásának megjelenítése, amely a játék dinamikáját és életérzését növeli.
+    </li>
+    <li>
+        <strong>Taktikai:</strong> Olyan játékmenet, amelyben a döntéshozatal és a stratégiai tervezés kulcsfontosságú a sikerhez.
+    </li>
+    <li>
+        <strong>Felülnézetes lövöldözés (Top-down shooter):</strong> Olyan játékstílus, amelyben a játékos felülről nézve irányít egy karaktert, aki ellenségeket lő.
+    </li>
+    <li>
+        <strong>Körökre osztott harcrendszer (Turn-based combat):</strong> Olyan játékmenet, ahol a játékosok felváltva hajtják végre a cselekvéseiket, nem valós időben.
+    </li>
+    <li>
+        <strong>Godot:</strong> Nyílt forráskódú játékmotor, amely lehetővé teszi a 2D és 3D játékok fejlesztését.
+    </li>
+    <li>
+        <strong>Asperite:</strong> Grafikai szerkesztő szoftver, amely kifejezetten pixel art stílusú elemek készítésére szolgál.
+    </li>
+    <li>
+        <strong>Életcsík (Health bar):</strong> Grafikai elem, amely a karakter életpontjait (HP) jelzi, lehetővé téve a játékos számára, hogy figyelemmel kísérje a karakter állapotát.
+    </li>
+    <li>
+        <strong>Fegyvertár:</strong> Olyan rendszer a játékban, amely tájékoztatja a játékost a rendelkezésre álló lőszerekről és fegyverekről.
+    </li>
+    <li>
+        <strong>Támogatási rendszer:</strong> A játék megjelenése után elérhető funkció, amely lehetővé teszi a játékosok számára, hogy visszajelzéseket küldjenek hibákról, glitchekről és javaslatokról.
+    </li>
+    <li>
+        <strong>Felhasználói környezet:</strong> Az a technikai és szociális kontextus, amelyben a felhasználók a játékot használják, beleértve a platformokat, közönséget és a játékmenetet befolyásoló tényezőket.
+    </li>
+    <li>
+        <strong>Béta fázis:</strong> A fejlesztési szakasz, amikor a szoftver már használható, de még tesztelés alatt áll, hogy hibákat találjanak és javítsanak.
+    </li>
+    <li>
+        <strong>Portolás:</strong> A játék más platformokra való átkonvertálása, hogy ott is elérhető legyen.
+    </li>
+    <li>
+        <strong>DLC (Letöltési Tartalom):</strong> Olyan kiegészítő tartalom, amelyet a játékosok megvásárolhatnak a fő játékhoz, általában új pályák, karakterek vagy funkciók formájában.
+    </li>
+    <li>
+        <strong>Agilis módszertan:</strong> Fejlesztési keretrendszer, amely az alkalmazkodásra helyezi a hangsúlyt.
+    </li>
+    <li>
+        <strong>Discord:</strong> Közösségi platform tapasztalatmegosztásra.
+    </li>
+    <li>
+        <strong>Szórakoztató szoftver:</strong> Szórakoztatási céllal készült programok, pl. videojátékok.
+    </li>
+    <li>
+        <strong>Platformfüggetlen:</strong> Több operációs rendszeren működő szoftver.
+    </li>
+    <li>
+        <strong>Piaci verseny:</strong> Termékek versenye a vásárlók figyelméért.
+    </li>
+    <li>
+        <strong>Visszajelzés:</strong> Információ a felhasználók tapasztalatairól és javaslatairól.
+    </li>
+    <li>
+        <strong>Technológiai optimalizálás:</strong> Szoftver különböző platformokhoz való igazítása.
+    </li>
+    <li>
+        <strong>Kockázat:</strong> Kedvezőtlen hatású esemény vagy körülmény.
+    </li>
+    <li>
+        <strong>Közösségi aspektusok:</strong> A játékosok közötti kapcsolattartás és interakció.
+    </li>
+    <li>
+        <strong>Alternatív megoldások:</strong> Olyan termékek, amelyek más játékélményeket kínálnak.
+    </li>
+    <li>
+        <strong>Komplexitás:</strong> A projekt bonyolultsága, amely hatással van a fejlesztésre.
+    </li>
+    <li>
+        <strong>Nyelvi lokalizáció:</strong> A játék különböző nyelvekre való fordítása és adaptálása.
+    </li>
+    <li>
+        <strong>Közönség:</strong> A termék célcsoportja, akik a játékot játszani fogják.
+    </li>
+    <li>
+        <strong>Tematikus világok:</strong> Különböző, specifikus témákat bemutató játékkörnyezetek.
+    </li>
+    <li>
+        <strong>Kreatív koncepciók:</strong> Azok az ötletek, amelyek a játék tervezését irányítják.
+    </li>
+    <li>
+        <strong>Globális közönség:</strong> A játék által megcélzott, világszerte elérni kívánt játékosok.
+    </li>
+    <li>
+        <strong>Alternatívák:</strong> Más játékok vagy megoldások, amelyek a piacon elérhetők.
+    </li>
+    <li>
+    <strong>Platformer:</strong> Olyan videojáték, ahol a játékosnak akadályokat és platformokat kell ugrálnia.
+</li>
+<li>
+    <strong>Turn-based combat:</strong> Körökre osztott harc, ahol a játékos és az ellenfél felváltva támadnak.
+</li>
+<li>
+    <strong>Top-down shooter:</strong> Felülnézetes lövöldözős játék, ahol a játékos a karaktert felülről látja.
+</li>
+<li>
+    <strong>RPG:</strong> Szerepjáték, ahol a játékos egy karaktert irányít, és fejlődik a játék során.
+</li>
+<li>
+    <strong>Madártávlat:</strong> Olyan nézet, ahol a jeleneteket magasról, felülről láthatjuk.
+</li>
+<li>
+    <strong>Oldalnézet:</strong> Olyan perspektíva, ahol a játékos a jelenetet oldalról látja.
+</li>
+<li>
+    <strong>Quest:</strong> Feladat vagy küldetés, amit a játékos teljesít.
+</li>
+<li>
+    <strong>Boss:</strong> Erős ellenfél, akit a játékosnak le kell győznie.
+</li>
+<li>
+    <strong>Minimap:</strong> Kis térkép a játék képernyőjén, amely segíti a tájékozódást.
+</li>
+<li>
+    <strong>Sci-fi:</strong> Tudományos-fantasztikus műfaj, amely futurisztikus és technológiai elemeket tartalmaz.
+</li>
+<li>
+    <strong>Karakter:</strong> A játékban irányított vagy interakcióba lépő szereplő.
+</li>
+<li>
+    <strong>Cyborg:</strong> Félig ember, félig gép, kiborg.
+</li>
+<li>
+    <strong>Cyberpunk:</strong> Futurisztikus stílus, amely sötét, technológia uralta világot ábrázol.
+</li>
+<li>
+    <strong>Mesterséges intelligencia:</strong> Számítógépes rendszerek képessége, hogy emberi feladatokat hajtsanak végre.
+</li>
+<li>
+    <strong>Wild west:</strong> A vadnyugat, a 19. századi amerikai területek western jellegű világa.
+</li>
+<li>
+    <strong>Western:</strong> A vadnyugati stílus, amely a cowboyok és sivatagi tájak világát ábrázolja.
+</li>
+<li>
+    <strong>NPC:</strong> Nem játékos karakter, akit a számítógép irányít.
+</li>
+<li>
+    <strong>Középkor:</strong> Történelmi korszak, amely a sötét középkortól a reneszánszig tart.
+</li>
+<li>
+    <strong>Lovag:</strong> Középkori harcos, aki páncélban és lovon küzd.
+</li>
+<li>
+    <strong>Okkult:</strong> Titokzatos, rejtett és misztikus ismeretek.
+</li>
+<li>
+    <strong>Bestiárum:</strong> Mitikus lények gyűjteménye vagy azokkal foglalkozó mű.
+</li>
+
+</ul>
 
 </body>
 </html>

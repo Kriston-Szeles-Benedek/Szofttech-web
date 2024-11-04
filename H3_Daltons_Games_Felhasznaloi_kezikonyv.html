@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H3 Daltons Games - Játékfejlesztési projekt">
+    <title>H3 Daltons Games Felhasznaloi kezikonyv</title>
+    <link rel="stylesheet" href="style.css"> <!-- Külső CSS-fájl csatolása, ha szükséges -->
+    <button onclick="scrollToTop()" style="position:fixed;bottom:20px;right:20px;padding:10px;border-radius:5px;background-color:#007BFF;color:white;border:none;cursor:pointer;">
+        Fel a tetejére
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</head>
+
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f4f8; /* Világos, szemkímélő háttérszín */
+            color: #333;           
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .requirements {
+            padding-left: 20px;
+        }
+    </style>
+<body>
+    <header>
+        <h1>Felhasználói kézikönyv</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#bevezetes">Bevezetés</a></li>
+                <li><a href="#telepites-inditas">Telepítés és indítási útmutató és Rendszerigény</a></li>
+                <li><a href="#fomenu-navigalasa">Főmenü navigálása</a></li>
+                <li><a href="#iranyitasi-utmutato">Irányítási útmutató</a></li>
+                <li><a href="#hibaelharitas">Hibaelhárítás</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+   
+
+    <div id="bevezetes" class="section">
+        <h2>Bevezetés</h2>
+        <p><strong>Játék neve:</strong> #####</p>
+        <p><strong>Rövid leírás:</strong> A ##### egy több stíluson átívelő játék változatos pályákkal, izgalmas harcrendszerrel és megújuló mechanikákkal.</p>
+        <p><strong>Cél:</strong> A játékos célja legyőzni az ellenfeleket és hazajutni.</p>
+    </div>
+
+    <div id="telepites-inditas" class="section">
+        <h2>Telepítés és indítási útmutató</h2>
+        <h3>Rendszerigény</h3>
+        <h4>Minimum rendszerkövetelmények:</h4>
+        <ul class="requirements">
+            <li>Operációs rendszer: Windows 7/8/10 vagy macOS 10.13+</li>
+            <li>Processzor: Intel Core i3 (vagy AMD megfelelője)</li>
+            <li>Memória: 4 GB RAM</li>
+            <li>Grafikus kártya: NVIDIA GTX 460 vagy AMD Radeon HD 6850 (minimum DirectX 10 támogatással)</li>
+            <li>Tárhely: 2-4 GB szabad hely</li>
+            <li>Hangkártya: Kompatibilis bármilyen integrált hangkártyával</li>
+        </ul>
+
+        <h4>Ajánlott rendszerkövetelmények:</h4>
+        <ul class="requirements">
+            <li>Operációs rendszer: Windows 10 vagy macOS 10.15+</li>
+            <li>Processzor: Intel Core i5 vagy AMD Ryzen 5</li>
+            <li>Memória: 8 GB RAM</li>
+            <li>Grafikus kártya: NVIDIA GTX 960 vagy AMD Radeon R9 280</li>
+            <li>Tárhely: 4-8 GB szabad hely</li>
+            <li>Hangkártya: Kompatibilis bármilyen integrált vagy dedikált hangkártyával</li>
+        </ul>
+
+        <h3>Telepítés</h3>
+        <p>A játékot az általad választott digitális áruházból letöltöd.</p>
+
+        <h3>Indítás</h3>
+        <p>Az indítást a digitális áruházadból, vagy a játék parancsikonja segítségével tudod megtenni.</p>
+    </div>
+
+    <div id="fomenu-navigalasa" class="section">
+        <h2>Főmenü navigálása</h2>
+        <ul>
+            <li><strong>Új játékállás:</strong> Ha új kalandot szeretne kezdeni, válassza az Új játékállás opciót a főmenüben. Ezen a ponton kiválaszthatja a nehézségi szintet.</li>
+            <ul>
+                <li><strong>Easy:</strong> Ideális kezdő játékosok számára.</li>
+                <li><strong>Medium:</strong> Kiegyensúlyozott nehézség, a legjobb játékélmény érdekében.</li>
+                <li><strong>Hard:</strong> Tapasztalt játékosoknak, akik komolyabb kihívást keresnek.</li>
+            </ul>
+            <li><strong>Folytatás:</strong> Ha már rendelkezik korábban elmentett játékállással, válassza a Folytatás menüpontot.</li>
+            <li><strong>Opciók:</strong> Az Opciók menüpont alatt testre szabhatja a játékélményt.</li>
+            <li><strong>Kilépés:</strong> Ha szeretne kilépni a játékból, válassza a Kilépés opciót a főmenüben.</li>
+        </ul>
+    </div>
+
+    <div id="iranyitasi-utmutato" class="section">
+        <h2>Irányítási útmutató</h2>
+        <ul>
+            <li><strong>W:</strong> mozgás föl</li>
+            <li><strong>S:</strong> mozgás le</li>
+            <li><strong>A:</strong> mozgás balra</li>
+            <li><strong>D:</strong> mozgás jobbra</li>
+            <li><strong>Left click:</strong> lövés</li>
+            <li><strong>R:</strong> fegyver újratöltése</li>
+            <li><strong>LShift:</strong> futás</li>
+            <li><strong>ESC:</strong> menü megnyitás</li>
+        </ul>
+    </div>
+
+    <div id="hibaelharitas" class="section">
+        <h2>Hibaelhárítás</h2>
+        <ul>
+            <li><strong>A játék nem indul:</strong> Rendszerkövetelmények ellenőrzése és játék frissítése.</li>
+            <li><strong>Lassú teljesítmény:</strong> Grafikai beállítások csökkentése, friss driverek telepítése.</li>
+            <li><strong>Hangproblémák:</strong> A hangkártya beállításainak ellenőrzése, illesztőprogram frissítése.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 H3 Daltons Games. Minden jog fenntartva.</p>
+    </footer>
+</body>
+</html>
