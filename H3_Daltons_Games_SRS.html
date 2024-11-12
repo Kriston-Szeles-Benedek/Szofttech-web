@@ -63,6 +63,16 @@
             background-color: #e7f3ff; /* Hover háttérszín */
             color: #0056b3; /* Hover szín */
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 2px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
         
     </style>
     
@@ -264,27 +274,7 @@
                     <li><strong>Kilépés:</strong> Ha szeretne kilépni a játékból, válassza a Kilépés opciót a főmenüben.</li>
                 </ul>
             </div>
-            <div id="iranyitasi-utmutato" class="section">
-                <h2>Irányítási útmutató</h2>
-                <ul>
-                    <li><strong>W:</strong> mozgás föl</li>
-                    <li><strong>S:</strong> mozgás le</li>
-                    <li><strong>A:</strong> mozgás balra</li>
-                    <li><strong>D:</strong> mozgás jobbra</li>
-                    <li><strong>Left click:</strong> lövés</li>
-                    <li><strong>R:</strong> fegyver újratöltése</li>
-                    <li><strong>LShift:</strong> futás</li>
-                    <li><strong>ESC:</strong> menü megnyitás</li>
-                </ul>
-            </div>
-            <div id="hibaelharitas" class="section">
-                <h2>Hibaelhárítás</h2>
-                <ul>
-                    <li><strong>A játék nem indul:</strong> Rendszerkövetelmények ellenőrzése és játék frissítése.</li>
-                    <li><strong>Lassú teljesítmény:</strong> Grafikai beállítások csökkentése, friss driverek telepítése.</li>
-                    <li><strong>Hangproblémák:</strong> A hangkártya beállításainak ellenőrzése, illesztőprogram frissítése.</li>
-                </ul>
-            </div>
+            
 
 
 
@@ -545,6 +535,79 @@
                 <h3>Funkcionális követelmények:</h3>
                 <p>Az interfész gyors válaszidővel reagál a játékos műveleteire, és vizuálisan is megfelel a játék retro, pixel art esztétikájának.</p>
             </section>
+            <h2>Játékon belüli felhasználói felület (HUD)</h2>
+    <p>A HUD egy olyan felület, ahol a játékkal kapcsolatos legfontosabb információkról kap tájékoztatást a játékos. Ezt megpróbáljuk a legátláthatóbbá és letisztultabbá tenni, nem elterelve a játékos figyelmét kulcsfontosságú pillanatokban.</p>
+
+    <h3>Főhős karakter</h3>
+    <p>A cowboy karakter a főhős, akit a játékos irányít. A karakter képes lőni, és limitált mennyiségű élettel rendelkezik, ezért menekülnie kell az ellenségektől.</p>
+    <img src="ingame_hud_karakter.png" alt="Ingame HUD karakter">
+
+    <h3>Életerő</h3>
+    <p>Ez az ikon a játékos életerejének mennyiségéről tájékoztatja a játékost. Ha a játékosnak elfogy az életereje, akkor meghal a karakter, és a legutóbbi mentésnél kell újrakezdeni a játékot. Az életerő teljes élet esetén zöld színű, ha viszont 75% alá esik, akkor átvált sárgára, 50% alatt narancssárgára, és 25% alatt pirosra, ilyenkor egy rövid hanghatás is tájékoztatja erről a játékost.</p>
+    <img src="ingame_hud_elet.png" alt="Ingame HUD életerő">
+
+    <h3>Lőszer</h3>
+    <p>Az aktuális lőszermennyiség tájékoztatására szolgáló mutató. A játékos 6 golyóval rendelkezik, az "R" gomb lenyomásával tudja újratölteni a tárat, amely körülbelül 1 másodpercig tart. A tár kiürülése esetén egy hanghatás hallható, amely a játékos figyelmének felhívására szolgál. Ha 20 másodpercig nem tölt újra a játékos, akkor egy tipp ablak ugrik fel a képernyő oldalán, ami az újratöltéssel kapcsolatos információkat ad a játékosnak.</p>
+    <img src="ingame_hud_ammo.png" alt="Ingame HUD lőszer">
+
+    <h3>Ellenség</h3>
+    <p>Az ellenségek sok változatban jelennek meg a játékban, némelyik közelharci, némelyik pedig távolsági támadásokkal rendelkezik. Az ellenségek feje felett látható az életerejük, ha ez a mutató üres lesz, akkor az ellenség meghal.</p>
+    <img src="ingame_hud_enemy.png" alt="Ingame HUD ellenség">
+
+    <h3>Minimap</h3>
+    <p>Egy kis térkép, amely mutatja a játékos pozícióját, a fontosabb felfedezni való területeket (például bossok, questek, felfedezett rejtett helyek) és az ellenségeket.</p>
+    <img src="ingame_hud_map.png" alt="Ingame HUD minimap">
+
+    <h3>Save ikon</h3>
+    <p>Mentések és autosave-ek: A játékban időnként lesznek automatikus mentések, amelyek alapvető beállításként 5 percenként fognak történni. Azonban a beállítások között ezt is meg lehet változtatni 10, 15, vagy 30 percre, valamint teljesen ki is lehet kapcsolni. A menüben egy kattintással el lehet menteni a játékállást. Az esetleges mentési hiba esetén mindig el lesz mentve a legutóbbi 10 játékállás mentése, így a játékosnak nem kell aggódnia, hogy újra kell kezdenie a játékot.</p>
+    <img src="ingame_hud_save.png" alt="Ingame HUD mentés">
+
+    <h3>Gyorselérési eszköztár</h3>
+    <p>Lehetővé teszi, hogy a játékos gyorsan elérje a különböző tárgyait vagy az akadályok eltüntetésére szolgáló eszközöket.</p>
+
+    <h3>Célkitűzések</h3>
+    <p>A küldetések vagy feladatok célkitűzéseinek rövid összefoglalása, hogy a játékos mindig tisztában legyen azzal, mit kell tennie.</p>
+
+    <h3>Pause menü</h3>
+    <h4>Resume</h4>
+    <p>A "Resume" menüpont segítségével vissza tud a játékos lépni a pause menüből a játékba.</p>
+    <img src="pause_hud_resume.png" alt="Pause HUD resume">
+
+    <h4>Load</h4>
+    <p>A "Load" menüpont segítségével vissza tudod tölteni a régebbi mentéseket.</p>
+    <img src="pause_hud_load.png" alt="Pause HUD load">
+
+    <h4>Options</h4>
+    <p>Az "Options" menüpont segítségével a játékos be tud lépni a beállításokba.</p>
+    <img src="pause_hud_options.png" alt="Pause HUD options">
+
+    <h4>Exit</h4>
+    <p>Az "Exit" menüponttal a játékos ki tud lépni a játékból.</p>
+    <img src="pause_hud_exit.png" alt="Pause HUD exit">
+
+    <h3>Beállítási menü</h3>
+    <p>A beállítások menü lehetőséget nyújt a játék különböző paramétereinek testreszabására, hogy a játékos személyre szabott élményt kapjon. A beállítások az alábbi menüpontokra oszlanak:</p>
+    
+    <h4>Grafikai beállítások</h4>
+    <p>A felbontás, textúraminőség, árnyékok, anti-aliasing és egyéb vizuális elemek testreszabása, hogy a játék optimális teljesítménnyel fusson a játékos eszközén.</p>
+
+    <h4>Hangbeállítások</h4>
+    <p>A háttérzene, hanghatások, beszédhang és egyéb hangok hangerő-beállításai.</p>
+
+    <h4>Irányítási beállítások</h4>
+    <p>A billentyűk vagy gombok átkonfigurálása, érzékenység beállítása, invertálás, valamint a kontroller beállításai.</p>
+
+    <h4>Nyelvi beállítások</h4>
+    <p>Lehetőség a játék nyelvének megváltoztatására a különböző lokalizációk támogatásával.</p>
+
+    <h3>Fejlesztés és inventory HUD</h3>
+    <p>Ezek a felületek lehetővé teszik a játékos számára, hogy kezelje felszerelését és fejlessze karakterét.</p>
+
+    <h4>Tárgykezelő</h4>
+    <p>Az összes megszerzett tárgy, fegyver, páncél és egyéb felszerelés megjelenítése. Lehetővé teszi a játékosnak, hogy válogasson, felszereljen vagy eladjon tárgyakat.</p>
+
+    <h4>Fejlesztési rendszer</h4>
+    <p>A karakter képességeinek és tulajdonságainak fejlesztésére szolgáló felület. A játékos itt szerezhet új képességeket, javíthatja statisztikáit, és testre szabhatja a játékstílusát.</p>
     
             <section>
                 <h2>11.2. Hardware interfészek</h2>
@@ -628,6 +691,97 @@
             </section>
         </section>
         
+        <section>
+            <h1>13. Karakterek</h1>
+            <p><strong>Főhős:</strong> A főhős egy tudós egy cyberpunk stílusú jövőben játszódó világban. A tudományos eredményei miatt üldözik titkosított entitások. Az üldözők egy nemvárt pillanatban rácsapnak a tudósra, a harc során a tudós TeleWatch készüléke, megrongálódik, ez a készülék egy új találmánya, ami képes térben és időben teleportálni őt. A megrongálódott készülék visszarepíti főhősünket egy számára ismeretlen időbe. Azonban az ellenséges erők számára is elérhető egy fajta teleportációs készülék. A főhős feladata, hogy a téridő ugrásból hátramaradt fekete lyukak segítségével hazajusson.</p>
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Easy</th>
+                        <th>Medium</th>
+                        <th>Hard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">cowboy főhős:</td>
+                        <td>életerő: 200</td>
+                        <td>életerő: 175</td>
+                        <td>életerő: 150</td>
+                    </tr>
+                    <tr>
+                        <td>sebzés: 25</td>
+                        <td>sebzés: 20</td>
+                        <td>sebzés: 15</td>
+                    </tr>
+                    <tr>
+                        <td>sebesség: 1</td>
+                        <td>sebesség: 1</td>
+                        <td>sebesség: 1</td>
+                    </tr>
+                    <tr>
+                        <td>sebzés típus: távolsági</td>
+                        <td>sebzés típus: távolsági</td>
+                        <td>sebzés típus: távolsági</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>Ellenségek:</h3>
+            <p><strong>Scifi ellenségek:</strong> Létezik egy titkos szerveződés, akiknek a célja a világuralom megszerzése, ezt a létező összes tudományos készüléket, megszerzésével és használatával akarják elérni. Az utolsó tudós, aki még ellen mer szegülni ennek az erőnek, a Főhős, ezért a szervezet legnagyobb célja a tudós levadászása. Ellenségek felépítése: cyborgok, űrlények, robotok.</p>
+            <p><strong>Western ellenségek:</strong> A kietlen posztapátságban a legnagyobb veszélyt nem csak a meleg és a vándorlás jelenti, hanem úgy kapzsi és környőleten zsivány banda, akiknek a fő célja a legutolsó emberek és az értékek szállító vonat fosztogatása, természetesen nem tesznek kivételt időutazókkal szemben sem. A főhős életét a különböző vadnyugati élővilág sem segíti.</p>
+            
+            <h3>Ellenség felépítése:</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Easy</th>
+                        <th>Medium</th>
+                        <th>Hard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>mérgeskígyó:</td>
+                        <td>életerő: 100<br>sebzés: 10<br>sebesség: 0.5<br>sebzés típus: közelharci<br>knockback: 30%<br>res.:<br>health drop: s:10%, m:4%, b:0%</td>
+                        <td>életerő: 140<br>sebzés: 25<br>sebesség: 0.6<br>sebzés típus: közelharci<br>knockback: 40%<br>res.:<br>health drop: s:6%, m:2%, b:0%</td>
+                        <td>életerő: 200<br>sebzés: 60<br>sebesség: 0.8<br>sebzés típus: közelharci<br>knockback: 50%<br>res.:<br>health drop: s:2%, m:0.5%, b:0%</td>
+                    </tr>
+                    <tr>
+                        <td>skorpió:</td>
+                        <td>életerő: 80<br>sebzés: 20<br>sebesség: 0.7<br>sebzés típus: közelharci<br>knockback: 20%<br>res.:<br>health drop: s:10%, m:4%, b:0%</td>
+                        <td>életerő: 120<br>sebzés: 40<br>sebesség: 0.8<br>sebzés típus: közelharci<br>knockback: 35%<br>res.:<br>health drop: s:6%, m:2%, b:0%</td>
+                        <td>életerő: 180<br>sebzés: 80<br>sebesség: 0.9<br>sebzés típus: közelharci<br>knockback: 50%<br>res.:<br>health drop: s:2%, m:0.5%, b:0%</td>
+                    </tr>
+                    <tr>
+                        <td>préri kutya:</td>
+                        <td>életerő: 40<br>sebzés: 15<br>sebesség: 1.2<br>sebzés típus: közelharci<br>knockback: 0%<br>res.:<br>health drop: s:10%, m:10%, b:0%</td>
+                        <td>életerő: 45<br>sebzés: 20<br>sebesség: 1.4<br>sebzés típus: közelharci<br>knockback: 10%<br>res.:<br>health drop: s:6%, m:6%, b:0%</td>
+                        <td>életerő: 60<br>sebzés: 25<br>sebesség: 1.6<br>sebzés típus: közelharci<br>knockback: 20%<br>res.:<br>health drop: s:2%, m:2%, b:0%</td>
+                    </tr>
+                    <tr>
+                        <td>keselyű:</td>
+                        <td>életerő: 200<br>sebzés: 15<br>sebesség: 0.3<br>sebzés típus: közelharci<br>knockback: 80%<br>res.:<br>health drop: s:30%, m:4%, b:0%</td>
+                        <td>életerő: 240<br>sebzés: 20<br>sebesség: 0.4<br>sebzés típus: közelharci<br>knockback: 90%<br>res.:<br>health drop: s:10%, m:5%, b:0%</td>
+                        <td>életerő: 300<br>sebzés: 30<br>sebesség: 0.5<br>sebzés típus: közelharci<br>knockback: 100%<br>res.:<br>health drop: s:5%, m:0%, b:0%</td>
+                    </tr>
+                    <tr>
+                        <td>zsiványok:</td>
+                        <td>életerő: 160<br>sebzés: 40<br>sebesség: 0.7<br>sebzés típus: távolsági<br>knockback: 50%<br>res.:<br>health drop: s:10%, m:4%, b:0%</td>
+                        <td>életerő: 180<br>sebzés: 50<br>sebesség: 0.9<br>sebzés típus: távolsági<br>knockback: 60%<br>res.:<br>health drop: s:6%, m:2%, b:0%</td>
+                        <td>életerő: 200<br>sebzés: 60<br>sebesség: 1.0<br>sebzés típus: távolsági<br>knockback: 70%<br>res.:<br>health drop: s:2%, m:0.5%, b:0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <p><strong>Középkori ellenségek:</strong> WORK IN PROGRESS</p>
+            <p><strong>NPCk:</strong> WORK IN PROGRESS</p>
+
+        </section>
 
     </ul>
 
