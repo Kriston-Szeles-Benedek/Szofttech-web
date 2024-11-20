@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H4 Daltons Games - Játékfejlesztési projekt">
+    <title>H4 Analízis Modell</title>
+    <link rel="stylesheet" href="style.css"> <!-- Külső CSS-fájl csatolása, ha szükséges -->
+    <button onclick="scrollToTop()" style="position:fixed;bottom:20px;right:20px;padding:10px;border-radius:5px;background-color:#007BFF;color:white;border:none;cursor:pointer;">
+        Fel a tetejére
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</head>
+
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f4f8; /* Világos, szemkímélő háttérszín */
+            color: #333;           
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .requirements {
+            padding-left: 20px;
+        }
+        div[class] {
+            text-align: justify;
+        }
+    </style>
+<body>
+    <header>
+        <h1>Analízis Modell</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#bevezetes">Bevezetés</a></li>
+                <li><a href="#Kezdeti osztálydiagram">Osztálydiagram</a></li>
+                <li><a href="#Alrendszerek">Alrendszerek</a></li>
+                <li><a href="#attribute-identification">Attribútumok azonosítása</a></li>
+                <li><a href="#Játékmechanikák alrendszer">Játékmechanikák alrendszer</a></li>
+                <li><a href="#Küldetés és interakció alrendszer">Küldetés és interakció alrendszer</a></li>
+                <li><a href="#Fegyver és harci alrendszer">Fegyver és harci alrendszer</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+   
+
+
+    <div class="introduction">
+        <h1 id="bevezetes">1. Bevezetés</h1>
+        
+           
+        <ul>
+            <li>
+                <strong>A játékfejlesztési projekt célja:</strong> Egy olyan innovatív, műfajilag sokszínű játék létrehozása, amely a sci-fi, western és fantasy elemeket ötvözi, mindezt retro, pixel art stílusban megjelenítve. 
+                Az alapötlet arra épül, hogy a játékosok számára három különböző tematikus világot és játékmenetet nyújtson, lehetőséget adva a világok közötti zökkenőmentes váltásra és a különféle játékélmények felfedezésére. 
+                Ez a műfaji kombináció a játékot egyedi szórakoztató szoftverré teszi, amely különféle platformokon érhető el, beleértve a Steam, Epic Games Store, GOG és itch.io felületeket. 
+                Célunk, hogy a játékot digitálisan elérhetővé tegyük, széleskörű hozzáférést biztosítva az érdeklődőknek, különösen a fiatal felnőtt játékosok számára, akik vonzódnak a műfajok közötti váltáshoz és az esztétikus retro megjelenéshez.
+            </li>
+        </ul>
+        
+        <ul>
+            <li>
+                <strong>A játékot elsősorban:</strong> A fiatal felnőtt közönség számára tervezzük, akik nyitottak a különböző világok és játékstílusok közötti váltásra.
+                A célcsoportot olyan játékosok alkotják, akik élvezik a tematikus világok közötti átmeneteket, szeretik a műfaji sokszínűséget, valamint nyitottak az újszerű, egyedi megközelítésekre a játékélményben.
+                Az angol nyelvű kiadás célja, hogy a globális közönség számára elérhetővé tegyük a játékot, hiszen az angol nyelv nemzetközi használata elősegíti, hogy a játék világszerte népszerű legyen.
+                Ezzel a globális célkitűzéssel a játék piaci pozícióját is erősítjük, hiszen az indie és pixel art stílus iránt érdeklődő közönség egyre növekvő keresletet mutat a változatos és innovatív játékok iránt.
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <strong>A játék különlegessége abban rejlik:</strong> Hogy három teljesen eltérő világ és játékmenet egyesül benne, amelyek mind egyedi élményt nyújtanak a játékosoknak. A sci-fi világ gyors és dinamikus akciókat igényel, ahol a játékosoknak gyors reflexekkel és ügyes mozdulatokkal kell helytállniuk a kihívásokban.
+                A western világ fókusza inkább a pontos célzásra és reflexekre épül, ahol a játékosoknak az időzítés és a precizitás elengedhetetlen lesz a sikerhez.
+                Ezzel szemben a fantasy világ stratégiai gondolkodást kíván meg, mivel itt körökre osztott harcrendszer van érvényben, ahol a taktikai tervezés és a csapatstratégia fontos szerepet játszik.
+                Ez a sokrétűség különleges játékmenetet eredményez, amely nemcsak a műfaji változatosságot, hanem a kihívások széles spektrumát is lefedi, így biztosítva a játékosok számára a változatos és egyedi élményt.
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                A piacon található alternatív játékokkal szemben ez a játék előnyben részesíti a három különböző játékmenet harmonikus ötvözését egyetlen cím alatt.
+                Ez a játék platformfüggetlen megközelítéssel is rendelkezik, mivel több elterjedt játékelosztó rendszeren érhető el, beleértve a Steam, Epic Games Store, GOG és itch.io platformokat, ezzel biztosítva a széles körű hozzáférést.
+                A platformfüggetlenség és a műfaji sokszínűség, valamint a világok közötti váltás lehetősége lehetővé teszi, hogy a játék az indie és pixel art játékok piacán is kiemelkedő helyet foglaljon el.
+            </li>
+        </ul>
+    </div>   
+
+    <div id="Kezdeti osztálydiagram" class="section">
+        <h2>Osztálydiagram</h2>
+        <ul>
+            <li>
+                <img src="osztalydiagramwhite.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto; width: 80%;">
+            </li>
+        </ul>
+    </div>
+    
+
+    <div  id="Alrendszerek" class="section">
+        <h2>Alrendszerek</h2>        
+
+        <div class="subsystem">
+            <h3>Karakter alrendszer</h3>
+
+            <h5>3.1.1 Kapcsolatok pontosítása</h5>
+            
+            <p>
+                A Player és az Enemy osztályok között egy „fights” asszociációs kapcsolat van. A kapcsolat szerepköre az, hogy a játékos és az ellenség harcolhatnak egymással. A számosságuk 0..* mutat az Enemy-től a Player felé, mivel egy játékos több ellenséggel is megküzdhet, A Playerből pedig az Enemy felé a számosság 1, mivel csak 1 játékos van, így csak ő egyedül küzdhet az ellenségek ellen.
+            </p>
+            <p>
+                A Player és NPC osztályok között egy „interacts with” asszociációs kapcsolat van. A kapcsolat szerepköre az, hogy az NPC-k különböző információkkal tudnak szolgálni a játékosok számára. Az NPC-ből a Playerbe mutató nyíl számossága 0..*, mivel egy Player több NPC-vel is tud interaktálni, míg a játék single player mivoltjából fakadóan csak a Player-el tudnak interaktálni, ezért a másik oldal számossága 1.
+            </p>
+            <p>
+                Az Enemy és az Enemy Spawner osztályok között egy „spawns” aggregáció kapcsolat van. A szerepköre a kapcsolatnak az, hogy a Spawner ellenségeket tud létrehozni a pályán. A kapcsolatuk számossága az Enemy spawner oldalán 1, mivel egy szörny egy spawnertől származhat, míg a másik oldalon 0..* van mivel az Enemy Spawner egyszerre több ellenséget is létrehozhat.
+            </p>
+            <p>
+                IDamage interface és Player/Enemy osztályok között „implements” nevű kapcsolat van, aminek a típusa megvalósítás. A szerepköre az IDamage interfacenek az, hogy ez biztosítja a közös sebzési mechanizmust a Player és az Enemy számára. A kapcsolat számossággal nem rendelkezik. Több osztály is implementálhatja az interfacet.
+            </p>
+            <p>
+                Az Enemy és az Item kapcsolata asszociáció, a közöttük lévő kapcsolat neve „drops”. Az ellenségek elhalálozásuk esetén „elejtenek” tárgyakat. A közöttük lévő kapcsolatok számossága az Item oldalán 1, mivel egy item csak egy szörnytől származhat, és a másik oldalon 0..* mivel egy szörny több féle item-et „elejthet”.
+            </p>
+            <p>
+                A Player és az Inventory kapcsolata kompozíció, aminek a neve „uses”. A Player karakter itemeket tárolni az inventoryban. A közöttük lévő számosság a Player oldalán 1, mivel a játékosnak egy Inventoryja lehet, és a másik oldalon is 1, mivel egy Inventoryt csak egy játékos használhat.
+            </p>
+            <p>
+                Az Inventory és az Item kapcsolata aggregáció, a kapcsolatuk neve pedig „contains”. Az Inventory feladata tárolni a játékos Item-eit. A számossága, egy Inventory több item-et is tartalmazhat, ezért oda 0..* kerül, viszont egy Item csak egy Inventoryban létezhet, ezért oda 1 kerül.
+            </p>
+
+            <ul>
+                <li>
+                    <img src="Kuldetes_es_interakcio_alrendszer.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div id="attribute-identification" class="attribute-identification">
+        <h4>3.1.2 Attribútumok azonosítása</h4>
+
+        <p>
+            <strong>Player és Enemy közötti kapcsolat:</strong>
+            A két osztály között lévő „fights” kapcsolat új adattagok deklarálására nyújt lehetőséget, mint például a „damageDealt” vagy a „damageTaken”, mivel ezek nem tartoznak egyénileg se a Player, sem az Enemy osztályhoz, ezért hozzá lehet csatolni, az IDamage interface-hez.
+        </p>
+        <p>
+            <strong>Enemy és Enemy Spawner kapcsolat:</strong>
+            Az ellenségek létrehozásánál fontos lenne, az ellenségek létrehozásának beállításait tárolni egy külön osztályban, mint például a „spawnLimit” vagy a „spawnFrequency” adattagokat, egy SpawnSettings osztályban.
+        </p>
+        <p>
+            <strong>Player és NPC kapcsolat:</strong>
+            A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.
+        </p>
+        <p>
+            <strong>Enemy és Item kapcsolat:</strong>
+            A két osztály között előnyös lenne létrehozni egy beállítás osztályt, mint az Enemy és Enemy Spawner-nél. Ezt az osztályt a DropSettings lesz, amibe a dropChance adattagot hozom létre.
+        </p>
+        <p>
+            <strong>Inventory és Item kapcsolata:</strong>
+            A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.
+        </p>
+        <p>
+            <strong>Player és Inventory kapcsolata:</strong>
+            A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.
+        </p>
+
+        <ul>
+            <li>
+                <img src="karakterek.dinamikus.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+
+    </div>
+    harci.anal.drawio 6.5
+    kuldetes.anal.drawio 5.5
+    jatekmechanika.anal.drawio 4.5 OP
+    karakterek.anal.drawio 3.5 OP
+
+    <div id="attribute-identification" class="subsystem">
+        <h4>3.1.2 Attribútumok azonosítása</h4>
+
+        <p><strong>Player és Enemy közötti kapcsolat:</strong></p>
+        <p>A két osztály között lévő „fights” kapcsolat új adattagok deklarálására nyújt lehetőséget, mint például a „damageDealt” vagy a „damageTaken”, mivel ezek nem tartoznak egyénileg se a Player, sem az Enemy osztályhoz, ezért hozzá lehet csatolni, az IDamage interface-hez.</p>
+
+        <p><strong>Enemy és Enemy Spawner kapcsolat:</strong></p>
+        <p>Az ellenségek létrehozásánál fontos lenne, az ellenségek létrehozásának beállításait tárolni egy külön osztályban, mint például a „spawnLimit” vagy a „spawnFrequency” adattagokat, egy SpawnSettings osztályban.</p>
+
+        <p><strong>Player és NPC kapcsolat:</strong></p>
+        <p>A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.</p>
+
+        <p><strong>Enemy és Item kapcsolat:</strong></p>
+        <p>A két osztály között előnyös lenne létrehozni egy beállítás osztályt, mint az Enemy és Enemy Spawner-nél. Ezt az osztályt a DropSettings lesz, amibe a dropChance adattagot hozom létre.</p>
+
+        <p><strong>Inventory és Item kapcsolata:</strong></p>
+        <p>A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.</p>
+
+        <p><strong>Player és Inventory kapcsolata:</strong></p>
+        <p>A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.</p>
+    </div>   
+
+    <div class="subsystem">
+        <h4>3.1.3 Bázisosztályok keresése</h4>
+
+        <p><strong>Character bázisosztály:</strong></p>
+        <p>A Character bázisosztály tárolhatna minden olyan karakter közös tulajdonságát és viselkedését, akik részt vesznek a játékban. A Character osztályból származhat a Player, az Enemy vagy akár az NPC osztály is. Közös tulajdonságai lehetnek a „life: int”, a „speed: int” és a „position: (int, int)”. Metódusa a „move(direction: string): void” és az „isAlive(): bool”.</p>
+
+        <p><strong>ItemContainer bázisosztály:</strong></p>
+        <p>Ez a bázisosztály minden olyan objektum számára alkalmas, amely tárgyakat tárolhat. Az Inventory és az Enemy osztály is származhat ebből, hiszen a Player inventory-jában tárol tárgyakat, míg az Enemy is ejthet tárgyakat. Tulajdonsága lehet például az „item: List<Item>”. Metódusai pedig az „addItem(): void”, a „removeItem(): void” és a „containsItem(): bool”.</p>
+    </div>
+
+    <ul>
+        <li>
+            <img src="karakterek.anal.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+        </li>
+    </ul>
+
+    <div id="Játékmechanikák alrendszer" class="subsystem">
+        <h4>4. Játékmechanikák alrendszer</h4>
+
+        <h5>4.1.1 Kapcsolatok pontosítása</h5>
+        <p>
+            A Game Engine és Level kapcsolata kompozíció és köztük a „manages” kapcsolat létesíthető. A Game Engine felelős a szintek kezeléséért és az azok közötti váltásokért. Számosság szempontjából a Game Engine oldalán egy 1-es szerepel, mivel a szinteket csak egy Engine kezeli, a Level oldalán pedig 1..* van, mivel a játék több szintből is állhat.
+        </p>
+        <p>
+            A Level és a Map között kompozíció kapcsolat található, a közöttük lévő kapcsolat neve „hasMap”. Minden szinthez tartozik egy map, ami meghatározza az adott szint környezetét. Számosság szempontjából a Level oldalán 1-es van, mivel minden szinten 1 Map található, és fordítva is 1-es szerepel, mivel minden Map csak egy bizonyos Level-en található.
+        </p>
+        <p>
+            A Game Engine és a Map között kompozíció található, a közöttük lévő kapcsolat elnevezhető „loads”-nak. A Game Engine feladata a térkép betöltése és frissítése a játék során, különösen amikor a játékos új szintre lép. A két osztály közötti számosság úgy néz ki, hogy a Game Engine oldalán egy 1-es van, mivel egy Game Engine végzi el a mapok betöltését, a másik oldalon 0..* található, mivel a játék különböző pályákat használhat különböző szinteken.
+        </p>
+
+        <ul>
+            <li>
+                <img src="jatekmechanika_alrendszer.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="subsystem">
+        <h4>4.1.2 Attribútumok azonosítása</h4>
+
+        <p><strong>A Game Engine és Level kapcsolat:</strong></p>
+        <p>A GameEngine és a Level kapcsolat kiegészíthető még esetlegesen „startTime” és „endTime” tulajdonságokkal.</p>
+
+        <p><strong>A Game Engine és Map kapcsolat:</strong></p>
+        <p>A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.</p>
+        <ul>
+            <li>
+                <img src="jatekmechanika.dinamikus.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+
+        <p><strong>A Map és a Level kapcsolat:</strong></p>
+        <p>A Map és a Level kapcsolatához még hozzá lehet adni egy „spawnPoints”-ot, ami tárolná, hogy a térképen pontosan melyik koordinátán spawnoljanak az ellenségek, az NPC-k és a Player, valamint még egy „timeLimit” tulajdonsággal is kiegészíthető, ha egy olyan pályát készítenénk, ahol egy bizonyos idő alatt kell elvégezni a szintet.</p>
+        
+    </div>
+
+    <div class="subsystem">
+        <h4>4.5 jatekmechanika</h4>
+
+        <ul>
+            <li>
+                <img src="jatekmechanika.anal.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="subsystem">
+        <h4>4.1.3 Bázisosztályok keresése</h4>
+
+        <p><strong>GameObject bázisosztály:</strong></p>
+        <p>Ez a bázisosztály a játékban megjelenő összes objektum közös tulajdonságait és viselkedését foglalja magába. Attribútumai lehetnek „id: int” és „name: string”. Metódusai „update(): void” és „render(): void”.</p>
+    </div>
+
+    <div id="Küldetés és interakció alrendszer" class="subsystem">
+        <h4>5. Küldetés és interakció alrendszer</h4>
+
+        <h5>5.1.1 Kapcsolatok pontosítása</h5>
+        <p>
+            A Player és a Quest között asszociációs kapcsolat van, elnevezése „takesQuest”. A játékos vállalhat különböző küldetéseket, amelyeket aztán teljesíthet is. A kapcsolat jelzi a játékos és a küldetések közötti viszonyt. A kapcsolat számossága a Player oldaláról 1, mivel csak a játékos vehet fel és teljesíthet küldetéseket, a másik oldalt pedig 0..*, mivel egy játékos akár több küldetést is felvehet és teljesíthet.
+        </p>
+        <p>
+            Az NPC és a Quest kapcsolata aggregáció, aminek a neve „givesQuest”. Az NPC feladata, hogy küldetéseket adjon a játékosnak. Az NPC lehet küldetésadó karakter, így a kapcsolat az NPC és a küldetés közötti viszonyt ábrázolja. Az NPC oldaláról a számosság 1..*, mivel egy NPC több küldetést is adhat, és a másik oldalon 1..*, mivel több különböző NPC is adhat küldetést.
+        </p>
+        <p>
+            A Quest és a Reward kapcsolata kompozíció, a kapcsolat neve pedig „givesReward”. A Quest osztály tartalmazza a Reward-ot, amely a küldetés teljesítéséért járó jutalmat reprezentálja. A Quest oldalán 1..* a számosság, mivel egy küldetés több jutalmat is adhat, és a másik oldalon is 1..* szerepel, mivel egy jutalom különböző küldetésekből is származhat.
+        </p>
+        <p>
+            A Player és NPC közötti kapcsolat asszociáció, neve „interactsWith”. A játékos interakcióba léphet az NPC-vel, hogy információt kapjon, küldetéseket vállaljon, vagy jutalmakat vegyen át. A kapcsolat számossága a Playertől nézve 0..*, mivel a játékos több NPC-vel is kapcsolatba léphet.
+        </p>
+
+        <ul>
+            <li>
+                <img src="Kuldetes_es_interakcio_alrendszer.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="subsystem">
+        <h4>5.1.2. Attribútumok azonosítása</h4>
+
+        <p><strong>Player és Quest kapcsolat:</strong></p>
+        <p>A Player és a Quest kapcsolata kiegészíthető egy QuestStatus osztállyal, ami tárolhatja a küldetéssel kapcsolatos információkat és az állapotukat. Adattagjaik lehetnek például a „questLocaionArea: int, int”, és átveheti a Questből a „questCompleted: bool” és a „questTaken: bool” adattagokat. Metódusa lehet a „getQuestDetails(): string”.</p>
+
+        <p><strong>NPC és Quest kapcsolat:</strong></p>
+        <p>Az NPC és Quest kapcsolata kiegészíthető a „isRepeteable: bool” ami meghatározza, hogy egy küldetés újra elérhető e, ha a játékos elhagyja a questet, és kiegészíthető még egy „requiredStatus: bool” ami valamilyen előfeltételhez köti a küldetéseket.</p>
+
+        <p><strong>Quest és Reward kapcsolat:</strong></p>
+        <p>A Quest és Reward kapcsolata kiegészíthető egy „rewardType: string” tulajdonsággal, ami tárolja, hogy egy adott küldetésért milyen fajta jutalom jár a játékosnak.</p>
+
+        <p><strong>Player és NPC kapcsolat:</strong></p>
+        <p>A Player és NPC kapcsolata még kiegészíthető egy „interactionType: string” tulajdonsággal, ami tárolhatja, hogy milyen típusú interakciót kell az NPC-nek lefolytatni a játékossal.</p>
+
+        <ul>
+            <li>
+                <img src="kuldetes.dinamikus.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="subsystem">
+        <h4>5.1.3. Bázisosztályok keresése</h4>
+
+        <p><strong>Trackable bázisosztály:</strong></p>
+        <p>Létrehozható egy Trackable bázisosztály, ami segítheti bizonyos objektumok nyomon követését. Adattagjai lehetnek a „status: string”, a „startTime: datetime”, és a „endTime: datetime”. Metódusai lehetnek az „updateStatus(): void” és az „isComplete(): bool”.</p>
+    </div>
+
+    <div id="Fegyver és harci alrendszer" class="subsystem">
+        <h4>6. Fegyver és harci alrendszer</h4>
+
+        <h5>6.1.1 Kapcsolatok pontosítása</h5>
+        <p>
+            A Player és a Weapon közötti kapcsolat aggregáció, aminek a neve „usesWeapon”. A kapcsolat szerepköre az, hogy a játékos birtokolhat és használhat fegyvereket. Számosságuk a Player oldalától 0..*, mivel egy játékos több fegyvert is birtokolhat, a másik oldalon pedig 1, mivel a fegyvert csak 1 játékos használhatja.
+        </p>
+        <p>
+            A Player és Attack kapcsolata asszociáció, a kapcsolat neve „performsAttack”. A szerepköre az, hogy a játékos végrehajthat támadásokat. A Player osztály számossága az Attack osztállyal 0..*, mivel a játékos több féle támadással rendelkezik, a másik oldalon pedig 1..* van, mivel nem csak a játékos de az ellenségek is támadhatnak.
+        </p>
+        <p>
+            A Weapon és a Bullet kapcsolata aggregáció, az elnevezése „firesBullet”. A szerepköre az, hogy a fegyver lövedékeket használhat a támadás során. A két osztály számossága 1..*, mivel egy fegyver több típusú lövedéket is használhat, és a különböző típusú lövedék különböző fegyverekből is kilőhetőek.
+        </p>
+        <p>
+            Az Attack és az Enemy között asszociációs kapcsolat van, aminek a neve „dealsDamageTo”. A szerepköre az, hogy támadás során az ellenségek sebzést okoznak. Az Enemy osztály számossága az Attack osztállyal 0..*, mivel a különböző ellenségek több féle támadással rendelkeznek, a másik oldalon pedig 1..* van, mivel nem csak az ellenségek, de a játékos is támadhat.
+        </p>
+
+        <ul>
+            <li>
+                <img src="Fegyver_es_harci_alrendszer.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="subsystem">
+        <h4>hmmmm</h4>
+        <ul>
+            <li>
+                <img src="kuldetes.anal.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+    </div>
+
+    <div class="subsystem">
+        <h4>6.1.2. Attribútumok azonosítása</h4>
+
+        <p><strong>Player és Weapon kapcsolat:</strong></p>
+        <p>A Player és Weapon kapcsolata még kiegészíthető egy új osztállyal, a PlayerWeaponRelation osztállyal, ahol a játékos és a fegyver közötti interakciókat lehet kezelni.</p>
+
+        <p><strong>Player és Attack kapcsolat:</strong></p>
+        <p>A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.</p>
+
+        <p><strong>Weapon és Bullet kapcsolat:</strong></p>
+        <p>A Weapon és Bullet kapcsolat kiegészíthető még egy BulletType osztállyal, ahol a különböző lőszer típusokat lehet ellátni különböző tulajdonságokkal.</p>
+
+        <p><strong>Attack és Enemy kapcsolat:</strong></p>
+        <p>A két kapcsolat lefedi a szükséges tulajdonságokat, ezért nincs szükség további attribútumokra vagy osztályokra.</p>
+
+        <ul>
+            <li>
+                <img src="fegyver_es_harc.dinamikus.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="subsystem">
+        <h4>6.5 Analízis Modell osztalydiagramm</h4>
+        <ul>
+            <li>
+                <img src="harci.anal.drawio.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+    </div>
+    <div class="subsystem">
+        <h4>6.1.3. Bázisosztályok keresése</h4>
+
+        <p>Nem szükséges új bázisosztály.</p>
+    </div>
+
+
+
+    <footer>
+        <p>&copy; 2024 H4 Daltons Games. Minden jog fenntartva.</p>
+    </footer>
+</body>
+</html>
