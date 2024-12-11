@@ -4,179 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daltons Games</title>
+
+
+    <link rel="stylesheet" href="style.css"> <!-- Külső CSS-fájl csatolása, ha szükséges -->
+    <button onclick="scrollToTop()" style="position:fixed;bottom:20px;right:20px;padding:10px;border-radius:5px;background-color:#007BFF;color:white;border:none;cursor:pointer;">
+        Fel a tetejére
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+
+</head>
+<body>
+    <header>
+        <h1>Daltons Games</h1>
+    </header>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 20px;
-            background-color: #f4f4f4;
+            background-color: #f0f4f8; /* Világos, szemkímélő háttérszín */
+            color: #333;
         }
-        h1, h2, h3, h4 {
-            color: #4CAF50;
+        h1 {
+            color: green;
+            font-weight: bold;
+        }
+        h2 {
+            color: green;
+            font-style: italic;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: left;
         }
         th, td {
-            border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
-        th {
-            background-color: #f2f2f2;
-        }
-        ul {
-            list-style-type: disc;
+        ul, ol {
+            margin: 10px 0;
             padding-left: 20px;
         }
-        .figure {
-            text-align: center;
-            margin: 20px 0;
-        }
-        a {
-            color: blue;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+        ul li, ol li {
+            margin-bottom: 5px;
         }
     </style>
-</head>
-<body>
-    <header>
-        <h1><strong>Daltons Games</strong></h1>
-    </header>
 
-    <section>
-        <h2><em>Csoport tagjai</em></h2>
-        <table>
-            <tr>
-                <th>Név</th>
-                <th>Kód</th>
-            </tr>
-            <tr>
-                <td>Orosz Zalán</td>
-                <td>XPUYJX</td>
-            </tr>
-            <tr>
-                <td>Tóth Péter</td>
-                <td>A24E5Z</td>
-            </tr>
-            <tr>
-                <td>Kriston-Széles Benedek</td>
-                <td>SZHYRK</td>
-            </tr>
-            <tr>
-                <td>Losonczi Dominik</td>
-                <td>HZ60V1</td>
-            </tr>
-            <tr>
-                <td>Mizerák Bence</td>
-                <td>MO0VEY</td>
-            </tr>
-        </table>
+    <main>
+        <section id="csoport-tagjai">
+            <h2>Csoport tagjai</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Név</th>
+                        <th>Kód</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Orosz Zalán</td>
+                        <td>XPUYJX</td>
+                    </tr>
+                    <tr>
+                        <td>Tóth Péter</td>
+                        <td>A24E5Z</td>
+                    </tr>
+                    <tr>
+                        <td>Kriston-Széles Benedek</td>
+                        <td>SZHYRK</td>
+                    </tr>
+                    <tr>
+                        <td>Losonczi Dominik</td>
+                        <td>HZ60V1</td>
+                    </tr>
+                    <tr>
+                        <td>Mizerák Bence</td>
+                        <td>MO0VEY</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <h3>Struktúrája</h3>
-        <table>
-            <tr>
-                <th>Név</th>
-                <th>Részleges D.</th>
-                <th>Programozás</th>
-                <th>Modellezés</th>
-                <th>Brainstorming</th>
-            </tr>
-            <tr>
-                <td>Orosz Zalán</td>
-                <td>Részleges D.</td>
-                <td>Programozás</td>
-                <td>Modellezés</td>
-                <td>Brainstorming</td>
-            </tr>
-            <tr>
-                <td>Tóth Péter</td>
-                <td>Részleges D.</td>
-                <td>Részleges P.</td>
-                <td>Modellezés</td>
-                <td>Brainstorming</td>
-            </tr>
-            <tr>
-                <td>Kriston-Széles Benedek</td>
-                <td>Részleges D.</td>
-                <td>Programozás</td>
-                <td>Modellezés</td>
-                <td>Brainstorming</td>
-            </tr>
-            <tr>
-                <td>Losonczi Dominik</td>
-                <td>Részleges D.</td>
-                <td>Programozás</td>
-                <td>Modellezés</td>
-                <td>Brainstorming</td>
-            </tr>
-            <tr>
-                <td>Mizerák Bence</td>
-                <td>Dokumentáció</td>
-                <td>Részleges P.</td>
-                <td>Részleges M.</td>
-                <td>Brainstorming</td>
-            </tr>
-        </table>
+        <section id="strukturaja">
+            <h2>Struktúrája</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Név</th>
+                        <th>Dokumentáció</th>
+                        <th>Programozás</th>
+                        <th>Modellezés</th>
+                        <th>Brainstorming</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Orosz Zalán</td>
+                        <td>Részleges D.</td>
+                        <td>Programozás</td>
+                        <td>Modellezés</td>
+                        <td>Brainstorming</td>
+                    </tr>
+                    <tr>
+                        <td>Tóth Péter</td>
+                        <td>Részleges D.</td>
+                        <td>Részleges P.</td>
+                        <td>Modellezés</td>
+                        <td>Brainstorming</td>
+                    </tr>
+                    <tr>
+                        <td>Kriston-Széles Benedek</td>
+                        <td>Részleges D.</td>
+                        <td>Programozás</td>
+                        <td>Modellezés</td>
+                        <td>Brainstorming</td>
+                    </tr>
+                    <tr>
+                        <td>Losonczi Dominik</td>
+                        <td>Részleges D.</td>
+                        <td>Programozás</td>
+                        <td>Modellezés</td>
+                        <td>Brainstorming</td>
+                    </tr>
+                    <tr>
+                        <td>Mizerák Bence</td>
+                        <td>Dokumentáció</td>
+                        <td>Részleges P.</td>
+                        <td>Részleges M.</td>
+                        <td>Brainstorming</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <h2><em>Fejlesztési terv</em></h2>
-        <ol>
-            <li>Játékötlet kidolgozása: Alapvető koncepció játékstílus meghatározása</li>
-            <li>Szerepkiosztás</li>
-            <li>Programokkal ismerkedés</li>
-            <li>Első témájú pálya elkészítése</li>
-        </ol>
+        <section id="fejlesztesi-terv">
+            <h2>Fejlesztési Terv</h2>
+            <ol>
+                <li>Játékötlet kidolgozása: Alapvető koncepció, játékstílus meghatározása</li>
+                <li>Szerepkiosztás</li>
+                <li>Programokkal ismerkedés</li>
+                <li>Első témájú pálya elkészítése</li>
+            </ol>
+        </section>
 
-        <h3>Mérföldkövek</h3>
-        <ol>
-            <li>Játékötlet kidolgozása: Alapvető koncepció játékstílus meghatározása.</li>
-            <li>Funkcionális és nem funkcionális követelmények rögzítése: játékmenet, karakterek, szintek, grafika.</li>
-            <li>Játék dizájn és fejlesztés.</li>
-            <li>Játék prototípusának fejlesztése: Egyszerű grafika és hangok integrálása, alapvető mechanikák megvalósítása.</li>
-            <li>Játék fejlesztése.</li>
-            <li>Játék beta verziójának kiadása.</li>
-            <li>Hibaelhárítás és finomítás.</li>
-            <li>Kiadás.</li>
-        </ol>
+        <section id="merfoldkovek">
+            <h2>Mérföldkövek</h2>
+            <ol>
+                <li>Játékötlet kidolgozása: Alapvető koncepció, játékstílus meghatározása</li>
+                <li>Funkcionális és nem funkcionális követelmények rögzítése: játékmenet, karakterek, szintek, grafika</li>
+                <li>Játék dizájn és fejlesztés</li>
+                <li>Játék prototípusának fejlesztése: Egyszerű grafika és hangok integrálása, alapvető mechanikák megvalósítása</li>
+                <li>Játék fejlesztése</li>
+                <li>Játék beta verziójának kiadása</li>
+                <li>Hibaelhárítás és finomítás</li>
+                <li>Kiadás</li>
+            </ol>
+        </section>
 
-        <h2><em>Programozói nyelvek</em></h2>
-        <ul>
-            <li><strong>C-sharp</strong></li>
-        </ul>
+        <section id="programozasi-nyelvek">
+            <h2>Programozói Nyelvek</h2>
+            <p>C-sharp</p>
+        </section>
 
-        <h3>Fejlesztő eszközök</h3>
-        <ul>
-            <li>Github</li>
-            <li>Godot</li>
-            <li>Visual Studio</li>
-            <li>Rider</li>
-        </ul>
+        <section id="fejleszto-eszkozok">
+            <h2>Fejlesztő Eszközök</h2>
+            <ul>
+                <li>Github</li>
+                <li>Godot</li>
+                <li>Visual Studio</li>
+                <li>Rider</li>
+            </ul>
+        </section>
 
-        <h2><em>Használni tervezett eszközök</em></h2>
-        <ul>
-            <li>Github</li>
-            <li>Godot</li>
-            <li>Visual Studio Code</li>
-            <li>Rider</li>
-            <li>Aseprite</li>
-            <li>TexMaker (Dokumentáció elkészítése)</li>
-        </ul>
+        <section id="hasznalt-eszkozok">
+            <h2>Használni Tervezett Eszközök</h2>
+            <ul>
+                <li>Github</li>
+                <li>Godot</li>
+                <li>Visual Studio Code</li>
+                <li>Rider</li>
+                <li>Aseprite</li>
+                <li>TexMaker (Dokumentáció elkészítése)</li>
+            </ul>
+        </section>
 
-        <h2><strong>Leendő produktumok (dokumentum)</strong></h2>
-        <p>Nincs információ</p>
+        <section id="produktumok">
+            <h2>Leendő Produktumok (Dokumentum)</h2>
+            <p>Nincs információ</p>
+        </section>
 
-        <h2><strong>Tesztelési követelmények</strong></h2>
-        <ul>
-            <li>A rendszer minden funkciója helyesen működjön a specifikációk szerint, és hiba esetén megfelelő hibaüzenetet adjon vissza anélkül, hogy a program összeomlana.</li>
-        </ul>
+        <section id="tesztelesi-kovetelmenyek">
+            <h2>Tesztelési Követelmények</h2>
+            <p>A rendszer minden funkciója helyesen működjön a specifikációk szerint, és hiba esetén megfelelő hibaüzenetet adjon vissza anélkül, hogy a program összeomlana.</p>
+        </section>
 
-        <h2><strong>Bemutatás (demó) és szállítás módja, ideje</strong></h2>
-        <p>Nincs információ</p>
-    </section>
+        <section id="bemutatas">
+            <h2>Bemutatás (Demó) és Szállítás</h2>
+            <p>Nincs információ</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Daltons Games</p>
+    </footer>
 </body>
 </html>
