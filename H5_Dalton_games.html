@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H5 Daltons Games - Játékfejlesztési projekt">
+    <title>H5 </title>
+    <link rel="stylesheet" href="style.css"> <!-- Külső CSS-fájl csatolása, ha szükséges -->
+    <button onclick="scrollToTop()" style="position:fixed;bottom:20px;right:20px;padding:10px;border-radius:5px;background-color:#007BFF;color:white;border:none;cursor:pointer;">
+        Fel a tetejére
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</head>
+
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f4f8; /* Világos, szemkímélő háttérszín */
+            color: #333;           
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .requirements {
+            padding-left: 20px;
+        }
+        div[class] {
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        td {
+            text-align: left;
+        }
+    </style>
+<body>
+    <header>
+        <h1></h1>
+
+        <nav>
+            <ul>
+                <li><a href="#bevezetes">Bevezetés</a></li>             
+            </ul>
+        </nav>
+    </header>
+    
+   
+
+
+    <div class="introduction">
+        <h1 id="bevezetes">1. A rendszer vezérlésének kidolgozása</h1>
+        
+           <h3><strong>Aktív és passzív objektumok:</strong> </h3>
+        <ul>
+            <li>
+                <strong> Aktív objektumok:</strong> Ezek a játékban interakciókat kezdeményező entitások, például a Player, az Enemy, és az NPC.
+                 Az aktív objektumokhoz kapcsolódó tevékenységek közé tartozik az alábbiak meghatározása:Interakciók kezelése:
+                 pl. a Player és NPC közötti kapcsolat <strong>(interactsWith)</strong> vagy a Player és Enemy közötti <strong>fights.</strong>
+                 <br> Üzenetküldési mechanizmusok implementálása, pl. az Enemy Spawner <strong> spawnEnemy</strong> metódusa. <br> <strong>Passzív objektumok:</strong> Azok az elemek, amelyek nem kezdeményeznek interakciókat, például az Item, Inventory, vagy a Map.
+            </li>
+        </ul>
+                        <!--    <strong>    </strong>    <br>    -->
+            <h3><strong>Vezérlő objektumok:</strong> </h3>
+        <ul>
+            <li>
+                A vezérlést a Game Engine végzi, amely több alrendszer kezelését is biztosítja, mint például a <strong>szintek (Level)</strong> és <strong>térképek (Map)</strong> közötti váltás (<strong>manages</strong>, <strong>loads</strong> kapcsolatok).
+                <br> Az üzenetküldési logikák közé tartozik a <strong>QuestSystem</strong>, amely kezeli a küldetések állapotát és a hozzájuk kapcsolódó jutalmakat.
+            </li>
+        </ul>
+
+            <h3><strong>Üzenetváltások és láthatóság biztosítása:</strong></h3>
+        <ul>
+            <li>
+                 Az üzenetváltások a következő kapcsolatokat fedhetik le: 
+                Player és NPC közötti üzenetek (<strong>talk</strong>, <strong>giveQuest</strong>, <strong>giveReward</strong> metódusok).
+                <br> Weapon és Bullet közötti interakciók (<strong>fire</strong>, <strong>reload</strong> metódusok).
+                <br> A láthatóság biztosítása érdekében szükséges lehet interfészek alkalmazása, például az <strong>IDamageable</strong>, amelyet a Player és az Enemy is implementál.
+            </li>
+        </ul>
+        
+    </div>   
+
+    <div id="Szemantikai adatmodell" class="section">
+        <h2>2. Az osztályok közötti kapcsolatok implementálása</h2>
+
+
+            <h3><strong>Kapcsolati diagramok:</strong></h3>
+            <li style="list-style-type: square;">
+                <strong>Az osztálydiagramokból meghatározhatók a pontos kapcsolatok:</strong>
+            </li>
+        <ul >
+            
+            <li style="list-style-type: square; margin-left: 40px;">Player és Inventory: Kompozíció (<strong>uses</strong> kapcsolat).</li>
+            <li style="list-style-type: square; margin-left: 40px;">Enemy és Item: Asszociáció (<strong>drops</strong> kapcsolat).</li>
+            <li style="list-style-type: square; margin-left: 40px;">Map és Level: Kompozíció (<strong>hasMap</strong> kapcsolat).</li>
+            <li style="list-style-type: square; margin-left: 40px;">Quest és Reward: Kompozíció (<strong>givesReward</strong> kapcsolat).</li>
+
+        </ul>
+
+        <li style="list-style-type: square;">
+            <strong>Implementációs osztályok:</strong>
+        </li>
+
+        <ul>
+
+            <li style="list-style-type: square; margin-left: 40px;">Az implementációs osztályok közé tartozhatnak az alábbi bázisosztályok:</li>
+            <li style="list-style-type: square; margin-left: 40px;">Character: Az összes karakter (pl. Player, Enemy, NPC) közös tulajdonságainak és metódusainak tárolására.</li>
+            <li style="list-style-type: square; margin-left: 40px;">ItemContainer: Az olyan osztályok számára, amelyek tárgyakat tárolnak (pl. Inventory, Enemy).</li>
+            <li style="list-style-type: square; margin-left: 40px;">GameObject: A játék minden objektumának általános tulajdonságait kezelheti, pl. <strong>id</strong>, <strong>name</strong>.</li>
+
+        </ul>
+    </div>
+    
+    <div id="Relációs adatmodell" class="section">
+        <h2>3. Elemek modulokba szervezése (implementációs egységek)</h2>
+
+            <li style="list-style-type: square;">
+                <strong>Modulok és csomagok:</strong>
+            </li>
+        <ul>
+            
+            <li style="list-style-type: square; margin-left: 30px;">
+                A játék rendszere több modulra osztható: </li>
+
+            <li style="list-style-type: square; margin-left: 40px;"><strong>Karakter modul:</strong> Tartalmazza a Player, Enemy, NPC osztályokat, valamint a közös Character bázisosztályt.</li>
+            <li style="list-style-type: square; margin-left: 40px;"><strong>Küldetés modul:</strong> Ide tartozik a Quest, Reward, és QuestSystem osztályok.</li>
+            <li style="list-style-type: square; margin-left: 40px;"><strong>Játékmechanika modul:</strong> Tartalmazza a Game Engine, Level, Map osztályokat.</li>
+            <li style="list-style-type: square; margin-left: 40px;"><strong>Fegyver modul:</strong> Ide tartozik a Weapon, Bullet, és az Attack osztály.</li>
+            <li style="list-style-type: square; margin-left: 40px;">A modulok közötti kapcsolatokat a bázisosztályok és interfészek biztosítják, pl. az <strong>IDamageable.</strong></li>
+        </ul>
+
+        <li style="list-style-type: square;">
+            <strong>Csomagszervezés:</strong>
+        </li>
+
+        <ul>
+            <li style="list-style-type: square; margin-left: 30px;">A csomagok például a következők lehetnek:</li>
+
+            <li style="list-style-type: square; margin-left: 40px;"><strong>characters:</strong> Player, Enemy, NPC.</li>
+            <li style="list-style-type: square; margin-left: 40px;"><strong>mechanics:</strong> Game Engine, Map, Level.</li>
+            <li style="list-style-type: square; margin-left: 40px;"><strong>inventory:</strong> Item, Inventory.</li>
+            <li style="list-style-type: square; margin-left: 40px;"><strong>quests:</strong> Quest, Reward.</li>
+        </ul>
+    </div>
+
+    <div id="kapcsolatot tartó osztályok" class="section">
+        <h1>Tesztelési Táblázat</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Cél</th>
+                    <th>Elvárt Eredmény</th>
+                    <th>Kapott Eredmény</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td>Karakter mozgásának minden irányú ellenőrzése (fel, le, balra, jobbra, átlósan).</td>
+                    <td>A karakter mozgása minden irányban folyékony, akadozás nélkül működik.</td>
+                    <td>A karakter mozgása hibátlan, minden irányba és átlósan is megfelelően működik.</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Támadási mechanika és sebzés helyességének vizsgálata.</td>
+                    <td>A lövés pontosan célba ér, és a sebzés értéke helyesen kerül kiszámításra.</td>
+                    <td>A lövés animációja megjelenik, a golyók kirepülnek, és a sebzés érték megfelelően csökkenti az ellenfelek életerejét.</td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Felhasználói interfész életcsík és regeneráció működésének tesztelése.</td>
+                    <td>Az életcsík frissül harc közben, regeneráció megfelelően működik.</td>
+                    <td>Az életcsík pontosan frissül, és a regeneráció helyesen működik.</td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Adatmentés és betöltés tesztelése.</td>
+                    <td>A játékállás mentése és betöltése zökkenőmentes, adatvesztés nélkül.</td>
+                    <td>Az adatmentési funkció jelenleg nem működik, a mentett adatok nem kerülnek tárolásra.</td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Hangeffektek és zene működésének ellenőrzése.</td>
+                    <td>Az eseményekhez tartozó hangeffektek és a háttérzene folyamatosan hallhatóak.</td>
+                    <td>A hangeffektek és a zene egyáltalán nem szólalnak meg.</td>
+                </tr>
+                <tr>
+                    <td>6.</td>
+                    <td>Játék teljesítményének ellenőrzése különböző számú ellenség megjelenítésével.</td>
+                    <td>A játék stabil marad 50-100 ellenség egyidejű spawnolásakor is.</td>
+                    <td>Az alkalmazás 50 ellenségig stabil, de 70-80 ellenség fölött az FPS jelentősen csökken (30 FPS alá).</td>
+                </tr>
+                <tr>
+                    <td>7.</td>
+                    <td>Pálya határainak helyes működésének vizsgálata.</td>
+                    <td>A játékos és az ellenségek nem tudnak kilépni a pálya határain.</td>
+                    <td>A pálya határai helyesen működnek, sem a játékos, sem az ellenségek nem tudnak túllépni a kijelölt területeken.</td>
+                </tr>
+                <tr>
+                    <td>8.</td>
+                    <td>Interakciók környezeti elemekkel, például ajtók és kapcsolók működésének tesztelése.</td>
+                    <td>A környezeti elemekkel történő interakció zökkenőmentes, és helyes visszajelzést ad.</td>
+                    <td>Az ajtók és kapcsolók megfelelően működnek, de néhány elem többször is aktiválható hiba nélkül.</td>
+                </tr>
+                <tr>
+                    <td>9.</td>
+                    <td>Felbontás váltása különböző méreteken (1920x1080, 1280x720, 800x600).</td>
+                    <td>A játék megjelenése és teljesítménye nem változik jelentősen a felbontás váltásakor.</td>
+                    <td>A játék stabil maradt a különböző felbontásokon, de 800x600 felbontáson néhány UI elem nem megfelelően jelent meg.</td>
+                </tr>
+                <tr>
+                    <td>10.</td>
+                    <td>Vizuális effektek, például robbanások és füst hatásának mérése a teljesítményre.</td>
+                    <td>A vizuális effektek nem okoznak jelentős FPS csökkenést normál játékmenet során.</td>
+                    <td>A vizuális effektek normál helyzetben jól működtek, de intenzív harcoknál az FPS 20-25 közé esett vissza.</td>
+                </tr>
+                <tr>
+                    <td>11.</td>
+                    <td>Interakciók tesztelése pályán található tárgyakkal (pl. ládák, kulcsok).</td>
+                    <td>A tárgyakkal való interakciók (felvétel, használat) hibátlanul működnek.</td>
+                    <td>A tárgyak felvétele működik, de néhány speciális tárgy (pl. kulcs) használata nem aktiválja a kapcsolódó eseményeket.</td>
+                </tr>
+                <tr>
+                    <td>12.</td>
+                    <td>Ellenségek mesterséges intelligenciájának (AI) ellenőrzése tereptárgyak közötti navigáció során.</td>
+                    <td>Az ellenségek akadálymentesen kikerülik a tereptárgyakat és pontosan követik a játékos helyzetét.</td>
+                    <td>Az AI helyesen felismeri és kikerüli a tereptárgyakat, valamint pontosan követi a játékos pozícióját.</td>
+                </tr>
+                <tr>
+                    <td>13.</td>
+                    <td>Harci regeneráció működésének részletes vizsgálata.</td>
+                    <td>A regeneráció üteme kiegyensúlyozott, és a harc intenzitásához igazodik.</td>
+                    <td>A regeneráció üteme egyenletes, de intenzív harc közben túl lassúnak bizonyult.</td>
+                </tr>
+                <tr>
+                    <td>14.</td>
+                    <td>Küldetés követésének megjelenítése az UI-ban.</td>
+                    <td>Az aktuális küldetés részletei folyamatosan láthatók az interfészen.</td>
+                    <td>Az UI egyáltalán nem jelzi az aktív küldetéseket, sem az állapotot, sem a részleteket.</td>
+                </tr>
+                <tr>
+                    <td>15.</td>
+                    <td>Tereptárgyak és akadályok fizikai interakcióinak tesztelése.</td>
+                    <td>A tereptárgyak nem átlátszók, és a karakterek nem képesek áthaladni rajtuk.</td>
+                    <td>A tereptárgyak ütközési mezői megfelelőek, de néhány kisebb objektum átléphető.</td>
+                </tr>
+                <tr>
+                    <td>16.</td>
+                    <td>Animációk hiányának hatása a játékélményre.</td>
+                    <td>Bár az animációk hiányoznak, a karakterek és ellenségek mozgása funkcionálisan helyesen működik.</td>
+                    <td>Az animációk hiánya ellenére a mozgások pontosak és zökkenőmentesek.</td>
+                </tr>
+                <tr>
+                    <td>17.</td>
+                    <td>Játékos halálának kezelése.</td>
+                    <td>Halál után a megfelelő képernyő (újraéledés vagy főmenü) jelenik meg.</td>
+                    <td>Halál után a játék néha hibás állapotban folytatódik, és nem jelenik meg a megfelelő képernyő.</td>
+                </tr>
+                <tr>
+                    <td>18.</td>
+                    <td>Ellenségek számának hatása a teljesítményre.</td>
+                    <td>A játék stabil marad 50-100 ellenség egyidejű megjelenítése esetén.</td>
+                    <td>Az alkalmazás 50 ellenségig stabil, de 70-80 ellenség fölött az FPS jelentősen csökken (30 FPS alá).</td>
+                </tr>
+                <tr>
+                    <td>19.</td>
+                    <td>Platformfüggetlenség ellenőrzése.</td>
+                    <td>A játék különböző platformokon (pl. PC, laptop) stabilan fut.</td>
+                    <td>A játék kizárólag Windows-alapú rendszereken működik, PC-n és laptopon egyaránt stabil.</td>
+                </tr>
+                <tr>
+                    <td>20.</td>
+                    <td>Célzási mechanika pontosságának vizsgálata.</td>
+                    <td>A célzás pontos, és a lövések a célpontot találják el.</td>
+                    <td>A célzás hibátlan, a lövések pontosan eltalálják a célpontot.</td>
+                </tr>
+                <tr>
+                    <td>21.</td>
+                    <td>Pálya határainak működésének stressztesztje.</td>
+                    <td>A játékos és az ellenségek nem tudnak kilépni a pálya határain, még nagy számú entitás esetén sem.</td>
+                    <td>A pálya határai még nagy számú ellenség mellett is megfelelően működnek, nincs áthatolás.</td>
+                </tr>
+                <tr>
+                    <td>22.</td>
+                    <td>Küldetések logikájának tesztelése.</td>
+                    <td>A küldetés feltételeinek teljesítése után a játék helyesen frissíti az állapotot.</td>
+                    <td>A küldetések állapota helyesen frissül, de időnként késleltetéssel jelenik meg az UI-ban.</td>
+                </tr>
+                <tr>
+                    <td>23.</td>
+                    <td>Tárgylista kezelése és frissítése.</td>
+                    <td>A tárgylista helyesen frissül minden felvett tárgy után.</td>
+                    <td>A tárgylista megfelelően frissül, minden újonnan felvett tárgy megjelenik benne.</td>
+                </tr>
+                <tr>
+                    <td>24.</td>
+                    <td>Felhasználói beállítások mentése és betöltése.</td>
+                    <td>A beállítások (pl. hangerő, grafikai opciók) mentése és újraindítás utáni betöltése működik.</td>
+                    <td>A beállítások mentése jelenleg nem működik, minden indításnál alapértelmezett értékek jelennek meg.</td>
+                </tr>
+                <tr>
+                    <td>25.</td>
+                    <td>Játék teljesítménye vizuális effektek nélkül.</td>
+                    <td>Vizuális effektek kikapcsolása mellett a játék stabilan fut nagyobb terhelés esetén is.</td>
+                    <td>A vizuális effektek kikapcsolásával az FPS stabil maradt még 80-100 ellenség megjelenítésekor is.</td>
+                </tr>
+                <tr>
+                    <td>26.</td>
+                    <td>Kamera mozgásának követése a játékos pozíciójához igazítva.</td>
+                    <td>A kamera mindig a játékos pozícióját követi, és a mozgás folyamatos, akadozásmentes.</td>
+                    <td>A kamera pontosan követi a játékos mozgását, azonban hirtelen irányváltásoknál enyhe remegés figyelhető meg.</td>
+                </tr>
+                <tr>
+                    <td>27.</td>
+                    <td>Pályák közötti váltás hibájának vizsgálata.</td>
+                    <td>A pályák közötti váltás zökkenőmentesen működik, és minden térkép hibátlanul betöltődik.</td>
+                    <td>A pályák közötti váltás során csak az első térkép érhető el, a többi pálya nem töltődik be.</td>
+                </tr>
+                <tr>
+                    <td>28.</td>
+                    <td>Különböző fegyvertípusok statisztikai eltéréseinek ellenőrzése.</td>
+                    <td>A távolsági, közepes távolságú és közelharci fegyverek eltérnek sebzésben, tüzelési sebességben és modellben, de mindegyik megfelelően működik.</td>
+                    <td>A fegyvertípusok eltérő statisztikai jellemzői (sebzés, tüzelési sebesség) helyesen működnek, azonban néhány fegyvermodell nem jelenik meg megfelelően.</td>
+                </tr>
+                <tr>
+                    <td>29.</td>
+                    <td>Ellenségek újbóli megjelenése pálya újraindításakor.</td>
+                    <td>Az ellenségek újbóli megjelenése minden esetben helyesen történik, és megfelel az eredeti elrendezésnek.</td>
+                    <td>Az ellenségek újbóli megjelenése általában helyes, de néha hiányoznak bizonyos előre meghatározott helyekről.</td>
+                </tr>
+                <tr>
+                    <td>30.</td>
+                    <td>Mentési rendszer működése bővített adatállapotokkal.</td>
+                    <td>A mentett adatállapot pontosan visszatölthető, beleértve a játékos tárgyait és a pálya állapotát.</td>
+                    <td>A mentési rendszer továbbra sem működik, és az elért állapotok nem kerülnek tárolásra.</td>
+                </tr>
+                <tr>
+                    <td>31.</td>
+                    <td>Egyszerre megjelenő vizuális effektek hatásának vizsgálata a teljesítményre.</td>
+                    <td>Az FPS érték stabil marad, és az effektek időben és helyesen jelennek meg.</td>
+                    <td>5-6 egyidejű effekt esetén az FPS érték stabil, de 10-nél több effekt megjelenése már észrevehető akadozást okoz.</td>
+                </tr>
+                <tr>
+                    <td>32.</td>
+                    <td>Különböző típusú ellenségek működésének ellenőrzése (közelharci, távolsági).</td>
+                    <td>A különböző típusú ellenségek megfelelően alkalmazzák az egyedi támadási mintáikat és mozgásukat.</td>
+                    <td>Az ellenségek típusonként eltérően működnek, de néhány távolsági ellenfél helytelenül közelharci támadást hajt végre.</td>
+                </tr>
+                <tr>
+                    <td>33.</td>
+                    <td>Menürendszer opcióinak használhatósága.</td>
+                    <td>A menü minden opciója könnyen elérhető és zökkenőmentesen működik.</td>
+                    <td>A menürendszer egyes opciói (pl. grafikai beállítások) nem reagálnak a kiválasztásra, vagy nem mentik el a beállításokat.</td>
+                </tr>
+                <tr>
+                    <td>34.</td>
+                    <td>Pályán található tárgyak összegyűjtésének tesztelése.</td>
+                    <td>A pályán található összes tárgy helyesen felvehető, és megjelenik a tárgylistában.</td>
+                    <td>A tárgyak többsége helyesen felvehető, azonban néhány tárgy vizuálisan látható, de nem reagál a játékos interakciójára.</td>
+                </tr>
+                <tr>
+                    <td>35.</td>
+                    <td>Sebzés mechanikák tesztelése speciális támadásokkal.</td>
+                    <td>Minden támadás a megfelelő mértékű sebzést okozza, és az életcsík pontosan frissül.</td>
+                    <td>A sebzések mértéke pontos, de bizonyos speciális támadások sebzése néha késve kerül levonásra az életcsíkból.</td>
+                </tr>
+                <tr>
+                    <td>36.</td>
+                    <td>Játékos mozgásának finomhangolása tereptárgyak között.</td>
+                    <td>A játékos mozgása folyamatos marad, és nincs elakadás szűk helyeken sem.</td>
+                    <td>A mozgás általában megfelelő, de néhány szűk területen a játékos időnként elakad.</td>
+                </tr>
+                <tr>
+                    <td>37.</td>
+                    <td>Ellenségek látómezejének működése.</td>
+                    <td>Az ellenségek észlelik a játékost a látómezőjükön belül, és megfelelően reagálnak.</td>
+                    <td>Az ellenségek látómezeje helyesen működik, de néhány esetben észlelnek akadályokon keresztül is.</td>
+                </tr>
+                <tr>
+                    <td>38.</td>
+                    <td>Küldetés állapotának resetelése újrakezdéskor.</td>
+                    <td>A küldetés minden feltétele és állapota alaphelyzetbe kerül újrakezdéskor.</td>
+                    <td>A küldetések nagy része helyesen resetelődik, de néhány esetben a már teljesített feltételek is aktívak maradnak.</td>
+                </tr>
+                <tr>
+                    <td>39.</td>
+                    <td>Játékos karakter sebességének változtatása bónuszokkal.</td>
+                    <td>A sebességváltozás azonnal érezhető és a megfelelő ideig tart.</td>
+                    <td>A sebességváltozás helyesen működik, de a hatás néha hosszabb ideig tart, mint az előírt idő.</td>
+                </tr>
+                <tr>
+                    <td>40.</td>
+                    <td>Ellenségek respawn területeinek tesztelése.</td>
+                    <td>Az ellenségek csak a megadott respawn pontokon jelennek meg.</td>
+                    <td>Az ellenségek megfelelően respawnolnak, de néha a játékos közvetlen közelében is megjelennek, ami játékegyensúlyi problémát okoz.</td>
+                </tr>
+                <tr>
+                    <td>41.</td>
+                    <td>Távoli lövések pontosságának vizsgálata.</td>
+                    <td>A lövések pontosan eltalálják a célpontot még nagyobb távolságból is.</td>
+                    <td>A távoli lövések pontosak, de néhány esetben a golyók célba érkezése vizuálisan késik.</td>
+                </tr>
+                <tr>
+                    <td>42.</td>
+                    <td>Tárgyhasználat közbeni mozgás ellenőrzése.</td>
+                    <td>A játékos képes mozgás közben használni a tárgyakat, és a használat nem szakítja meg a mozgást.</td>
+                    <td>A tárgyhasználat közben a mozgás helyesen működik, de néhány tárgy esetében a játékos ideiglenesen lelassul.</td>
+                </tr>
+                <tr>
+                    <td>43.</td>
+                    <td>Pályán lévő interaktív elemek láthatósága.</td>
+                    <td>Az interaktív elemek kiemelve jelennek meg, hogy a játékos könnyen észrevegye őket.</td>
+                    <td>Az interaktív elemek többsége megfelelően kiemelve van, de néhány kisebb elem nehezen észlelhető a háttér miatt.</td>
+                </tr>
+                <tr>
+                    <td>44.</td>
+                    <td>Játékos életcsíkjának visszatöltése harcon kívül.</td>
+                    <td>A játékos életcsíkja automatikusan regenerálódik harcon kívüli időszakokban.</td>
+                    <td>Az életcsík regenerációja megfelelően működik, azonban nagyobb sebzések után lassabb a vártnál.</td>
+                </tr>
+                <tr>
+                    <td>45.</td>
+                    <td>Játékbeli időzítések működésének ellenőrzése.</td>
+                    <td>Minden időzítés (pl. bombák robbanása, időzített küldetések) megfelelően működik és szinkronban van az eseményekkel.</td>
+                    <td>Az időzítések többsége helyesen működik, de néhány esetben a bombák robbanása késik a beállított időhöz képest.</td>
+                </tr>
+                <tr>
+                    <td>46.</td>
+                    <td>Játékos esési sebességének ellenőrzése gravitációs hatás alatt.</td>
+                    <td>A játékos mozgása gravitáció hatására egyenletesen gyorsul, és megfelelően érkezik a talajra.</td>
+                    <td>A játékos esési sebessége helyes, de néha kisebb akadályok megállítják a mozgást, ami nem reális.</td>
+                </tr>
+                <tr>
+                    <td>47.</td>
+                    <td>Ellenségek támadási frekvenciájának tesztelése.</td>
+                    <td>Az ellenségek támadásai megfelelő időközönként következnek, a játékmenet kiegyensúlyozott marad.</td>
+                    <td>Az ellenségek támadási frekvenciája általában megfelelő, de egyes ellenségek túl gyakran támadnak, ami kiegyensúlyozatlanságot okoz.</td>
+                </tr>
+                <tr>
+                    <td>48.</td>
+                    <td>Pályákon található rejtett elemek felfedezhetőségének vizsgálata.</td>
+                    <td>A rejtett elemek (pl. titkos ajtók, ládák) megfelelő interakcióval és vizuális jelzésekkel felfedezhetők.</td>
+                    <td>A rejtett elemek többsége helyesen felfedezhető, de néhány vizuálisan nem észlelhető.</td>
+                </tr>
+                <tr>
+                    <td>49.</td>
+                    <td>Távoli ellenségek mozgásának és támadásának szinkronizációja.</td>
+                    <td>Az ellenségek mozgása és támadása szinkronban van, és pontosan céloznak a távoli célpontokra.</td>
+                    <td>A távoli ellenségek mozgása és támadása általában szinkronban van, de néha helytelenül állnak meg tüzelés közben.</td>
+                </tr>
+                <tr>
+                    <td>50.</td>
+                    <td>Képernyő átmenetek (fade-in és fade-out) működésének ellenőrzése.</td>
+                    <td>A képernyő átmenetek folyamatosak és zökkenőmentesek, nem befolyásolják a játékmenetet.</td>
+                    <td>A fade-in és fade-out effektek általában megfelelően működnek, de néha villogás tapasztalható az átmenetek során.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+
+    <footer>
+        <p>&copy; 2024 H5 Daltons Games. Minden jog fenntartva.</p>
+    </footer>
+</body>
+</html>
