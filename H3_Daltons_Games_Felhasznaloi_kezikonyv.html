@@ -110,17 +110,415 @@
         </ul>
     </div>
 
-    <div id="iranyitasi-utmutato" class="section">
+    <div id="control-guide" class="section">
         <h2>Irányítási útmutató</h2>
         <ul>
-            <li><strong>W:</strong> mozgás föl</li>
-            <li><strong>S:</strong> mozgás le</li>
-            <li><strong>A:</strong> mozgás balra</li>
-            <li><strong>D:</strong> mozgás jobbra</li>
-            <li><strong>Left click:</strong> lövés</li>
-            <li><strong>R:</strong> fegyver újratöltése</li>
-            <li><strong>LShift:</strong> futás</li>
-            <li><strong>ESC:</strong> menü megnyitás</li>
+            <li><strong>Mozgás:</strong> W, A, S, D (billentyűzet) / Fel (↑): Előre mozgás, Le (↓): Hátrálás, Balra (←): Balra mozgás, Jobbra (→): Jobbra mozgás</li>
+            <li><strong>Támadás:</strong> Bal egérgomb vagy megfelelő gomb (kontroller)</li>
+            <li><strong>Célzás:</strong> Kurzorkövető</li>
+            <li><strong>Fegyver újra töltése:</strong> R (billentyűzet)</li>
+            <li><strong>Fegyverváltás:</strong> E (billentyűzet)</li>
+            <li><strong>Futás:</strong> Shift (billentyűzet)</li>
+            <li><strong>Interakció:</strong> Jobb egérgomb</li>
+            <li><strong>ESC:</strong> Menü megnyitása</li>
+        </ul>
+    </div>
+
+    <div id="character-description" class="section">
+        <h2>Karakter</h2>
+        <p>
+            A főhős egy tudós egy cyberpunk stílusú jövőben játszódó világban. A tudományos eredményei miatt üldözik titokzatos entitások. 
+            Az üldözők egy nemvárt pillanatban rácsapnak a tudósra, a harc során a tudós TeleWatch készüléke megrongálódik. 
+            Ez a készülék egy új találmánya, ami képes térben és időben teleportálni őt. A megrongálódott készülék visszarepíti 
+            főhősünket egy számára ismeretlen időbe. Azonban az ellenséges erők számára is elérhető egy fajta teleportációs készülék. 
+            A főhős feladata, hogy a téridő ugrásból hátramaradt fekete lyukak segítségével hazajusson.
+        </p>
+        <ul>
+            <li><strong>Életerő (HP):</strong> 100</li>
+            <li><strong>Mozgás sebesség:</strong> 1</li>
+        </ul>
+    </div>
+    <div id="maps" class="section">
+        <h2>Pályák</h2>
+        
+        <div class="map">
+            <h3>Western: Tombolón a Préri</h3>
+            <p>
+                A Tombolón a Préri pálya a klasszikus vadnyugati hangulatot idézi, tele veszélyekkel és izgalmas felfedezésekkel.
+                A térkép változatos tájakkal, dombokkal, sziklás vidékekkel és kaktuszokkal tarkított préri, amely a játékmenet során 
+                folyamatos kihívásokat kínál a játékos számára. A dombok között, az árnyékos fáknál és a nyílt terepen banditák leselkednek, 
+                miközben a játékosnak figyelnie kell a természet veszélyeit is, mint a mérgező kígyók, szúrós skorpiók és a váratlanul 
+                támadó keselyűk.
+            </p>
+        </div>
+
+        <div class="map">
+            <h3>Sci-fi</h3>
+            <p>
+                Egy jövőbeli sci-fi világban kezd a karakter, ahol mindenhol robotok, cyborgok és űrlények láthatók.
+                Ennél a pályarésznél a design főként a cyberpunk stílusra próbál hajazni: sötét, esős utcák és neonfények kontrasztja 
+                jellemző, keleti elemek (például japán karakterek és motívumok a neonfényes hirdetőtáblákon) szintén megtalálhatók.
+                A társadalom teljesen integrálta az életébe a mesterséges intelligenciákat, kiberimplantátumokat. A más világokba 
+                való átjutásra egy teleport fog funkcionálni, ami a játékban a pálya végi célként funkcionál.
+            </p>
+        </div>
+
+        <div class="map">
+            <h3>Mediavel: (DLC)</h3>
+            <p>
+                A középkori stílus jellemző elemei a kastélyok, várak, lovagok és parasztok. Vizuális tematikája a kővárakban, sötét erdőkben, 
+                misztikus tájakban, piszkos falvakban és városokban mutatkozik meg. Gyakoriak a hiedelmek, babonák és a misztikumban való hit, 
+                mely a játékban különböző okkult lényekben és bestiáriumokban létező furcsa, titokzatos állatszerű szörnyek formájában jelennek meg. 
+                A főhős egy lovagként fog megjelenni, míg az ellenségek között más lovagok, őrkutyák, zsoldosok, csontvázak, varázslók és sárkányok szerepelnek.
+            </p>
+        </div>
+    </div>
+    <div id="enemies" class="section">
+        <h2>Ellenségek</h2>
+        <p><strong>Észlelés/Észrevétel:</strong> Egy „range” van megadva az ellenségeknek, és ha a játékos belép abba a mezőbe, akkor az ellenségek elkezdik támadni.</p>
+        
+        <div class="enemy">
+            <h3>Western</h3>
+
+            <div class="enemy">
+                <h4>Bandita</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 160</li>
+                    <li><strong>Mozgás sebesség:</strong> 0.7</li>
+                    <li><strong>Sebzés:</strong> 40</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Távolsági</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Keselyű</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 200</li>
+                    <li><strong>Mozgás sebesség:</strong> 15</li>
+                    <li><strong>Sebzés:</strong> 0.3</li>
+                    <li><strong>Támadási sebesség:</strong> 2 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Prérikutya</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 40</li>
+                    <li><strong>Mozgás sebesség:</strong> 1.2</li>
+                    <li><strong>Sebzés:</strong> 100</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Skorpió</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 80</li>
+                    <li><strong>Mozgás sebesség:</strong> 0.7</li>
+                    <li><strong>Sebzés:</strong> 20</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                    <li><strong>Képesség:</strong> Poison</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Mérges kígyó</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 100</li>
+                    <li><strong>Mozgás sebesség:</strong> 0.5</li>
+                    <li><strong>Sebzés:</strong> 10</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                    <li><strong>Képesség:</strong> Poison</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Ogopogo (Boss)</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 1000</li>
+                    <li><strong>Mozgás sebesség:</strong> 0.4</li>
+                    <li><strong>Sebzés:</strong> 60</li>
+                    <li><strong>Támadási sebesség:</strong> 2 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc & Távolsági</li>
+                    <li><strong>Képességek:</strong> Poison, Knockback</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="enemies" class="section">
+        <h2>Ellenségek</h2>
+
+        <div class="enemy">
+            <h3>Western</h3>
+
+            <div class="enemy">
+                <h4>Little Ogopogo</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 100</li>
+                    <li><strong>Mozgás sebesség:</strong> 1</li>
+                    <li><strong>Sebzés:</strong> 30</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Skinwalker</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 250</li>
+                    <li><strong>Mozgás sebesség:</strong> 1</li>
+                    <li><strong>Sebzés:</strong> 40</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                    <li><strong>Képesség:</strong> Cloning</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Sheriff</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 125</li>
+                    <li><strong>Mozgás sebesség:</strong> 1.1</li>
+                    <li><strong>Sebzés:</strong> 50</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Távolsági</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="enemy">
+            <h3>Sci-fi</h3>
+
+            <div class="enemy">
+                <h4>Goliath</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 500</li>
+                    <li><strong>Mozgás sebesség:</strong> 0.6</li>
+                    <li><strong>Sebzés:</strong> 40</li>
+                    <li><strong>Támadási sebesség:</strong> 1.5 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Vortex</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 200</li>
+                    <li><strong>Mozgás sebesség:</strong> 1</li>
+                    <li><strong>Sebzés:</strong> 30</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Távolsági</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Skitter</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 150</li>
+                    <li><strong>Mozgás sebesség:</strong> 1.2</li>
+                    <li><strong>Sebzés:</strong> 20</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>HydraBot (Boss)</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 1000</li>
+                    <li><strong>Mozgás sebesség:</strong> 0.4</li>
+                    <li><strong>Sebzés:</strong> 60</li>
+                    <li><strong>Támadási sebesség:</strong> 2 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc & Távolsági</li>
+                    <li><strong>Képességek:</strong> Poison, Knockback</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Runner911</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 50</li>
+                    <li><strong>Mozgás sebesség:</strong> 2</li>
+                    <li><strong>Sebzés:</strong> 10</li>
+                    <li><strong>Támadási sebesség:</strong> 0.5 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                    <li><strong>Képesség:</strong> Speed Increase</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Cyborg</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 250</li>
+                    <li><strong>Mozgás sebesség:</strong> 1</li>
+                    <li><strong>Sebzés:</strong> 40</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc & Távolsági</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Space Ranger</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 250</li>
+                    <li><strong>Mozgás sebesség:</strong> 1</li>
+                    <li><strong>Sebzés:</strong> 50</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Távolsági</li>
+                </ul>
+            </div>
+
+            <div class="enemy">
+                <h4>Drone</h4>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> 120</li>
+                    <li><strong>Mozgás sebesség:</strong> 1.1</li>
+                    <li><strong>Sebzés:</strong> 20</li>
+                    <li><strong>Támadási sebesség:</strong> 1 sec</li>
+                    <li><strong>Támadási távolság:</strong> Távolsági</li>
+                    <li><strong>Képesség:</strong> Knockback</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="mediavel-enemies" class="section">
+        <h2>Középkori (Mediavel) Ellenségek</h2>
+        <div class="list">
+            <div class="enemy">
+                <h3>Lovag</h3>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> NA</li>
+                    <li><strong>Mozgás sebesség:</strong> NA</li>
+                    <li><strong>Sebzés:</strong> NA</li>
+                    <li><strong>Támadási sebesség:</strong> NA</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+            <div class="enemy">
+                <h3>Testőr</h3>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> NA</li>
+                    <li><strong>Mozgás sebesség:</strong> NA</li>
+                    <li><strong>Sebzés:</strong> NA</li>
+                    <li><strong>Támadási sebesség:</strong> NA</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+            <div class="enemy">
+                <h3>Huszár</h3>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> NA</li>
+                    <li><strong>Mozgás sebesség:</strong> NA</li>
+                    <li><strong>Sebzés:</strong> NA</li>
+                    <li><strong>Támadási sebesség:</strong> NA</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+            <div class="enemy">
+                <h3>Íjász</h3>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> NA</li>
+                    <li><strong>Mozgás sebesség:</strong> Távolsági</li>
+                    <li><strong>Sebzés:</strong> NA</li>
+                    <li><strong>Támadási sebesség:</strong> NA</li>
+                    <li><strong>Támadási távolság:</strong> NA</li>
+                </ul>
+            </div>
+            <div class="enemy">
+                <h3>Nyílpuskás</h3>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> NA</li>
+                    <li><strong>Mozgás sebesség:</strong> NA</li>
+                    <li><strong>Sebzés:</strong> NA</li>
+                    <li><strong>Támadási sebesség:</strong> NA</li>
+                    <li><strong>Támadási távolság:</strong> Távolsági</li>
+                </ul>
+            </div>
+            <div class="enemy">
+                <h3>Boszorkány</h3>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> NA</li>
+                    <li><strong>Mozgás sebesség:</strong> NA</li>
+                    <li><strong>Sebzés:</strong> NA</li>
+                    <li><strong>Támadási sebesség:</strong> NA</li>
+                    <li><strong>Támadási távolság:</strong> Távolsági</li>
+                </ul>
+            </div>
+            <div class="enemy">
+                <h3>Csontváz</h3>
+                <ul>
+                    <li><strong>Életerő (HP):</strong> NA</li>
+                    <li><strong>Mozgás sebesség:</strong> NA</li>
+                    <li><strong>Sebzés:</strong> NA</li>
+                    <li><strong>Támadási sebesség:</strong> NA</li>
+                    <li><strong>Támadási távolság:</strong> Közelharc</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="weapons" class="section">
+        <h2>Fegyverek</h2>
+        <div class="list">
+            <div class="weapon">
+                <h3>Revolver</h3>
+                <ul>
+                    <li><strong>Sebzés:</strong> 10-25</li>
+                    <li><strong>Kritikus találat:</strong> 50</li>
+                    <li><strong>Töltények száma:</strong> 6</li>
+                    <li><strong>Újra töltési idő:</strong> 5 sec</li>
+                    <li><strong>Lövés sebesség:</strong> 3 sec</li>
+                    <li><strong>Távolság:</strong> 50 tile</li>
+                </ul>
+            </div>
+            <div class="weapon">
+                <h3>Winchester puska</h3>
+                <ul>
+                    <li><strong>Sebzés:</strong> 35-50</li>
+                    <li><strong>Kritikus találat:</strong> 75</li>
+                    <li><strong>Töltények száma:</strong> 4</li>
+                    <li><strong>Újra töltési idő:</strong> 7 sec</li>
+                    <li><strong>Lövés sebesség:</strong> 4 sec</li>
+                    <li><strong>Távolság:</strong> 100 tile</li>
+                </ul>
+            </div>
+            <div class="weapon">
+                <h3>Lézer pisztoly</h3>
+                <ul>
+                    <li><strong>Sebzés:</strong> 5</li>
+                    <li><strong>Kritikus találat:</strong> 15</li>
+                    <li><strong>Töltények száma:</strong> INF</li>
+                    <li><strong>Újra töltési idő:</strong> 0 sec</li>
+                    <li><strong>Lövés sebesség:</strong> 1 sec</li>
+                    <li><strong>Távolság:</strong> 25 tile</li>
+                    <li><strong>Képesség:</strong> Splash damage</li>
+                </ul>
+            </div>
+            <div class="weapon">
+                <h3>Lézer ágyú (kis esély a megszerzéshez)</h3>
+                <ul>
+                    <li><strong>Sebzés:</strong> 200</li>
+                    <li><strong>Kritikus találat:</strong> 500</li>
+                    <li><strong>Töltények száma:</strong> 1</li>
+                    <li><strong>Újra töltési idő:</strong> 20 sec</li>
+                    <li><strong>Lövés sebesség:</strong> 7 sec</li>
+                    <li><strong>Távolság:</strong> 250 tile</li>
+                    <li><strong>Képesség:</strong> Splash damage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="dlcs" class="section">
+        <h2>DLC-k (Fejlesztés alatt)</h2>
+        <p><strong>„Fegyver skinek”</strong></p>
+        <ul>
+            <li><strong>Mediavel:</strong> Új pálya, új ellenségek, új fegyverek</li>
         </ul>
     </div>
 
