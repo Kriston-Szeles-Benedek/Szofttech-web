@@ -66,7 +66,7 @@
 
         <nav>
             <ul>
-                <li><a href="#bevezetes">Bevezetés</a></li>             
+               <!-- <li><a href="#bevezetes">Bevezetés</a></li>             -->
             </ul>
         </nav>
     </header>
@@ -74,38 +74,7 @@
    
 
 
-    <div class="introduction">
-        <h1 id="bevezetes">1. A rendszer vezérlésének kidolgozása</h1>
-        
-           <h3><strong>Aktív és passzív objektumok:</strong> </h3>
-        <ul>
-            <li>
-                <strong> Aktív objektumok:</strong> Ezek a játékban interakciókat kezdeményező entitások, például a Player, az Enemy, és az NPC.
-                 Az aktív objektumokhoz kapcsolódó tevékenységek közé tartozik az alábbiak meghatározása:Interakciók kezelése:
-                 pl. a Player és NPC közötti kapcsolat <strong>(interactsWith)</strong> vagy a Player és Enemy közötti <strong>fights.</strong>
-                 <br> Üzenetküldési mechanizmusok implementálása, pl. az Enemy Spawner <strong> spawnEnemy</strong> metódusa. <br> <strong>Passzív objektumok:</strong> Azok az elemek, amelyek nem kezdeményeznek interakciókat, például az Item, Inventory, vagy a Map.
-            </li>
-        </ul>
-                        <!--    <strong>    </strong>    <br>    -->
-            <h3><strong>Vezérlő objektumok:</strong> </h3>
-        <ul>
-            <li>
-                A vezérlést a Game Engine végzi, amely több alrendszer kezelését is biztosítja, mint például a <strong>szintek (Level)</strong> és <strong>térképek (Map)</strong> közötti váltás (<strong>manages</strong>, <strong>loads</strong> kapcsolatok).
-                <br> Az üzenetküldési logikák közé tartozik a <strong>QuestSystem</strong>, amely kezeli a küldetések állapotát és a hozzájuk kapcsolódó jutalmakat.
-            </li>
-        </ul>
-
-            <h3><strong>Üzenetváltások és láthatóság biztosítása:</strong></h3>
-        <ul>
-            <li>
-                 Az üzenetváltások a következő kapcsolatokat fedhetik le: 
-                Player és NPC közötti üzenetek (<strong>talk</strong>, <strong>giveQuest</strong>, <strong>giveReward</strong> metódusok).
-                <br> Weapon és Bullet közötti interakciók (<strong>fire</strong>, <strong>reload</strong> metódusok).
-                <br> A láthatóság biztosítása érdekében szükséges lehet interfészek alkalmazása, például az <strong>IDamageable</strong>, amelyet a Player és az Enemy is implementál.
-            </li>
-        </ul>
-        
-    </div>   
+    <!--
 
     <div id="Szemantikai adatmodell" class="section">
         <h2>2. Az osztályok közötti kapcsolatok implementálása</h2>
@@ -168,7 +137,7 @@
             <li style="list-style-type: square; margin-left: 40px;"><strong>inventory:</strong> Item, Inventory.</li>
             <li style="list-style-type: square; margin-left: 40px;"><strong>quests:</strong> Quest, Reward.</li>
         </ul>
-    </div>
+    </div> -->
 
     <div id="kapcsolatot tartó osztályok" class="section">
         <h1>Tesztelési Táblázat</h1>

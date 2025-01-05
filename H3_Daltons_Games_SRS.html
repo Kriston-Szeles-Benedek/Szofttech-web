@@ -693,7 +693,9 @@
         <section>
             <h1  id="Karakterek">13. Karakterek</h1>
             <p><strong>Főhős:</strong> A főhős egy tudós egy cyberpunk stílusú jövőben játszódó világban. A tudományos eredményei miatt üldözik titkosított entitások. Az üldözők egy nemvárt pillanatban rácsapnak a tudósra, a harc során a tudós TeleWatch készüléke, megrongálódik, ez a készülék egy új találmánya, ami képes térben és időben teleportálni őt. A megrongálódott készülék visszarepíti főhősünket egy számára ismeretlen időbe. Azonban az ellenséges erők számára is elérhető egy fajta teleportációs készülék. A főhős feladata, hogy a téridő ugrásból hátramaradt fekete lyukak segítségével hazajusson.</p>
-        
+            <p><strong>Középkori ellenségek:</strong> WORK IN PROGRESS</p>
+            <p><strong>NPCk:</strong> WORK IN PROGRESS</p>
+
             <table>
                 <thead>
                     <tr>
@@ -776,9 +778,170 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div id="mechanikák" class="section">
+
+                <h2>Mechanikák</h2>
+                <p>
+                    Mentések és autosave-ek: A játékban időnként lesznek auto mentések, ezek alapvető beállításként 5 percenként fognak történi, azonban a beállítások között ezt is meg lehet változtatni 10, 15, 30 percre, valamint teljesen ki is lehet kapcsolni. A menüben egy kattintással el lehet menteni a játékállást. Az esetleges mentési hiba esetén mindig el lesz mentve a legutóbbi 10 játék állás mentése, így a játékosnak nem kell azon aggódnia, hogy újra kell kezdenie a játékát.
+                </p>
+                        
+                  <h3>Healelés</h3>
+                <p>
+                    Ha a játékosnak elfogy az életereje, akkor meghal a karakter és a legutóbbi mentésnél kell újrakezdeni a játékot. Az életerő teljes élet esetén zöld színű, ha viszont 75% alá esik akkor átvált sárgára, 50% alatt narancssárgára és 25% alatt pirosra, ilyenkor egy rövid hanghatás is tájékoztatja erről a játékost. Az életerő nem töltődik vissza magától, erre specifikus itemek hivatottak. Ezek az itemek a healing itemek, a legelterjedtebb ilyen itemek a különböző ételek lesznek, melyek a játékos életének 25%-át gyógyítják, az ennél ritkább  ámde értékesebb gyógyításra alkalmas tárgy a kötszer, amely a játékos életének az 50%-át gyógyítja, és a leghasznosabb tárgy ebben a kategóriában az elsősegélydoboz, ez az életerőt teljesen felgyógyítja. Azonban ilyen erős itemek csak boss harcok után és rejtett helyeken lehet majd megszerezni, míg a gyengébb hatású gyógyító eszközöket az ellenfelek droppolhatják. Az ilyesfajta megszerzések a játék nehézségi fokozata nagyban befolyásolja. Easy fokozaton a kis healing item 10% eséllyel droppolódik, a közepes pedig 4% eséllyel. Mediumon a kis healing item 6% eséllyel, a közepes pedig 2%-al. A hard fokozaton 2% eséllyel droppolódik a kicsi és 0,5% eséllyel a közepes. A nagy healing itemeket nem befolyásolja a nehézségi fokozat.
+                </p>
+                  <h3>Küldetések</h3>
+                <p> A játékosnak több különböző küldetést kell elvégeznie, hogy jobb fegyvere és több pénze legyen azonban ezek mellett a legfontosabb, hogy a játék előrre haladhasson, mivel a fő ellenfelek és a különböző előrre jutáshoz szükséges felszerelések, csak küldetések révén hozzáférhetőek. A játékos specifikus NPC-ktől tudja felvenni, ezeket a küldetéseket. A legtöbb küldetés egyszerűbb lefolyású és nincs szükség nagy erőfeszítésre a teljesítésükhöz. A legtöbb küldetés 3 csoportra oszthatóak, az első az quest itemek begyűjtése, amik általában dungeonokbe, vagy más ellenségektől hemzsegő területeken találhatóak. Ezeknek általában a térképen jól láthatóan jelölve van a pozíciójuk, a frusztrált keresgélés elkerülése érdekében. A questek második csoportja, a "fejvadászat". Ezeknél a küldetéseknél vagy egy bizonyos ellenségtípust, vagy bizonyos főellenfelet kell levadászni. Ennek a küldetéstípusnak a térképen való jelölése sokkal kevésbé definiált. Itt általában csak egy terület van kijelölve, ahol megtalálható a keresett ellenfél. A küldetések harmadik típusa pedig a puzzle küldetések. Ezek olyan küldetések, ahol a küldetés teljesítésének kulcsa a kreatív gondolkozás. Ezeknek a küldetéseknek a megoldása több játékosnak hosszas fejtörést okozhat, ezért nem tartoznak a fő küldetés szálak közé, így elkerülve a játékos untatását és frusztráltságát.
+                 </p>
+                 <h3>Jutalmak</h3>
+                <p> A különböző küldetésekért cserébe aranyat és tárgyi jutalmakat is szerezhet a játékos, ez főként a küldetés bonyolultságától és nehézségétől függ. A küldetések mindig tartalmaznak valamennyi mennyiségű aranyat, és e mellett esetlegesen tartalmazhatnak különböző healing tárgyakat, vagy valamilyen stat növelő potionoket.
         
-            <p><strong>Középkori ellenségek:</strong> WORK IN PROGRESS</p>
-            <p><strong>NPCk:</strong> WORK IN PROGRESS</p>
+        
+                </p>
+                <h3>Vásárlás</h3>
+                <p>: A játékban találhatóak különböző boltok és árusok, ahol a küldetésekért kapott aranyat tudjuk, fegyverekre, healing itemekre vagy potionokre cserélni. A boltok felszereltsége függ az adott helytől, egy vándor árus kevesebb áruval rendelkezik, mint egy város boltja, azonban akár exkluzív tárgyak is találhatóak náluk. A vándor árusok pozíciója változó, egy adott szakaszon haladnak, ez elkerüli a falvakat és az ellenségektől hemzsegő területeket, a szakaszon egy teljes kört ~30perc alatt tesz meg, az árus éjjel és nappal is elérhető. A városokban lévő boltosokat mindig ugyan azon a helyen lehet megtalálni napkeltétől napnyugtáig. A vásárlások közben nem telik az idő, így a játékos biztosan nem fog meghalni vásárlás közben egy éppen arra járkáló ellenség miatt.
+        
+                    
+                </p>
+                <h3>Companionök</h3>
+                <p> A companionök olyan NPC-k, akiket fel tud bérelni a játékos, és ők egészen halálukig követni fogják a játékost. Az elhalálozásuk esetén visszakerülnek az eredeti pozíciójukra és ugyan annyi fizetésért cserébe fognak segíteni a játékosoknak. A companionök sebzésük és életük szerint rangsorolva vannak és minél jobb átlaggal rendelkeznek annál drágább őket felbérelni. A companionöket nem lehet a szokványos healing itemekkel gyógyítani, mivel akkor a játékos csak felbérelné a legerősebb companiont és a sokkal olcsóbb healing itemekkel életben tartaná, mintsem hogy drágábban újra bérelje. A potionök viszont hatnak rájuk, ezeket úgy lehet rájuk elhasználni, hogy a játékos az inventoryból "ráhúzza" a companion karakterre és azonnal el is használja azt. A companionnek egy egyszerű ai-al rendelkezik, követi a játékost és akkor támad meg ellenséget, ha a játékos megtámadja azokat vagy az ellenségek támadják meg a játékost. A játékos egyszerre 2 companiont bérelhet fel, ha le szeretné váltani a companiont akkor bármikor ell lehet őket küldeni, ilyenkor resetelődnek, mintha meghaltak volna.
+        
+                    
+                </p>
+                <h3>Potionök</h3>
+                <p> A játékban több féle potion is megtalálható, ezek olyan bájitalok, amik valamilyen statját boostot adnak. Ezeket főbossoktól, vagy árusoktól lehet szerezni. ezek stackable itemek, vagyis egyszerre többet is az inventoryban lehet tárolni anélkül, hogy több inventory slotot foglalna el. Ezeket 8-as stackekben lehet tárolni. Egyszerre csak egy potion léphet hatásba, és a addig nem lehet másikat elhasználni, amíg az le nem jár. A potionök megivásakor a játékos körül particalök jellennek meg amíg tart a hatása, ez egy feltűnő vizuális jelzés a játékosnak arra, hogy elmúlt a hatás. A különböző potionöknek más színei vannak és ezeknek a színe határozza meg a particleök színeit is. Ez előnyös abból a szempontból is, hogy így nyomon tudja követni a játékos, hogy a compenionnek tart e még a potionje.
+                    <ul>
+                        <li>
+                          <strong>Damage Potion:</strong>
+                          <ul>
+                            <li><strong>Hatás leírása:</strong> Ez a potion +20% sebzést biztosít a játékosnak</li>
+                            <li><strong>Időtartam:</strong> 2 perc</li>
+                            <li><strong>Szerezhetőség:</strong> quest reward, árus, boss drop item</li>
+                            <li><strong>Ár:</strong> 200 gold</li>
+                            <li><strong>Szín:</strong> piros</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Speed Potion:</strong>
+                          <ul>
+                            <li><strong>Hatás leírása:</strong> Ez a potion +30%-ot ad a játékos sebességéhez</li>
+                            <li><strong>Időtartam:</strong> 1,5 perc</li>
+                            <li><strong>Szerezhetőség:</strong> quest reward, árus, boss drop item</li>
+                            <li><strong>Ár:</strong> 150 gold</li>
+                            <li><strong>Szín:</strong> kék</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Invisibility Potion:</strong>
+                          <ul>
+                            <li><strong>Hatás leírása:</strong>Ez a potion láthatatlanná teszi a játékost az ellenség számára, addig amíg hozzá nem érnek, vagy nem támad. Ez nem befolyásolja a többi NPC-t, a companion tudja követni és a boltokban is tud vásárolni a játékos. Ha a companionnek nincs ilyen potionje, akkor az ellenségek ugyan úgy látják őt és meg is fogják támadni, azonban a companion támadása nem semmisíti meg a játékos láthatatlanságát.</li>
+                            <li><strong>Időtartam:</strong> 30 másodperc</li>
+                            <li><strong>Szerezhetőség:</strong> quest reward, boss drop item</li>
+                            <li><strong>Ár:</strong> N/A</li>
+                            <li><strong>Szín:</strong> fehér</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Defense Potion:</strong>
+                          <ul>
+                            <li><strong>Hatás leírása:</strong> Ha ezt a potiont használja a játékos, akkor 20%-al kevesebbet sebződik.</li>
+                            <li><strong>Időtartam:</strong> 2 perc</li>
+                            <li><strong>Szerezhetőség:</strong> quest item, árus, boss drop item</li>
+                            <li><strong>Ár:</strong> 150 gold</li>
+                            <li><strong>Szín:</strong> narancs</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Knockback Resistance Potion:</strong>
+                          <ul>
+                            <li><strong>Hatás leírása:</strong> Ez a potion +25%-ot ad a knockback resistancehez</li>
+                            <li><strong>Időtartam:</strong> 2,5 perc</li>
+                            <li><strong>Szerezhetőség:</strong> árus, boss drop item</li>
+                            <li><strong>Ár:</strong> 150 gold</li>
+                            <li><strong>Szín:</strong> lila</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Antidote Potion:</strong>
+                          <ul>
+                            <li><strong>Hatás leírás:</strong> Ez a potion meggyógyítja a játékost a mérgezés státusz effekt alól.</li>
+                            <li><strong>Időtartam:</strong> N/A</li>
+                            <li><strong>Szerezhetőség:</strong> árus, boss drop item</li>
+                            <li><strong>Ár:</strong> 120 gold</li>
+                            <li><strong>Szín:</strong> zöld</li>
+                          </ul>
+                        </li>
+                      </ul>
+                      
+                    
+                </p>
+                <h3>Bossok</h3>
+                <p>
+                    A játékban pályaszakaszonként 3 boss van akiket le kell győzni a tovább haladáshoz. Ezek a főellenfelek az átlagnál több élettel rendelkeznek, legalább 2 phase-ük van és különleges képességeik vannak. A bossok elől el tud menekülni a játékos, azonban ha 30 másodpercnél tovább hagyja képernyőn kívül a főellenfelet, akkor a főellenfél élete visszatöltődik.
+                    Az első főellenfél az Ogopogo, amit egy tóban talál a főhős. Ez a boss 2 phase-el rendelkezik az elsőben bullethell stílusban bontakozik ki a harcrendszere, az első phase az Ogopogo 1000 életétől kezdve addig tart, amíg az élete 500 alá nem csökken. A második phase-ben jelentősen lecsökken a harc bullethell jellege, a főellenfél kijön a tóból és a támadásai közelharci leap-elésekkel és chargingolt támadásokkal cserélődnek le. A harc ebben a szakaszában képes ellenségeket idézni, kis Ogopogo-kat idéz akiknek egyszerű rohamozó támadásai vannak. A boss megölése után az idézett ellenfelek maguktól eltűnnek. Az Ogopogo maximálisan 6 kis Ogopogot idézhet egyidejűleg, az idézések közötti minimum intervallum pedig 20 másodperc. A támadásokat random választja, minden közelharci támadás után 2-3 másodpercre megáll, ilyenkor érdemes támadni a játékosnak.
+                    A második főellenfél a Skinwalker, ő is 2 phase-el rendelkezik 1200-tól 600-ig tart az első, ahol főként közelharci támadásoktól kell menekülni a játékosoknak, a Skinwalker ellenség minden támadása mérgez, ezért ajánlott Antidote-okból felszerelve megtámadni. A második phase-ben, ami 600 élet alatt kezdődik, a támadások felcserélődnek távolsági támadásokkal és területi támadásokkal támad, ahol szintén minden támadás mérgezéssel járhat.
+                    A harmadik boss a Rogue Sheriff, aki eredetileg egy küldetést adó NPC-ként szolgál, azonban ő vele is kötelező megvívni a történet tovább haladásához. Ha a fő küldetésben azt a küldetést kapja a játékos, hogy meg kell küzdeni a Sheriffel, akkor minden a Sheriff által adott, vagy még nem felvett küldetések automatikusan "Failed" státuszt kapnak és nem lehet elvégezni azokat. A Sheriff rendelkezik a legkevesebb életerővel, 600 élete van és az első phase 600 és 400 élet között van. Ebben a fázisban egy erősebb és gyorsabb zsiványként funkcionál, csak távolsági támadásokkal és area támadásokkal rendelkezik. A következő fázisban 400 életerő alatt pedig kap egy képességet, amivel zsiványokat tud hívni segítségként. Ezek a zsiványok minimum 3, maximálisan 6-an jöhetnek segíteni. Ez attól függ, hogy a játékos mennyi zsivány típusú ellenséget hagyott a pályán. A maximális zsiványok mennyisége 6, akik egyszerre  a boss harcnál lehetnek. Ezt a képességet percenként 1x tudja használni. A Sheriff megölése után a zsiványok menekülni kezdenek, a képernyőn kívül pedig despawnolnak.
+                    A főellenfelek legyőzése megnyitja az útvonalat a következő pálya felé, és különféle dropppokkal szolgál. A drop 1000-2000 közötti gold, 5 random potion, 2-3 nagy élet csomag, 2-5 közepes élet csomag, és esetenként egy új fegyver. Az idézett és hívott egyéb ellenfelek a boss harcok során nem dropolhatnak semmit, és a mennyiségük megölése nem befolyásolja a loot mennyiségét, milyenségét. 
+                    
+                </p>
+                <h3>Top-down shooter</h3>
+                <p>
+                    <ul>Szabad irányítás: A játék top-down nézetben játszódik, ahol a játékos szabadon mozoghat bármelyik irányba. A mozgás és a lövés irányítása vagy egér és billentyűzet esetén a WASD gombokkal és az egérrel. Ez a rendszer lehetővé teszi, hogy a játékos külön-külön szabályozza a mozgás és a lövés irányát, így folyamatosan mozoghat, miközben az ellenségekre tüzel.
+                    </ul>
+                    <ul>Fedezék használat: A pályákon különböző tereptárgyak, például fák, sziklák és hordók találhatók, amelyeket a játékos fedezékként használhat. A játékos fedezék mögött elrejtőzhet, így elkerülheti az ellenséges lövéseket, majd időzítve előléphet a fedezékből, hogy visszatámadjon.
+                    </ul>
+                    <ul>SCélzás és lövés: A játékos különféle lőfegyverekkel van felszerelve, és az egérrel irányíthatja a célzást. A lövés lehet automata vagy manuális, a fegyvertől függően. A különböző fegyverek más-más lövési sebességgel, hatótávval és pontossággal rendelkeznek, így a játékosnak ki kell választania a legmegfelelőbb fegyvert az adott helyzethez.
+                    </ul>
+                </p>
+                <h3>Platformer</h3>
+                <p>
+                    <ul>
+                        Ugrás és dupla ugrás: Az ugrás a mozgás alapja a platformer játékunkban. A játékos képes egyszeri ugrásra, de bizonyos helyzetekben dupla ugrás is elérhető, amely lehetővé teszi, hogy magasabb platformokra jusson, vagy nagyobb távolságokat hidaljon át. A dupla ugrás során a karakter egy rövid animációval lendül tovább, amely vizuálisan is érzékelteti a mozgás lendületét.
+                    </ul>
+                    <ul>
+                        Falra tapadás és falugrás: Bizonyos felületeken a játékos képes rövid ideig tapadni a falhoz, ami lehetővé teszi a falugrást is. Amikor a karakter a falra tapad, egy kis idő áll rendelkezésére, hogy átgondolja a következő lépést, majd elrugaszkodjon a falról, hogy elérje a szemben lévő platformot, vagy akár több egymás melletti fal között haladjon felfelé.
+                    </ul>
+                    <ul>
+                        Közelharci támadások: A játékos alapvető közelharci támadásokkal rendelkezik, amelyek különböző fegyverekkel hajthatók végre. A közelharci támadások gyorsak és egyszerűen végrehajthatók, és lehetőséget biztosítanak arra, hogy a játékos közvetlen közelről támadja meg az ellenségeit.
+                    </ul>
+                    <ul>
+                        Támadás és elkerülés kombinációja: A játékban a támadások és az elkerülő mozgások kombinálhatók, hogy dinamikus harci élményt nyújtsanak. A játékos egy támadást követően gyorsan kitérhet egy ellenséges csapás elől, vagy ugrással elkerülheti a veszélyt.
+                    </ul>
+                    <ul>
+                        Kombók és chainattackok: A játékos képes több támadást összefűzni egy folyamatos támadássorozattá, vagy úgynevezett kombóvá. A kombók lehetővé teszik, hogy a játékos gyors egymásutánban végezzen el több ütést vagy támadást, amely nagyobb sebzést okoz, mint egyszeri támadások.
+                    </ul>
+                </p>
+                <h3>Turn based combat</h3>
+                <p>
+                    <ul>
+                        Négyirányú mozgás: A karakter mozgása egyszerű és letisztult minden egyes mozdulata világos irányt követ, hogy a játékos egyértelműen tudja, hová tart. A négy irányú mozgás miatt a navigáció és a harci pozicionálás intuitív és könnyen megtanulható.
+                    </ul>
+                    <ul>
+                        Tolás és mozgatás: Bizonyos tereptárgyakat, például nagy köveket vagy ládákat a játékos eltolhat, hogy új átjárókat nyisson meg, vagy elérje a nehezen hozzáférhető helyeket. Ezek az interakciók nem igényelnek külön gombnyomást – elég, ha a játékos a megfelelő irányba mozog, és a karakter automatikusan tolni kezdi az adott tárgyat.
+                    </ul>
+                    <ul>
+                        Alaptámadások: Minden karakterünk rendelkezik alapvető közelharci vagy távolsági támadással, amelyeket közel vagy távolságból hajthatnak végre. Az alaptámadások gyorsak és könnyen végrehajthatók, így ideálisak a harc minden szakaszában.
+                    </ul>
+                    <ul>
+                        Kombók és szinergiák: Játékunkban a karakterek különféle képességei kombinálhatók egymással, így a játékos még hatékonyabb taktikákat dolgozhat ki. Például, ha az egyik karakter olajjal leönti a talajt, egy másik karakter tüzet idézhet rá, amely egy hatalmas robbanást idéz elő. Az ilyen szinergiák lehetőséget adnak a játékosnak, hogy maximálisan kihasználja a csapat együttműködését.
+                    </ul>
+                    <ul>
+                        Kritikus találatok és hibázások: A játékban minden támadásnak van egy kis esélye arra, hogy kritikus találat legyen, amely extra sebzést okoz, vagy hibázásra, amely teljesen elvéti az ellenfelet. Ez a véletlen elem fokozza az izgalmat, mivel minden támadás kimenetele nem teljesen kiszámítható, így a játékosnak folyamatosan alkalmazkodnia kell a helyzethez.
+                    </ul>
+                    <ul>
+                        Akciópontok rendszere: Minden karakterünk rendelkezik egy meghatározott számú akcióponttal, amelyeket minden körben felhasználhat mozgásra, támadásra vagy különleges képességek használatára. Az akciópontok gondos beosztása elengedhetetlen: ha a játékos túlságosan előresiet, és minden pontját támadásra fordítja, könnyen védtelenné válhat a következő körben.
+                    </ul>
+                    <ul>
+                        Kezdeményezés és körsorrend: A karakterek kezdeményezési értékei határozzák meg a kör sorrendjét. A gyorsabb karakterek előbb cselekednek, így a kezdeményezés előnyt jelenthet a harc elején. Egy gyors támadás vagy védekező lépés megváltoztathatja a csata menetét, így a játékosnak érdemes figyelembe vennie a kezdeményezés értékét, amikor taktikát tervez.
+        
+                    </ul>
+        
+                </p>
+                
+        
+            </div>
+        
+            
 
         </section>
 
