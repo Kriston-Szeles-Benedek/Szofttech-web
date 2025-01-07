@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H4 Daltons Games - Játékfejlesztési projekt">
+    <title>H4 Rendszer tervezés</title>
+    <link rel="stylesheet" href="style.css"> <!-- Külső CSS-fájl csatolása, ha szükséges -->
+    <button onclick="scrollToTop()" style="position:fixed;bottom:20px;right:20px;padding:10px;border-radius:5px;background-color:#007BFF;color:white;border:none;cursor:pointer;">
+        Fel a tetejére
+    </button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</head>
+
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f4f8; /* Világos, szemkímélő háttérszín */
+            color: #333;           
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .requirements {
+            padding-left: 20px;
+        }
+        div[class] {
+            text-align: justify;
+        }
+    </style>
+<body>
+    <header>
+        <h1>Rendszertervezés Dokumentáció</h1>
+    </header>
+
+    <div class="document-structure">
+        <section id="tartalom">
+            <h2>Tartalomjegyzék</h2>
+            <ul>
+                <li><a href="#bevezetes">1. Bevezetés</a></li>
+                <li><a href="#architektura">2. Rendszer architektúrája</a></li>
+                <li><a href="#reszletes-tervezes">4. Tervezés</a></li>
+                <li><a href="#nemfunkcionalis-kovetelmenyek">5. Nem Funkcionális Követelmények</a></li>
+            </ul>
+        </section>
+    </div>
+    
+   
+
+<!--
+    <div class="introduction">
+        <h1 id="bevezetes">1. Bevezetés</h1>
+        
+           
+        <ul>
+            <li>
+                <strong>A játékfejlesztési projekt célja:</strong> Egy olyan innovatív, műfajilag sokszínű játék létrehozása, amely a sci-fi, western és fantasy elemeket ötvözi, mindezt retro, pixel art stílusban megjelenítve. 
+                Az alapötlet arra épül, hogy a játékosok számára három különböző tematikus világot és játékmenetet nyújtson, lehetőséget adva a világok közötti zökkenőmentes váltásra és a különféle játékélmények felfedezésére. 
+                Ez a műfaji kombináció a játékot egyedi szórakoztató szoftverré teszi, amely különféle platformokon érhető el, beleértve a Steam, Epic Games Store, GOG és itch.io felületeket. 
+                Célunk, hogy a játékot digitálisan elérhetővé tegyük, széleskörű hozzáférést biztosítva az érdeklődőknek, különösen a fiatal felnőtt játékosok számára, akik vonzódnak a műfajok közötti váltáshoz és az esztétikus retro megjelenéshez.
+            </li>
+        </ul>
+        
+        <ul>
+            <li>
+                <strong>A játékot elsősorban:</strong> A fiatal felnőtt közönség számára tervezzük, akik nyitottak a különböző világok és játékstílusok közötti váltásra.
+                A célcsoportot olyan játékosok alkotják, akik élvezik a tematikus világok közötti átmeneteket, szeretik a műfaji sokszínűséget, valamint nyitottak az újszerű, egyedi megközelítésekre a játékélményben.
+                Az angol nyelvű kiadás célja, hogy a globális közönség számára elérhetővé tegyük a játékot, hiszen az angol nyelv nemzetközi használata elősegíti, hogy a játék világszerte népszerű legyen.
+                Ezzel a globális célkitűzéssel a játék piaci pozícióját is erősítjük, hiszen az indie és pixel art stílus iránt érdeklődő közönség egyre növekvő keresletet mutat a változatos és innovatív játékok iránt.
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <strong>A játék különlegessége abban rejlik:</strong> Hogy három teljesen eltérő világ és játékmenet egyesül benne, amelyek mind egyedi élményt nyújtanak a játékosoknak. A sci-fi világ gyors és dinamikus akciókat igényel, ahol a játékosoknak gyors reflexekkel és ügyes mozdulatokkal kell helytállniuk a kihívásokban.
+                A western világ fókusza inkább a pontos célzásra és reflexekre épül, ahol a játékosoknak az időzítés és a precizitás elengedhetetlen lesz a sikerhez.
+                Ezzel szemben a fantasy világ stratégiai gondolkodást kíván meg, mivel itt körökre osztott harcrendszer van érvényben, ahol a taktikai tervezés és a csapatstratégia fontos szerepet játszik.
+                Ez a sokrétűség különleges játékmenetet eredményez, amely nemcsak a műfaji változatosságot, hanem a kihívások széles spektrumát is lefedi, így biztosítva a játékosok számára a változatos és egyedi élményt.
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                A piacon található alternatív játékokkal szemben ez a játék előnyben részesíti a három különböző játékmenet harmonikus ötvözését egyetlen cím alatt.
+                Ez a játék platformfüggetlen megközelítéssel is rendelkezik, mivel több elterjedt játékelosztó rendszeren érhető el, beleértve a Steam, Epic Games Store, GOG és itch.io platformokat, ezzel biztosítva a széles körű hozzáférést.
+                A platformfüggetlenség és a műfaji sokszínűség, valamint a világok közötti váltás lehetősége lehetővé teszi, hogy a játék az indie és pixel art játékok piacán is kiemelkedő helyet foglaljon el.
+            </li>
+        </ul>
+    </div>   
+
+    <div id="Szemantikai adatmodell" class="section">
+        <h2>3.2 Szemantikai adatmodell</h2>
+        <ul>
+            <li>
+                <img src="uml_semantic_model_final.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+    </div>
+    
+    <div id="Relációs adatmodell" class="section">
+        <h2>3.3 Relációs adatmodell</h2>
+        <ul>
+            <li>
+                <img src="relational_data_model.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+    </div>
+
+    <div id="kapcsolatot tartó osztályok" class="section">
+        <h2>3.4 Az adatbázis kezelővel kapcsolatot tartó osztályok</h2>
+        <ul>
+            <li>
+                <img src="database_class_diagram_refined.png" alt="User Case Diagram" style="max-width: 100%; height: auto;">
+            </li>
+        </ul>
+    </div> -->
+
+    <div class="section-bevezetes">
+        <section id="bevezetes">
+            <h2>Bevezetés</h2>
+            <p>Ez a dokumentum alapvetően azt a célt szolgálja, hogy részletesen meghatározza a rendszer felépítését, komponenseit és azok kapcsolatait, figyelembe véve a projekt specifikus követelményeit.</p>
+            <h3>Célok és alapelvek</h3>
+            <p>A projekt központi célja, hogy egyedi, műfajilag sokszínű játékot hozzon létre, amely ötvözi a sci-fi, western és fantasy elemeket retro pixel art stílusban. A rendszertervezés során ezeket a célokat úgy kell figyelembe venni, hogy biztosítani tudjuk az optimális működést és a felhasználói elvárások teljesítését.</p>
+            <h3>A rendszertervezés szerepe</h3>
+            <ul>
+                <li>Meghatározza a játék működési logikáját.</li>
+                <li>Bemutatja a komponensek kapcsolódási pontjait.</li>
+                <li>Últalános irányelveket ad az implementációhoz.</li>
+            </ul>
+            <p>A rendszertervezési folyamat során nem alkalmazunk adatbázisokat, mivel a projekt kizárólag a játékállások mentéséhez használ perzisztens adatokat. Ezzel a megközelítéssel egyszerűsítjük a rendszertervezést, miközben biztosítjuk a teljesítényt és rugalmasságot.</p>
+        </section>
+    </div>
+    
+    <div class="section-architektura">
+        <section id="architektura">
+            <h2>2. Rendszer architektúrája</h2>
+            <h3>2.1 Architektúra Áttekintés</h3>
+            <p>A rendszer moduláris felépítésű, és az alábbi fő komponensekre tagolódik:</p>
+            <ul>
+                <li><strong>Game Engine:</strong> A játék alapvető működtetéséért felelős komponens, amely kezeli a játék mechanikáit, fizikai interakciókat és a szintek közötti váltásokat.</li>
+                <li><strong>Felhasználói Interfész:</strong> A játékos és a rendszer közötti kommunikáció biztosítása, beleértve a menük, HUD (Heads-Up Display), és értesítések kezelését.</li>
+                <li><strong>Karakterrendszer:</strong> A játékosok, NPC-k és ellenségek adatainak és interakcióinak kezeléséért felelős alrendszer.</li>
+                <li><strong>Térképek és Szintek:</strong> A játék környezeteit definiáló térképek és szintek létrehozása és kezelése.</li>
+            </ul>
+            <h3>2.2 Komponensek Közötti Kommunikáció</h3>
+            <p>Az egyes komponensek közötti adatátadás eseményalapú és interfészorientált megközelítést követ:</p>
+            <ul>
+                <li><strong>Game Engine ↔ Karakterrendszer:</strong> Az eseménykezelők segítségével a Game Engine értesíti a karaktereket az állapotváltozásokról (pl. mozgás, támadás).</li>
+                <li><strong>Game Engine ↔ Térképek és Szintek:</strong> A Game Engine felelős a térképek betöltéséért, frissítéséért és az objektumok pozicionálásáért a szinteken.</li>
+                <li><strong>Karakterrendszer ↔ Felhasználói Interfész:</strong> A karakterek állapotai (pl. egészség, sebzés) frissítik a HUD kijelzőt.</li>
+            </ul>
+            <h3>2.3 Architektúra Diagram</h3>
+            <pre>
+    +-------------------+     +----------------------+     +----------------+
+    |    Game Engine    | --> |  Karakterrendszer    | --> | Felhasználói   |
+    |                   |     |                      |     | Interfész      |
+    +-------------------+     +----------------------+     +----------------+
+             |
+             v
+    +-------------------+
+    | Térképek és Szintek |
+    +-------------------+
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-reszletes-tervezes">
+        <section id="reszletes-tervezes">
+            <h2>4. Tervezés</h2>
+    
+            <h3>4.1 Osztálydiagramok és Komponensek</h3>
+    
+            <h4>4.1.1 Game Engine</h4>
+            <p><strong>Attribútumok:</strong></p>
+            <ul>
+                <li><code>currentLevel: Level</code></li>
+                <li><code>isPaused: bool</code></li>
+            </ul>
+            <p><strong>Metódusok:</strong></p>
+            <ul>
+                <li><code>loadLevel(levelID: int): void</code></li>
+                <li><code>update(deltaTime: float): void</code></li>
+                <li><code>handleEvent(event: Event): void</code></li>
+                <li><code>saveGameState(): void</code></li>
+            </ul>
+            <h5>Példa kód - Szint betöltése</h5>
+            <pre>
+    public void LoadLevel(int levelID)
+    {
+        currentLevel = LevelManager.GetLevel(levelID);
+        currentLevel.Load();
+        isPaused = false;
+    }
+            </pre>
+    
+            <h4>4.1.2 Karakterrendszer</h4>
+            <p><strong>Attribútumok:</strong></p>
+            <ul>
+                <li><code>player: Player</code></li>
+                <li><code>enemies: List&lt;Enemy&gt;</code></li>
+                <li><code>npcList: List&lt;NPC&gt;</code></li>
+            </ul>
+            <p><strong>Metódusok:</strong></p>
+            <ul>
+                <li><code>spawnCharacter(type: CharacterType, position: Vector2): Character</code></li>
+                <li><code>removeCharacter(character: Character): void</code></li>
+                <li><code>updateCharacterStates(): void</code></li>
+                <li><code>processInteractions(): void</code></li>
+            </ul>
+            <h5>Példa kód - Karakter létrehozása</h5>
+            <pre>
+    public Character SpawnCharacter(CharacterType type, Vector2 position)
+    {
+        Character newCharacter = CharacterFactory.Create(type);
+        newCharacter.Position = position;
+        if (type == CharacterType.Enemy)
+        {
+            enemies.Add((Enemy)newCharacter);
+        }
+        else if (type == CharacterType.NPC)
+        {
+            npcList.Add((NPC)newCharacter);
+        }
+        return newCharacter;
+    }
+            </pre>
+    
+            <h4>4.1.3 Térképek és Szintek</h4>
+            <p><strong>Attribútumok:</strong></p>
+            <ul>
+                <li><code>mapData: Map</code></li>
+                <li><code>spawnPoints: List&lt;Vector2&gt;</code></li>
+                <li><code>activeObjects: List&lt;GameObject&gt;</code></li>
+            </ul>
+            <p><strong>Metódusok:</strong></p>
+            <ul>
+                <li><code>loadMap(mapID: int): void</code></li>
+                <li><code>resetMap(): void</code></li>
+                <li><code>updateMapState(deltaTime: float): void</code></li>
+                <li><code>checkLevelCompletion(): bool</code></li>
+            </ul>
+            <h5>Példa kód - Térkép frissítése</h5>
+            <pre>
+    public void UpdateMapState(float deltaTime)
+    {
+        foreach (var obj in activeObjects)
+        {
+            obj.Update(deltaTime);
+        }
+        CheckLevelCompletion();
+    }
+    
+    private bool CheckLevelCompletion()
+    {
+        return activeObjects.All(obj => !obj.IsObjective || obj.IsCompleted);
+    }
+            </pre>
+    
+            <h3>4.2 Algoritmusok és Adatszerkezetek</h3>
+    
+            <h4>4.2.1 Játékállás Mentése</h4>
+            <p>A játékállás mentése JSON formátumban történik, amely tartalmazza a játékos állapotát, a szintinformációkat és az aktív objektumokat.</p>
+            <h5>Példa kód - Játékállás mentése</h5>
+            <pre>
+    public void SaveGame(string filePath)
+    {
+        var saveData = new SaveData
+        {
+            PlayerState = player.GetState(),
+            LevelState = currentLevel.GetState(),
+            MapState = mapData.GetState()
+        };
+        File.WriteAllText(filePath, JsonConvert.SerializeObject(saveData));
+    }
+            </pre>
+    
+            <h4>4.2.2 Karakter Interakciók Kezelése</h4>
+            <p>Az interakciók eseményvezérelt rendszerrel működnek. Például a játékos interakcióba lép egy NPC-vel, vagy ellenséggel kerül szembe.</p>
+            <h5>Példa kód - Interakció kezelése</h5>
+            <pre>
+    public void InteractWithNPC(NPC npc)
+    {
+        if (npc.IsQuestGiver)
+        {
+            npc.OfferQuest(player);
+        }
+        else if (npc.HasTradeOption)
+        {
+            npc.OpenTradeMenu(player);
+        }
+    }
+            </pre>
+    
+            <h4>4.2.3 Térképek Frissítése</h4>
+            <p>A térképek dinamikusan frissülnek, például objektumok mozgatásával vagy új objektumok hozzáadásával.</p>
+            <h5>Példa kód - Térkép frissítése</h5>
+            <pre>
+    public void UpdateMap(float deltaTime)
+    {
+        foreach (var obj in activeObjects)
+        {
+            obj.UpdateState(deltaTime);
+        }
+        SpawnNewObjects();
+        CheckCollisions();
+    }
+            </pre>
+    
+            <h4>4.2.4 Küldetések Frissítése</h4>
+            <p>A küldetések állapota folyamatosan frissül, és értesíti a játékost a teljesített feladatokról.</p>
+            <h5>Példa kód - Küldetések frissítése</h5>
+            <pre>
+    public void UpdateQuests()
+    {
+        foreach (var quest in activeQuests)
+        {
+            if (quest.IsCompleted)
+            {
+                player.GrantReward(quest.Reward);
+                quest.MarkAsFinished();
+            }
+        }
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-fegyverkezeles">
+        <section id="fegyverkezeles">
+            <h4>4.2.5 Fegyverkezelés</h4>
+            <p>A fegyverkezelési rendszer biztosítja a fegyverek használatát, elhasználódását, állapotuk követését és javítását.</p>
+            <h5>Példa kód - Fegyver támadás</h5>
+            <pre>
+    public void AttackWithWeapon(Weapon weapon, Target target)
+    {
+        if (weapon.IsReady && target != null)
+        {
+            target.TakeDamage(weapon.Damage);
+            weapon.DecreaseDurability();
+        }
+    }
+            </pre>
+            <h5>Példa kód - Fegyver javítása</h5>
+            <pre>
+    public void RepairWeapon(Weapon weapon, int repairAmount)
+    {
+        weapon.Durability += repairAmount;
+        weapon.IsReady = true;
+    }
+            </pre>
+            <h5>Példa kód - Fegyver tulajdonságok lekérdezése</h5>
+            <pre>
+    public string GetWeaponStats(Weapon weapon)
+    {
+        return $"Name: {weapon.Name}, Damage: {weapon.Damage}, Durability: {weapon.Durability}/{weapon.MaxDurability}";
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-eroforras-kezeles">
+        <section id="eroforras-kezeles">
+            <h4>4.2.6 Erőforrás-kezelés</h4>
+            <p>Az erőforrások (pl. lőszer, mana, energia) kezelését a rendszer nyomon követi, hogy biztosítsa a játékosok megfelelő korlátozását és a játék egyensúlyát.</p>
+            <h5>Példa kód - Erőforrás használata</h5>
+            <pre>
+    public bool UseResource(string resourceType, int amount)
+    {
+        if (resources[resourceType] >= amount)
+        {
+            resources[resourceType] -= amount;
+            return true;
+        }
+        return false;
+    }
+            </pre>
+            <p>Egy adott erőforrás kimerülése esetén a rendszer figyelmezteti a játékost, hogy töltsék újra vagy keressenek alternatív megoldásokat.</p>
+            <h5>Példa kód - Erőforrás újratöltése</h5>
+            <pre>
+    public void ReplenishResource(string resourceType, int amount)
+    {
+        resources[resourceType] += amount;
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-eletero-kezeles">
+        <section id="eletero-kezeles">
+            <h4>4.2.6 Életerő kezelés</h4>
+            <p>Az életerő rendszer a játékosok és ellenségek egészségét kezeli, beleértve a sebzések és gyógyítások dinamikáját.</p>
+            <h5>Példa kód - Sebzés alkalmazása</h5>
+            <pre>
+    public void TakeDamage(Character character, int damage)
+    {
+        character.Health -= damage;
+        if (character.Health <= 0)
+        {
+            character.IsAlive = false;
+        }
+    }
+            </pre>
+            <h5>Példa kód - Gyógyítás</h5>
+            <pre>
+    public void Heal(Character character, int healAmount)
+    {
+        character.Health += healAmount;
+        if (character.Health > character.MaxHealth)
+        {
+            character.Health = character.MaxHealth;
+        }
+    }
+            </pre>
+            <h5>Példa kód - Életerő állapot kijelzése</h5>
+            <pre>
+    public string DisplayHealthStatus(Character character)
+    {
+        return $"{character.Name}: {character.Health}/{character.MaxHealth} HP";
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-mozgasok">
+        <section id="mozgasok">
+            <h4>4.2.7 Mozgások</h4>
+            <p>A karakterek mozgásának kezelése a játéktéren belül, beleértve az akadályokat és különleges mozgási képességeket.</p>
+            <h5>Példa kód - Mozgás végrehajtása</h5>
+            <pre>
+    public void MoveCharacter(Character character, Vector2 direction, float speed)
+    {
+        Vector2 newPosition = character.Position + direction * speed;
+        if (IsValidPosition(newPosition))
+        {
+            character.Position = newPosition;
+        }
+    }
+            </pre>
+            <h5>Példa kód - Különleges mozgások</h5>
+            <pre>
+    public void Dash(Character character, Vector2 direction, float distance)
+    {
+        Vector2 dashPosition = character.Position + direction * distance;
+        if (IsValidPosition(dashPosition))
+        {
+            character.Position = dashPosition;
+        }
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-eroforras-kezeles">
+        <section id="eroforras-kezeles">
+            <h4>4.2.8 Erőforrás-kezelés</h4>
+            <p>Az erőforrások, például lőszer, mana és energia menedzselése, biztosítva a korlátozott elérhetőséget és az újratöltés lehetőségét.</p>
+            <h5>Példa kód - Erőforrás felhasználása</h5>
+            <pre>
+    public bool UseResource(Player player, string resourceType, int amount)
+    {
+        if (player.Resources[resourceType] >= amount)
+        {
+            player.Resources[resourceType] -= amount;
+            return true;
+        }
+        return false;
+    }
+            </pre>
+            <h5>Példa kód - Erőforrás újratöltése</h5>
+            <pre>
+    public void ReplenishResource(Player player, string resourceType, int amount)
+    {
+        player.Resources[resourceType] += amount;
+    }
+            </pre>
+            <h5>Példa kód - Erőforrás állapot kijelzése</h5>
+            <pre>
+    public string DisplayResourceStatus(Player player, string resourceType)
+    {
+        return $"{resourceType}: {player.Resources[resourceType]}";
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-jatekos-statisztikak">
+        <section id="jatekos-statisztikak">
+            <h4>4.2.7 Játékos statisztikák nyomon követése</h4>
+            <p>A játékos teljesítményét (pl. pontok, sebzés, gyógyítás) folyamatosan rögzíti a rendszer, amely segíti a ranglisták létrehozását és a fejlődés követését.</p>
+            <h5>Példa kód - Pontszám frissítése</h5>
+            <pre>
+    public void UpdateScore(int points)
+    {
+        player.Score += points;
+    }
+            </pre>
+            <h5>Példa kód - Játékos statisztikák lekérdezése</h5>
+            <pre>
+    public Dictionary<string, int> GetPlayerStats()
+    {
+        return new Dictionary<string, int>
+        {
+            { "Score", player.Score },
+            { "Kills", player.Kills },
+            { "Assists", player.Assists }
+        };
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-interakcio">
+        <section id="interakcio">
+            <h4>4.2.9 Interakciós mechanizmusok</h4>
+            <p>A játékos és a környezet közötti interakciókat az eseményvezérelt rendszer kezeli. Példák lehetnek ajtók kinyitása, tárgyak felvétele vagy kapcsolók aktiválása.</p>
+            <h5>Példa kód - Interakció indítása</h5>
+            <pre>
+    public void Interact(EnvironmentObject obj)
+    {
+        if (obj is Door door)
+        {
+            door.Open();
+        }
+        else if (obj is Item item)
+        {
+            player.Inventory.Add(item);
+            item.RemoveFromWorld();
+        }
+    }
+            </pre>
+            <h5>Példa kód - Interakció vizsgálata</h5>
+            <pre>
+    public bool CanInteract(EnvironmentObject obj)
+    {
+        return obj.IsInteractable && Vector2.Distance(player.Position, obj.Position) < interactionRange;
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-hud">
+        <section id="hud">
+            <h4>4.2.10 HUD és felhasználói interfész</h4>
+            <p>A HUD olyan elemeket tartalmaz, mint életerő, erőforrások, pontszám, és egyéb játékos statisztikák. Ezek dinamikusan frissülnek.</p>
+            <h5>Példa kód - Életerő frissítése</h5>
+            <pre>
+    public void UpdateHealthBar(int currentHealth, int maxHealth)
+    {
+        healthBar.Value = (float)currentHealth / maxHealth;
+    }
+            </pre>
+            <h5>Példa kód - Erőforrás kijelzése</h5>
+            <pre>
+    public void UpdateResourceBar(string resourceType, int currentAmount, int maxAmount)
+    {
+        resourceBars[resourceType].Value = (float)currentAmount / maxAmount;
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-ai">
+        <section id="ai">
+            <h4>4.2.11 Ellenséges AI</h4>
+            <p>Az ellenségek mesterséges intelligenciája különböző viselkedéseket kezel, például követést, támadást, vagy menekülést.</p>
+            <h5>Példa kód - Játékos követése</h5>
+            <pre>
+    public void ChasePlayer(Enemy enemy, Player player, float speed)
+    {
+        Vector2 direction = (player.Position - enemy.Position).Normalized();
+        enemy.Position += direction * speed * Time.deltaTime;
+    }
+            </pre>
+            <h5>Példa kód - Támadási logika</h5>
+            <pre>
+    public void AttackPlayer(Enemy enemy, Player player)
+    {
+        if (Vector2.Distance(enemy.Position, player.Position) < attackRange)
+        {
+            player.TakeDamage(enemy.Damage);
+        }
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-hangkezeles">
+        <section id="hangkezeles">
+            <h4>4.2.12 Hangkezelés és eseményvezérelt audio</h4>
+            <p>A hanghatások és zenék eseményekhez kötöttek. A rendszer biztosítja a hatékony kezelést és optimalizációt.</p>
+            <h5>Példa kód - Hang lejátszása</h5>
+            <pre>
+    public void PlaySound(string soundName)
+    {
+        var sound = audioManager.GetSound(soundName);
+        if (sound != null)
+        {
+            sound.Play();
+        }
+    }
+            </pre>
+            <h5>Példa kód - Zene váltása</h5>
+            <pre>
+    public void ChangeMusic(string musicTrack)
+    {
+        audioManager.StopCurrentMusic();
+        audioManager.PlayMusic(musicTrack);
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-esemenykezelo">
+        <section id="esemenykezelo">
+            <h4>4.2.13 Részletes eseménykezelő rendszer</h4>
+            <p>Az eseménykezelő rendszer lehetővé teszi az események regisztrálását, kezelését és kiváltását különböző komponensek között.</p>
+            <h5>Példa kód - Esemény regisztrálása</h5>
+            <pre>
+    public void RegisterEvent(string eventName, Action callback)
+    {
+        if (!events.ContainsKey(eventName))
+        {
+            events[eventName] = new List<Action>();
+        }
+        events[eventName].Add(callback);
+    }
+            </pre>
+            <h5>Példa kód - Esemény kiváltása</h5>
+            <pre>
+    public void TriggerEvent(string eventName)
+    {
+        if (events.ContainsKey(eventName))
+        {
+            foreach (var callback in events[eventName])
+            {
+                callback.Invoke();
+            }
+        }
+    }
+            </pre>
+        </section>
+    </div>
+
+    <div class="section-konfiguracio">
+        <section id="konfiguracio">
+            <h4>4.2.14 Testreszabhatóság és konfiguráció</h4>
+            <p>A rendszer lehetőséget biztosít a felhasználói beállítások mentésére és betöltésére, mint például a grafikai beállítások és irányítás.</p>
+            <h5>Példa kód - Beállítás mentése</h5>
+            <pre>
+    public void SaveSettings(Settings settings, string filePath)
+    {
+        File.WriteAllText(filePath, JsonConvert.SerializeObject(settings));
+    }
+            </pre>
+            <h5>Példa kód - Beállítás betöltése</h5>
+            <pre>
+    public Settings LoadSettings(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            return JsonConvert.DeserializeObject<Settings>(File.ReadAllText(filePath));
+        }
+        return new Settings(); // Alapértelmezett beállítások
+    }
+            </pre>
+        </section>
+    </div>
+    
+    <div class="section-nemfunkcionalis-kovetelmenyek">
+        <section id="nemfunkcionalis-kovetelmenyek">
+            <h2>5. Nem Funkcionális Követelmények</h2>
+            
+            <h3>5.1 Teljesítmény</h3>
+            <ul>
+                <li><strong>Játéksebesség:</strong> A játék a célplatformokon (PC, konzolok) legalább 60 FPS teljesítményt nyújtson, stabil működéssel, még magas részletességi beállítások mellett is.</li>
+                <li><strong>Betöltési idők:</strong> A szintek közötti betöltési idő ne haladja meg az 5 másodpercet.</li>
+                <li><strong>Skálázhatóság:</strong> A rendszer képes legyen kezelni különböző hardveres teljesítményszinteket, alacsony grafikai beállítások támogatásával a régebbi rendszerek számára.</li>
+            </ul>
+    
+            <h3>5.2 Kompatibilitás</h3>
+            <ul>
+                <li><strong>Platformok:</strong> A játék támogatja a Windows, macOS és Linux operációs rendszereket.</li>
+                <li><strong>Hardverigény:</strong> Az alkalmazás futtatásához legalább 4 GB RAM, integrált vagy dedikált grafikus processzor szükséges.</li>
+                <li><strong>Input támogatás:</strong> Az alkalmazás kompatibilis legyen a billentyűzet+egér, valamint különböző gamepad típusokkal (Xbox, PlayStation).</li>
+            </ul>
+    
+            <h3>5.3 Biztonság</h3>
+            <ul>
+                <li><strong>Mentési rendszer:</strong> A mentett állások védelme érdekében a JSON fájlokat digitális aláírással kell ellátni, hogy megakadályozzuk a manipulációt.</li>
+                <li><strong>Adatvédelem:</strong> A játék nem gyűjt személyes adatokat, és minden statisztikai információ anonimizált.</li>
+            </ul>
+    
+            <h3>5.4 Használhatóság</h3>
+            <ul>
+                <li><strong>Felhasználói élmény:</strong> Az interfészeknek intuitívnak kell lenniük, a célközönség igényeihez igazodva.</li>
+                <li><strong>Hozzáférhetőség:</strong> Opcionálisan biztosítani kell nagyobb betűméreteket és színkontraszt-beállításokat a vizuális nehézségekkel küzdők számára.</li>
+                <li><strong>Testreszabhatóság:</strong> A játékosok képesek legyenek a vezérlési beállításokat és grafikai opciókat egyénileg testre szabni.</li>
+            </ul>
+    
+            <h3>5.5 Stabilitás</h3>
+            <ul>
+                <li><strong>Hibakezelés:</strong> A rendszer automatikusan jelentse a hibákat, naplózza azokat, és ha szükséges, értesítse a fejlesztőket vagy a felhasználót.</li>
+            </ul>
+    
+            <h3>5.6 Hibajavítási iterációk</h3>
+            <p>A hibajavítási iterációk biztosítják a rendszer folyamatos fejlesztését és stabil működését. Az alábbi lépések írják le a hibajavítási folyamatot:</p>
+            <ol>
+                <li><strong>Hiba bejelentése:</strong> A hibákat a rendszer automatikusan naplózza, és tárolja helyi log fájlokban. Felhasználók manuálisan is bejelenthetik a hibákat egy külön hibajelentő felületen keresztül.</li>
+                <li><strong>Hiba azonosítása:</strong> A naplófájlok elemzése során a fejlesztők azonosítják a hiba forrását. A hibák súlyossági szintek szerint kategorizálódnak: kritikus, közepes, alacsony prioritású.</li>
+                <li><strong>Elsődleges javítás:</strong> Kritikus hibák esetén azonnali javítás történik a rendszer stabilitásának megőrzése érdekében. Nem kritikus hibáknál javítási feladat kerül a fejlesztési iterációk sorába.</li>
+                <li><strong>Tesztelés:</strong> Az elsődleges javítás után a hibát kiváltó helyzetekre vonatkozó teszteket futtatnak. Új teszteseteket hoznak létre a hiba megismétlődésének megelőzése érdekében.</li>
+                <li><strong>Verziófrissítés:</strong> A hibajavításokat a következő frissítés részeként adják ki, amely tartalmazza a dokumentált módosításokat és a kapcsolódó tesztelési eredményeket.</li>
+                <li><strong>Visszacsatolás:</strong> A felhasználók visszajelzést küldhetnek a javítás hatékonyságáról. Ezeket az információkat a fejlesztési folyamat optimalizálására használják.</li>
+            </ol>
+
+            <h3>5.7 Stabilitás és redundancia</h3>
+            <p>A rendszer stabilitása érdekében redundáns mechanizmusokat kell bevezetni, amelyek biztosítják, hogy kritikus hibák esetén is működőképes maradjon.</p>
+            <ul>
+                <li><strong>Biztonsági mentések:</strong> Automatikus biztonsági mentések készítése minden jelentős változtatás előtt.</li>
+                <li><strong>Folyamatfigyelés:</strong> Olyan mechanizmusok, amelyek figyelik a rendszer állapotát, és előre jelezhetik a lehetséges hibákat.</li>
+                <li><strong>Crash Recovery:</strong> Az összeomlás utáni automatikus helyreállítás, amely minimalizálja a felhasználói adatok elvesztését.</li>
+            </ul>
+
+            <h3>5.8 Skálázhatóság</h3>
+            <p>A rendszernek képesnek kell lennie a különböző hardveres teljesítményszinteken való működésre, a felhasználók igényeitől függően.</p>
+            <ul>
+                <li><strong>Hardveroptimalizáció:</strong> Különböző grafikai és teljesítménybeállítások támogatása, hogy a rendszer futtatható legyen gyengébb hardvereken is.</li>
+                <li><strong>Hálózati skálázhatóság:</strong> Többjátékos funkció esetén a rendszer támogatja a felhasználószám dinamikus növekedését.</li>
+                <li><strong>Felhasználói igények kezelése:</strong> A rendszer képes legyen növekvő terhelés (pl. nagyobb mentési fájlok) hatékony kezelésére.</li>
+            </ul>
+
+            <h3>5.9 Rendszerfrissítések és karbantartás</h3>
+            <p>A rendszer rendszeres frissítéseket kap, amelyek javításokat, új funkciókat és optimalizációkat tartalmaznak. A karbantartási folyamat biztosítja a hosszú távú működőképességet.</p>
+            <ul>
+                <li><strong>Frissítések ütemezése:</strong> A frissítések meghatározott időközönként kerülnek kiadásra, minimalizálva a felhasználói élmény zavarását.</li>
+                <li><strong>Automatikus frissítések:</strong> A rendszer automatikusan letölti és telepíti a kisebb frissítéseket a felhasználó engedélyével.</li>
+                <li><strong>Kompatibilitási ellenőrzések:</strong> A frissítések telepítése előtt a rendszer ellenőrzi a jelenlegi konfigurációval való kompatibilitást.</li>
+            </ul>
+
+            <h3>5.10 Kompatibilitás és platformfüggetlenség</h3>
+            <p>A rendszernek több platformon is egységesen kell működnie, figyelembe véve az operációs rendszerek és hardveres konfigurációk közötti eltéréseket.</p>
+            <ul>
+                <li><strong>Platformok támogatása:</strong> A játék támogatja a Windows, macOS és Linux operációs rendszereket, valamint a konzolokra történő optimalizációt.</li>
+                <li><strong>Input eszközök:</strong> A rendszer támogatja a billentyűzetet, egeret, valamint különféle gamepadokat (Xbox, PlayStation).</li>
+                <li><strong>Grafikai beállítások:</strong> Az alacsony, közepes és magas szintű grafikai beállítások biztosítják a rugalmasságot különböző hardveres környezetekben.</li>
+            </ul>
+
+            <h3>5.11 Adatvédelem és biztonság</h3>
+            <p>A rendszer adatvédelmi szempontból a legmagasabb biztonsági követelményeket teljesíti. Az adatok védelme prioritás a felhasználói élmény mellett.</p>
+            <ul>
+                <li><strong>Személyes adatok védelme:</strong> A rendszer nem gyűjt személyes adatokat, minden statisztikai információ anonimizált.</li>
+                <li><strong>Mentési fájlok védelme:</strong> A mentett játékállásokat titkosított formátumban tárolja a rendszer, megakadályozva a manipulációt.</li>
+                <li><strong>Hozzáférési jogosultságok:</strong> Az érzékeny adatokat csak az engedélyezett felhasználók érhetik el.</li>
+            </ul>
+
+            <h3>5.12 Hozzáférhetőség</h3>
+            <p>A játék biztosítja a széles körű hozzáférhetőséget, hogy különböző képességű felhasználók is élvezhessék a játékot.</p>
+            <ul>
+                <li><strong>Kontrasztos mód:</strong> Magas kontrasztú színvilág biztosítása látássérült felhasználók számára.</li>
+                <li><strong>Feliratok:</strong> Automatikusan generált és testreszabható feliratok biztosítása a játék során.</li>
+                <li><strong>Beállítható vezérlés:</strong> A játékosok módosíthatják a vezérlési beállításokat, például a billentyűzetkiosztást vagy az egérérzékenységet.</li>
+            </ul>
+
+            <h3>5.13 Energiahatékonyság</h3>
+            <p>A rendszer energiahatékony működését figyelembe kell venni, különösen hordozható eszközökön.</p>
+            <ul>
+                <li><strong>Alacsony fogyasztási mód:</strong> Lehetővé teszi a teljesítmény és a vizuális minőség közötti kompromisszumot.</li>
+                <li><strong>Inaktivitás-kezelés:</strong> Hosszabb inaktivitás esetén a rendszer csökkenti az erőforrás-felhasználást.</li>
+                <li><strong>Optimalizált renderelés:</strong> A háttérben futó folyamatok energiahatékonyabb renderelési módot használnak.</li>
+            </ul>
+
+            <h3>5.14 Dokumentáció és támogatás</h3>
+            <p>A rendszerhez átfogó felhasználói és fejlesztői dokumentáció tartozik, amely biztosítja a felhasználók és a fejlesztők számára a megfelelő támogatást.</p>
+            <ul>
+                <li><strong>Felhasználói kézikönyv:</strong> Részletes útmutató a játék telepítéséhez, konfigurálásához és használatához.</li>
+                <li><strong>Online dokumentáció:</strong> Webes hozzáférhetőségű dokumentáció a játék technikai részleteiről és funkcióiról.</li>
+                <li><strong>Hibajelentés:</strong> Könnyen használható hibajelentő eszköz, amely a felhasználók visszajelzéseit kezeli.</li>
+            </ul>
+
+
+
+
+
+
+
+        </section>
+    </div>
+    
+
+
+
+    <footer>
+        <p>&copy; 2024 H4 Daltons Games. Minden jog fenntartva.</p>
+    </footer>
+</body>
+</html>
